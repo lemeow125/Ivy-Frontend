@@ -1,16 +1,14 @@
 import React from "react";
 import logo from "./img/ivy.svg";
-import "./App.css";
+import styles from "./styles";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} alt="logo" style={{ width: 128, height: 128 }} />
+    <div style={styles.background}>
+      <body style={styles.background}>
+        <img src={logo} alt="logo" />
         <p>Ivy - Inventory Manager</p>
-      </header>
+      </body>
     </div>
   );
 }
-
-export default App;
