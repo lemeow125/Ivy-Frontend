@@ -16,6 +16,34 @@ const styles: { [key: string]: React.CSSProperties } = {
     color: "white",
     fontWeight: "bold",
   },
+  logo_title: {
+    color: "#6c9575",
+    fontSize: 18,
+    fontWeight: "bold",
+  },
+  header_container: {
+    display: "flex",
+    flexDirection: "row",
+    position: "sticky",
+    backgroundColor: "#3d4848",
+    top: 0,
+    paddingTop: 8,
+    paddingBottom: 8,
+    paddingRight: 32,
+    paddingLeft: 32,
+  },
+  header_left: {
+    display: "flex",
+    flexDirection: "row",
+    width: "50%",
+    justifyContent: "left",
+  },
+  header_right: {
+    display: "flex",
+    flexDirection: "row",
+    width: "50%",
+    justifyContent: "right",
+  },
 };
 
 export default styles;

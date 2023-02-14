@@ -1,5 +1,5 @@
 import React from "react";
-import AppLogo from "../../components/Icons/AppLogo/AppLogo";
+import AppLogo from "../../Components/Icons/AppLogo/AppLogo";
 import "../../index.css";
 import styles from "../../styles";
 
