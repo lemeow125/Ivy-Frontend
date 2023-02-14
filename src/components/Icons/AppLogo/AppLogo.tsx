@@ -12,7 +12,7 @@ export default function AppLogo(props: props) {
       width={props.size}
       height={props.size}
       viewBox="0 0 24 24"
-      stroke-width="1"
+      stroke-width="2"
       stroke={props.color}
       fill="none"
       stroke-linecap="round"
