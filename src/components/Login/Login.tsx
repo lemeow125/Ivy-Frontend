@@ -33,14 +33,7 @@ export default function Login() {
           onClick={login}
           value="Login"
           variant="contained"
-          style={{
-            backgroundColor: "#9e8500",
-            width: 128,
-            height: 32,
-            border: "none",
-            padding: 8,
-            borderRadius: 16,
-          }}
+          style={styles.login_button}
         >
           <p style={styles.text}>Login</p>
         </Button>

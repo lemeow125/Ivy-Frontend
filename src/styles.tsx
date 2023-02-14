@@ -22,12 +22,12 @@ const styles: { [key: string]: React.CSSProperties } = {
     fontSize: 26,
     fontWeight: "bold",
   },
-  header_container: {
+  header_wrapper: {
     display: "flex",
     flexDirection: "row",
     position: "sticky",
-    backgroundColor: "#3d4848",
     top: 0,
+    backgroundColor: "#3d4848",
     paddingRight: 32,
     paddingLeft: 32,
   },
@@ -37,6 +37,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     width: "50%",
     justifyContent: "left",
     alignItems: "center",
+    paddingLeft: 16,
   },
   header_right: {
     display: "flex",
@@ -44,6 +45,33 @@ const styles: { [key: string]: React.CSSProperties } = {
     width: "50%",
     justifyContent: "right",
     alignItems: "center",
+  },
+  login_button: {
+    backgroundColor: "#9e8500",
+    width: 128,
+    height: 32,
+    border: "none",
+    padding: 8,
+    borderRadius: 16,
+  },
+  sidebar_button: {
+    backgroundColor: "#0b2322",
+    width: 256,
+    height: 64,
+    border: "none",
+    padding: 8,
+    borderTopLeftRadius: 32,
+    borderBottomLeftRadius: 32,
+    borderTopRightRadius: 0,
+    borderBottomRightRadius: 0,
+  },
+  sidebar_wrapper: {
+    display: "flex",
+    flexDirection: "column",
+    height: "100vh",
+    width: "100%",
+    backgroundColor: "#3d4848",
+    alignItems: "flex-end",
   },
 };
 

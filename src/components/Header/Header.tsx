@@ -5,7 +5,7 @@ import styles from "../../styles";
 
 export default function Header() {
   return (
-    <div style={styles.header_container}>
+    <div style={styles.header_wrapper}>
       <div style={styles.header_left}>
         <AppLogo size={64} color="#6f9b78" />
         <p style={styles.logo_title}>Ivy</p>
