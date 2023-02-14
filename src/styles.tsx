@@ -1,27 +1,21 @@
-import React from "react";
 const styles: { [key: string]: React.CSSProperties } = {
   background: {
     backgroundColor: "#0b2322",
-    height: "100vh",
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center",
+    height: "100vh",
+  },
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    flex: 1,
     alignItems: "center",
-    fontWeight: "bold",
+  },
+  text: {
+    fontSize: 16,
     color: "white",
-  },
-  flex_row: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  header: {
-    display: "flex",
-    flexDirection: "row",
-    position: "sticky",
-    top: 0,
-    left: 0,
+    fontWeight: "bold",
   },
 };
+
 export default styles;
