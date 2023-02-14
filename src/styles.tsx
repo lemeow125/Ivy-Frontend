@@ -10,6 +10,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     flexDirection: "column",
     flex: 1,
     alignItems: "center",
+    paddingTop: 32,
   },
   text: {
     fontSize: 16,

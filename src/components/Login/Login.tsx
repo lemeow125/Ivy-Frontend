@@ -32,6 +32,7 @@ export default function Login() {
         <Button
           onClick={login}
           value="Login"
+          variant="contained"
           style={{
             backgroundColor: "#9e8500",
             width: 128,
