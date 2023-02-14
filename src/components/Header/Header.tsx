@@ -1,5 +1,6 @@
 import React from "react";
 import AppLogo from "../Icons/AppLogo/AppLogo";
+import Login from "../Login/Login";
 import styles from "../../styles";
 
 export default function Header() {
@@ -9,7 +10,9 @@ export default function Header() {
         <AppLogo size={64} color="#6f9b78" />
         <p style={styles.logo_title}>Ivy</p>
       </div>
-      <div style={styles.header_right}></div>
+      <div style={styles.header_right}>
+        <Login />
+      </div>
     </div>
   );
 }
