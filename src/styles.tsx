@@ -1,14 +1,17 @@
 const styles: { [key: string]: React.CSSProperties } = {
-  background: {
+  route_wrapper: {
+    width: "85%",
+    position: "fixed",
+    left: "15%",
+    overflowY: "scroll",
+    height: "100%",
     backgroundColor: "#0b2322",
-    display: "flex",
-    flexDirection: "column",
-    height: "100vh",
   },
   container: {
     display: "flex",
     flexDirection: "column",
     flex: 1,
+    height: "100%",
     alignItems: "center",
     paddingTop: 32,
   },
