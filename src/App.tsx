@@ -1,5 +1,7 @@
 import React from "react";
 import Dashboard from "./Routes/Dashboard/Dashboard";
+import Error from "./Routes/Error/Error";
+import Products from "./Routes/Products/Products";
 import Header from "./Components/Header/Header";
 import Container from "./Components/Container/Container";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -10,6 +12,11 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Dashboard />,
+    errorElement: <Error />,
+  },
+  {
+    path: "/Products",
+    element: <Products />,
   },
 ]);
 
