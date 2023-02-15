@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "../../styles";
 import SidebarButton from "../SidebarButton/SidebarButton";
+import { redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 export interface state {
   minimized: {
     value: boolean;
@@ -9,12 +11,13 @@ export interface state {
   };
 }
 export default function Sidebar() {
+  const navigate = useNavigate();
   return (
     <div style={styles.sidebar_wrapper}>
-      <SidebarButton onClick={() => console.log("WIP!")} name="Dashboard" />
-      <SidebarButton onClick={() => console.log("WIP!")} name="Products" />
-      <SidebarButton onClick={() => console.log("WIP!")} name="Inventory" />
-      <SidebarButton onClick={() => console.log("WIP!")} name="Logs" />
+      <SidebarButton onClick={() => navigate("/")} name="Dashboard" />
+      <SidebarButton onClick={() => navigate("/Products")} name="Products" />
+      <SidebarButton onClick={() => navigate("/Inventory")} name="Inventory" />
+      <SidebarButton onClick={() => navigate("/Logs")} name="Logs" />
     </div>
   );
 }

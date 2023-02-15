@@ -1,5 +1,6 @@
 import React from "react";
 import Sidebar from "../Sidebar/Sidebar";
+import Header from "../Header/Header";
 import styles from "../../styles";
 
 export interface props {
@@ -9,12 +10,11 @@ export interface props {
 export default function Container(props: props) {
   return (
     <div>
-      <div>
-        <div style={{ width: "15%", position: "fixed" }}>
-          <Sidebar />
-        </div>
-        <div style={styles.route_wrapper}>{props.children}</div>
+      <Header />
+      <div style={{ width: "15%", position: "fixed" }}>
+        <Sidebar />
       </div>
+      <div style={styles.route_wrapper}>{props.children}</div>
     </div>
   );
 }
