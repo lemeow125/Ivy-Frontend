@@ -11,28 +11,22 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: (
-      <React.StrictMode>
-        <Container>
-          <Dashboard />
-        </Container>
-      </React.StrictMode>
+      <Container>
+        <Dashboard />
+      </Container>
     ),
     errorElement: (
-      <React.StrictMode>
-        <Container>
-          <Error />
-        </Container>
-      </React.StrictMode>
+      <Container>
+        <Error />
+      </Container>
     ),
   },
   {
     path: "/Products",
     element: (
-      <React.StrictMode>
-        <Container>
-          <Products />
-        </Container>
-      </React.StrictMode>
+      <Container>
+        <Products />
+      </Container>
     ),
   },
 ]);
