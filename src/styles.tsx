@@ -57,6 +57,18 @@ const styles: { [key: string]: React.CSSProperties } = {
     padding: 8,
     borderRadius: 16,
   },
+  logout_button: {
+    backgroundColor: "#0b2322",
+    width: 256,
+    height: 64,
+    border: "none",
+    padding: 8,
+    borderRadius: 16,
+    borderTopLeftRadius: 32,
+    borderBottomLeftRadius: 32,
+    borderTopRightRadius: 0,
+    borderBottomRightRadius: 0,
+  },
   sidebar_button: {
     backgroundColor: "#0b2322",
     width: 256,

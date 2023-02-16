@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "../../styles";
 import SidebarButton from "../SidebarButton/SidebarButton";
-import { redirect } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import Logout from "../Logout/Logout";
 export interface state {
   minimized: {
     value: boolean;
@@ -18,6 +18,7 @@ export default function Sidebar() {
       <SidebarButton onClick={() => navigate("/Products")} name="Products" />
       <SidebarButton onClick={() => navigate("/Inventory")} name="Inventory" />
       <SidebarButton onClick={() => navigate("/Logs")} name="Logs" />
+      <Logout />
     </div>
   );
 }
