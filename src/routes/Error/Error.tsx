@@ -1,5 +1,4 @@
 import React from "react";
-import AppLogo from "../../Components/Icons/AppLogo/AppLogo";
 import styles from "../../styles";
 import NotFoundIcon from "../../Components/Icons/NotFoundIcon/NotFoundIcon";
 

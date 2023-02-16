@@ -22,21 +22,17 @@ export default function Logout(props: props) {
     await console.log("test " + logged_in);
   }
 
-  if (!logged_in) {
-    return <div></div>;
-  } else {
-    return (
-      <div style={{ paddingTop: "90%" }}>
-        <Button
-          onClick={login}
-          value="Log out"
-          variant="contained"
-          style={styles.logout_button}
-        >
-          {props.children}
-          <p style={styles.text}>Log Out</p>
-        </Button>
-      </div>
-    );
-  }
+  return (
+    <div style={{ paddingTop: "90%" }}>
+      <Button
+        onClick={login}
+        value="Log out"
+        variant="contained"
+        style={styles.logout_button}
+      >
+        {props.children}
+        <p style={styles.text}>Log Out</p>
+      </Button>
+    </div>
+  );
 }
