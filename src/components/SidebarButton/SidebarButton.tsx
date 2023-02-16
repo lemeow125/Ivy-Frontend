@@ -5,15 +5,21 @@ import styles from "../../styles";
 export interface props {
   name: string;
   onClick: any;
+  children: React.ReactNode;
 }
 export default function SidebarButton(props: props) {
   return (
-    <div style={{ display: "flex", paddingBottom: 16 }}>
+    <div
+      style={{
+        paddingBottom: 16,
+      }}
+    >
       <Button
         onClick={props.onClick}
         variant="contained"
         style={styles.sidebar_button}
       >
+        {props.children}
         <p style={styles.text}>{props.name}</p>
       </Button>
     </div>

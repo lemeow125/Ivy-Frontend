@@ -9,7 +9,11 @@ export interface state {
     value: boolean;
   };
 }
-export default function Logout() {
+export interface props {
+  children: React.ReactNode;
+}
+
+export default function Logout(props: props) {
   const logged_in = useSelector((state: state) => state.logged_in.value);
   const dispatch = useDispatch();
 
@@ -29,6 +33,7 @@ export default function Logout() {
           variant="contained"
           style={styles.logout_button}
         >
+          {props.children}
           <p style={styles.text}>Log Out</p>
         </Button>
       </div>

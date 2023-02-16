@@ -68,6 +68,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     borderBottomLeftRadius: 32,
     borderTopRightRadius: 0,
     borderBottomRightRadius: 0,
+    justifyContent: "left",
   },
   sidebar_button: {
     backgroundColor: "#0b2322",
@@ -79,6 +80,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     borderBottomLeftRadius: 32,
     borderTopRightRadius: 0,
     borderBottomRightRadius: 0,
+    justifyContent: "left",
   },
   sidebar_wrapper: {
     display: "flex",
