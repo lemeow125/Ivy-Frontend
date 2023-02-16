@@ -51,7 +51,7 @@ const styles: { [key: string]: React.CSSProperties } = {
   },
   login_button: {
     backgroundColor: "#9e8500",
-    width: 128,
+    width: "120%",
     height: 32,
     border: "none",
     padding: 8,
@@ -59,8 +59,8 @@ const styles: { [key: string]: React.CSSProperties } = {
   },
   logout_button: {
     backgroundColor: "#0b2322",
-    width: 256,
     height: 64,
+    width: 192,
     border: "none",
     padding: 8,
     borderRadius: 16,
@@ -72,7 +72,7 @@ const styles: { [key: string]: React.CSSProperties } = {
   },
   sidebar_button: {
     backgroundColor: "#0b2322",
-    width: 256,
+    width: 192,
     height: 64,
     border: "none",
     padding: 8,

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { toggle } from "../../Features/Login/LoginSlice";
 import { Button } from "@mui/material";
@@ -26,7 +26,7 @@ export default function Logout(props: props) {
     return <div></div>;
   } else {
     return (
-      <div style={{ paddingTop: 384 }}>
+      <div style={{ paddingTop: "90%" }}>
         <Button
           onClick={login}
           value="Log out"
