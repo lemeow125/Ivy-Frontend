@@ -23,7 +23,7 @@ export default function Logout(props: props) {
   }
 
   return (
-    <div style={{ paddingTop: "90%" }}>
+    <div style={{ paddingTop: "40vh" }}>
       <Button
         onClick={login}
         value="Log out"

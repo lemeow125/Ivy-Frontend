@@ -29,16 +29,16 @@ export default function Sidebar() {
           }}
         >
           <SidebarButton onClick={() => navigate("/")} name="Dashboard">
-            <HomeIcon size={48} color="white" />
+            <HomeIcon size={4} color="white" />
           </SidebarButton>
           <SidebarButton onClick={() => navigate("/Products")} name="Products">
-            <ProductsIcon size={48} color="white" />
+            <ProductsIcon size={4} color="white" />
           </SidebarButton>
           <SidebarButton
             onClick={() => navigate("/Inventory")}
             name="Inventory"
           >
-            <InventoryIcon size={48} color="white" />
+            <InventoryIcon size={4} color="white" />
           </SidebarButton>
         </div>
       </div>
@@ -54,24 +54,24 @@ export default function Sidebar() {
           }}
         >
           <SidebarButton onClick={() => navigate("/")} name="Dashboard">
-            <HomeIcon size={48} color="white" />
+            <HomeIcon size={4} color="white" />
           </SidebarButton>
           <SidebarButton onClick={() => navigate("/Products")} name="Products">
-            <ProductsIcon size={48} color="white" />
+            <ProductsIcon size={4} color="white" />
           </SidebarButton>
           <SidebarButton
             onClick={() => navigate("/Inventory")}
             name="Inventory"
           >
-            <InventoryIcon size={48} color="white" />
+            <InventoryIcon size={4} color="white" />
           </SidebarButton>
           <SidebarButton onClick={() => navigate("/Logs")} name="Logs">
-            <LogsIcon size={48} color="white" />
+            <LogsIcon size={4} color="white" />
           </SidebarButton>
         </div>
 
         <Logout>
-          <LogoutIcon size={48} color="white" />
+          <LogoutIcon size={4} color="white" />
         </Logout>
       </div>
     );

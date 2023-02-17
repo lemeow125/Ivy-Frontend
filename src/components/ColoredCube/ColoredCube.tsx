@@ -11,8 +11,8 @@ export default function ColoredCube(props: props) {
       <div
         style={{
           backgroundColor: props.color,
-          width: props.size,
-          height: props.size,
+          width: props.size + "vh",
+          height: props.size + "vh",
         }}
       />
     </div>

@@ -16,6 +16,16 @@ const styles: { [key: string]: React.CSSProperties } = {
     paddingTop: 0,
     paddingLeft: 16,
   },
+  text_tiny: {
+    fontSize: "0.6vw",
+    color: "white",
+    fontWeight: "bold",
+  },
+  text_small: {
+    fontSize: "0.8vw",
+    color: "white",
+    fontWeight: "bold",
+  },
   text: {
     fontSize: "1.3vw",
     color: "white",
@@ -34,6 +44,7 @@ const styles: { [key: string]: React.CSSProperties } = {
   text_extra_large: {
     fontSize: "3.2vw",
     color: "white",
+    fontWeight: "bold",
   },
   logo_title: {
     color: "#6c9575",
@@ -74,8 +85,8 @@ const styles: { [key: string]: React.CSSProperties } = {
   },
   logout_button: {
     backgroundColor: "#0b2322",
-    height: 64,
-    width: 192,
+    width: "30vh",
+    height: "6vh",
     border: "none",
     padding: 8,
     borderRadius: 16,
@@ -114,8 +125,9 @@ const styles: { [key: string]: React.CSSProperties } = {
   wrapper_column: {
     display: "flex",
     flexDirection: "column",
-    alignItems: "center",
     alignSelf: "flex-start",
+    justifyContent: "left",
+    lineHeight: 0,
   },
   DashboardWidget_WrapperColumn: {
     justifyContent: "center",

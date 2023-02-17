@@ -10,8 +10,8 @@ export default function HomeIcon(props: props) {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="icon icon-tabler icon-tabler-home-2"
-        width={props.size}
-        height={props.size}
+        width={props.size + "vh"}
+        height={props.size + "vh"}
         viewBox="0 0 24 24"
         stroke-width="2"
         stroke={props.color}
