@@ -1,11 +1,14 @@
 import React from "react";
 import TotalProductsIcon from "../../Components/Icons/TotalProductsIcon/TotalProductsIcon";
 import DashboardContainer from "../../Components/DashboardContainer/DashboardContainer";
+import LowStockIcon from "../../Components/Icons/LowStockIcon/LowStockIcon";
 import StatsIcon from "../../Components/Icons/StatsIcon/StatsIcon";
+import LogsIcon from "../../Components/Icons/LogsIcon/LogsIcon";
 import "../../index.css";
 import styles from "../../styles";
 import HomeIcon from "../../Components/Icons/HomeIcon/HomeIcon";
 import ColoredCube from "../../Components/ColoredCube/ColoredCube";
+import RecentlyAddedIcon from "../../Components/Icons/RecentlyAddedIcon/RecentlyAddedIcon";
 
 export default function Dashboard() {
   return (
@@ -51,8 +54,8 @@ export default function Dashboard() {
               <div style={{ flex: 3 }}>
                 <DashboardContainer>
                   <div style={styles.wrapper_row}>
-                    <TotalProductsIcon size={8} color="white" />
-                    <h1 style={styles.text_medium}>Low Stock Items</h1>
+                    <LowStockIcon size={8} color="white" />
+                    <h1 style={styles.text_medium}>Low Stock</h1>
                   </div>
                   <h1 style={styles.text_medium}>Canned Pagmamahal</h1>
                   <h1 style={styles.text_tiny}>In Stock: 3</h1>
@@ -60,7 +63,7 @@ export default function Dashboard() {
                 <div style={{ padding: "1.5vh" }} />
                 <DashboardContainer>
                   <div style={styles.wrapper_row}>
-                    <TotalProductsIcon size={8} color="white" />
+                    <RecentlyAddedIcon size={8} color="white" />
                     <h1 style={styles.text_medium}>Recently Added</h1>
                   </div>
                   <h1 style={styles.text_medium}>Zidane's Water</h1>
@@ -73,7 +76,7 @@ export default function Dashboard() {
         <div style={{ flex: 2 }}>
           <DashboardContainer>
             <div style={styles.wrapper_row}>
-              <TotalProductsIcon size={8} color="white" />
+              <LogsIcon size={8} color="white" />
               <div style={styles.wrapper_column}>
                 <h1 style={styles.text_medium}>Recent</h1>
                 <h1 style={styles.text_medium}>Transactions</h1>
