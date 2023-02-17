@@ -113,12 +113,13 @@ const styles: { [key: string]: React.CSSProperties } = {
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
+    alignSelf: "flex-start",
   },
   wrapper_column: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    height: "50%",
+    alignSelf: "flex-start",
   },
 };
 
