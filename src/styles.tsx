@@ -17,26 +17,22 @@ const styles: { [key: string]: React.CSSProperties } = {
     paddingLeft: 16,
   },
   text: {
-    fontSize: 16,
+    fontSize: "1.3vw",
     color: "white",
     fontWeight: "bold",
   },
   text_medium: {
-    fontSize: 26,
+    fontSize: "1.2vw",
     color: "white",
     fontWeight: "bold",
   },
   text_large: {
-    fontSize: 36,
+    fontSize: "2.2vw",
     color: "white",
     fontWeight: "bold",
   },
-  text_dashboard_1: {
-    fontSize: 46,
-    color: "white",
-  },
-  text_dashboard_2: {
-    fontSize: 56,
+  text_extra_large: {
+    fontSize: "3.2vw",
     color: "white",
   },
   logo_title: {
@@ -91,8 +87,8 @@ const styles: { [key: string]: React.CSSProperties } = {
   },
   sidebar_button: {
     backgroundColor: "#0b2322",
-    width: 192,
-    height: 64,
+    width: "30vh",
+    height: "6vh",
     border: "none",
     padding: 8,
     borderTopLeftRadius: 32,
@@ -120,6 +116,19 @@ const styles: { [key: string]: React.CSSProperties } = {
     flexDirection: "column",
     alignItems: "center",
     alignSelf: "flex-start",
+  },
+  DashboardWidget_WrapperColumn: {
+    justifyContent: "center",
+    display: "flex",
+    flexDirection: "column",
+    width: "100%",
+    height: "100vh",
+  },
+  DashboardWidget_WrapperRow: {
+    justifyContent: "center",
+    display: "flex",
+    flexDirection: "row",
+    width: "95%",
   },
 };
 
