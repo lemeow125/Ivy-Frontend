@@ -105,11 +105,6 @@ export default function Dashboard() {
             <h1 style={styles.text_small}>Added: 0</h1>
             <h1 style={styles.text_small}>Removed: 60</h1>
             <h1 style={styles.text_tiny}>02/17/2023</h1>
-            <div style={{ marginBottom: "2vh" }} />
-            <h1 style={styles.text}>Dan's Beefed Corn</h1>
-            <h1 style={styles.text_small}>Added: 32</h1>
-            <h1 style={styles.text_small}>Removed: 64</h1>
-            <h1 style={styles.text_tiny}>02/17/2023</h1>
           </DashboardContainer>
         </div>
       </div>
