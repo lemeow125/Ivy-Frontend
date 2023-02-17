@@ -13,12 +13,31 @@ const styles: { [key: string]: React.CSSProperties } = {
     flex: 1,
     height: "100%",
     alignItems: "center",
-    paddingTop: 32,
+    paddingTop: 0,
+    paddingLeft: 16,
   },
   text: {
     fontSize: 16,
     color: "white",
     fontWeight: "bold",
+  },
+  text_medium: {
+    fontSize: 26,
+    color: "white",
+    fontWeight: "bold",
+  },
+  text_large: {
+    fontSize: 36,
+    color: "white",
+    fontWeight: "bold",
+  },
+  text_dashboard_1: {
+    fontSize: 46,
+    color: "white",
+  },
+  text_dashboard_2: {
+    fontSize: 56,
+    color: "white",
   },
   logo_title: {
     color: "#6c9575",
@@ -89,6 +108,17 @@ const styles: { [key: string]: React.CSSProperties } = {
     width: "100%",
     backgroundColor: "#3d4848",
     alignItems: "flex-end",
+  },
+  wrapper_row: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  wrapper_column: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    height: "50%",
   },
 };
 
