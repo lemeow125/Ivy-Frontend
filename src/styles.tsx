@@ -47,7 +47,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     fontWeight: "bold",
   },
   logo_title: {
-    color: "#6c9575",
+    color: "#80b38b",
     fontSize: 26,
     fontWeight: "bold",
   },
