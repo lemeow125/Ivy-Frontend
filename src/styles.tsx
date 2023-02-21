@@ -58,7 +58,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     top: 0,
     backgroundColor: "#3d4848",
     paddingRight: 32,
-    paddingLeft: 32,
+    paddingLeft: 0,
   },
   header_left: {
     display: "flex",
