@@ -11,10 +11,6 @@ export default function Products() {
         <ProductsIcon size={8} color="white" />
         <h1 style={styles.text_large}>Products</h1>
       </div>
-      <AppLogo size={8} color="#6f9b78" />
-      <ProductListEntry>
-        <p style={styles.text}>Beep Boop</p>
-      </ProductListEntry>
     </div>
   );
 }
