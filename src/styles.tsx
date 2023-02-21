@@ -139,14 +139,13 @@ const styles: { [key: string]: React.CSSProperties } = {
     display: "flex",
     flexDirection: "column",
   },
-  sidebar_wrapper: {
-    display: "flex",
-    flexDirection: "column",
+  sidebar_container: {
     height: "100vh",
     width: "100%",
     paddingLeft: "2vh",
     backgroundColor: "#3d4848",
   },
+  sidebar_wrapper: {},
 };
 
 export default styles;

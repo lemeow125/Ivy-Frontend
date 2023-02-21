@@ -20,26 +20,38 @@ export default function Sidebar() {
   const logged_in = useSelector((state: state) => state.logged_in.value);
   if (!logged_in) {
     return (
-      <div style={styles.sidebar_wrapper}>
+      <div style={styles.sidebar_container}>
         <div
           style={{
-            position: "relative",
             display: "flex",
-            flexDirection: "column",
+            flexDirection: "row",
+            justifyContent: "flex-end",
           }}
         >
-          <SidebarButton onClick={() => navigate("/")} name="Dashboard">
-            <HomeIcon size={4} color="white" />
-          </SidebarButton>
-          <SidebarButton onClick={() => navigate("/Products")} name="Products">
-            <ProductsIcon size={4} color="white" />
-          </SidebarButton>
-          <SidebarButton
-            onClick={() => navigate("/Inventory")}
-            name="Inventory"
+          <div
+            style={{
+              position: "relative",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "flex-start",
+            }}
           >
-            <InventoryIcon size={4} color="white" />
-          </SidebarButton>
+            <SidebarButton onClick={() => navigate("/")} name="Dashboard">
+              <HomeIcon size={4} color="white" />
+            </SidebarButton>
+            <SidebarButton
+              onClick={() => navigate("/Products")}
+              name="Products"
+            >
+              <ProductsIcon size={4} color="white" />
+            </SidebarButton>
+            <SidebarButton
+              onClick={() => navigate("/Inventory")}
+              name="Inventory"
+            >
+              <InventoryIcon size={4} color="white" />
+            </SidebarButton>
+          </div>
         </div>
       </div>
     );
