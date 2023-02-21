@@ -6,8 +6,8 @@ import ProductListEntry from "../../Components/ProductListEntry/ProductListEntry
 
 export default function Products() {
   return (
-    <div style={styles.container}>
-      <div style={styles.wrapper_row}>
+    <div style={{ margin: 32, height: "100%" }}>
+      <div style={styles.content_row}>
         <ProductsIcon size={8} color="white" />
         <h1 style={styles.text_large}>Products</h1>
       </div>
