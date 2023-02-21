@@ -57,34 +57,45 @@ export default function Sidebar() {
     );
   } else {
     return (
-      <div style={styles.sidebar_wrapper}>
+      <div style={styles.sidebar_container}>
         <div
           style={{
-            position: "relative",
             display: "flex",
-            flexDirection: "column",
+            flexDirection: "row",
+            justifyContent: "flex-end",
           }}
         >
-          <SidebarButton onClick={() => navigate("/")} name="Dashboard">
-            <HomeIcon size={4} color="white" />
-          </SidebarButton>
-          <SidebarButton onClick={() => navigate("/Products")} name="Products">
-            <ProductsIcon size={4} color="white" />
-          </SidebarButton>
-          <SidebarButton
-            onClick={() => navigate("/Inventory")}
-            name="Inventory"
+          <div
+            style={{
+              position: "relative",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "flex-start",
+            }}
           >
-            <InventoryIcon size={4} color="white" />
-          </SidebarButton>
-          <SidebarButton onClick={() => navigate("/Logs")} name="Logs">
-            <LogsIcon size={4} color="white" />
-          </SidebarButton>
+            <SidebarButton onClick={() => navigate("/")} name="Dashboard">
+              <HomeIcon size={4} color="white" />
+            </SidebarButton>
+            <SidebarButton
+              onClick={() => navigate("/Products")}
+              name="Products"
+            >
+              <ProductsIcon size={4} color="white" />
+            </SidebarButton>
+            <SidebarButton
+              onClick={() => navigate("/Inventory")}
+              name="Inventory"
+            >
+              <InventoryIcon size={4} color="white" />
+            </SidebarButton>
+            <SidebarButton onClick={() => navigate("/Logs")} name="Logs">
+              <LogsIcon size={4} color="white" />
+            </SidebarButton>
+            <Logout>
+              <LogoutIcon size={4} color="white" />
+            </Logout>
+          </div>
         </div>
-
-        <Logout>
-          <LogoutIcon size={4} color="white" />
-        </Logout>
       </div>
     );
   }

@@ -141,7 +141,6 @@ const styles: { [key: string]: React.CSSProperties } = {
     paddingLeft: "2vh",
     backgroundColor: "#3d4848",
   },
-  sidebar_wrapper: {},
 };
 
 export default styles;
