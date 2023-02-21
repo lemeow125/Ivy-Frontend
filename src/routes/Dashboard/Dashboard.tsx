@@ -12,70 +12,62 @@ import RecentlyAddedIcon from "../../Components/Icons/RecentlyAddedIcon/Recently
 
 export default function Dashboard() {
   return (
-    <div style={styles.container}>
-      <div style={styles.wrapper_row}>
+    <div style={{ margin: 32, height: "100%" }}>
+      <div style={styles.flex_row}>
         <HomeIcon size={8} color="white" />
         <h1 style={styles.text_large}>Dashboard</h1>
       </div>
-      <div style={styles.DashboardWidget_WrapperRow}>
+      <div style={{ display: "flex", flexDirection: "row" }}>
         <div style={{ flex: 8 }}>
-          <div style={styles.DashboardWidget_WrapperColumn}>
-            <div style={{ display: "flex", flex: 5, flexDirection: "row" }}>
-              <div style={{ flex: 1 }}>
-                <DashboardContainer>
-                  <div style={styles.wrapper_row}>
-                    <TotalProductsIcon size={8} color="white" />
-                    <h1 style={styles.text_extra_large}>Total Products</h1>
-                  </div>
-                  <h1 style={styles.text_large}>2546 Unique Items</h1>
-                  <h1 style={styles.text_large}>In inventory</h1>
-                </DashboardContainer>
+          <div style={styles.flex_column}>
+            <div style={{ ...styles.widget, ...{ flex: 5 } }}>
+              <div style={styles.content_row}>
+                <TotalProductsIcon size={8} color="white" />
+                <h1 style={styles.text_extra_large}>Total Products</h1>
               </div>
+              <h1 style={styles.text_large}>2546 Unique Items</h1>
+              <h1 style={styles.text_large}>In inventory</h1>
             </div>
-            <div style={{ display: "flex", flex: 5, flexDirection: "row" }}>
-              <div style={{ flex: 7 }}>
-                <DashboardContainer>
-                  <div style={styles.wrapper_row}>
-                    <StatsIcon size={8} color="white" />
-                    <h1 style={styles.text_large}>Current Session</h1>
-                  </div>
-                  <div style={styles.wrapper_row}>
-                    <ColoredCube size={4} color="#a48e41" />
-                    <h1 style={styles.text_large}>Added</h1>
-                  </div>
-                  <h1 style={styles.text_medium}>254</h1>
-                  <div style={styles.wrapper_row}>
-                    <ColoredCube size={4} color="#a44141" />
-                    <h1 style={styles.text_large}>Removed</h1>
-                  </div>
-                  <h1 style={styles.text_medium}>64</h1>
-                </DashboardContainer>
+            <div style={styles.flex_row}>
+              <div style={{ ...styles.widget, ...{ flex: 6 } }}>
+                <div style={styles.content_row}>
+                  <StatsIcon size={8} color="white" />
+                  <h1 style={styles.text_large}>Current Session</h1>
+                </div>
+                <div style={styles.content_row}>
+                  <ColoredCube size={3} color="#a48e41" />
+                  <h1 style={styles.text_large}>Added</h1>
+                </div>
+                <h1 style={styles.text_large}>254</h1>
+                <div style={styles.content_row}>
+                  <ColoredCube size={3} color="#a44141" />
+                  <h1 style={styles.text_large}>Removed</h1>{" "}
+                </div>
               </div>
-              <div style={{ flex: 3 }}>
-                <DashboardContainer>
-                  <div style={styles.wrapper_row}>
+              <div style={{ ...styles.flex_column, ...{ flex: 4 } }}>
+                <div style={{ ...styles.widget, ...{ flex: 1 } }}>
+                  <div style={styles.content_row}>
                     <LowStockIcon size={8} color="white" />
                     <h1 style={styles.text_medium}>Low Stock</h1>
                   </div>
                   <h1 style={styles.text_medium}>Canned Pagmamahal</h1>
                   <h1 style={styles.text_tiny}>In Stock: 3</h1>
-                </DashboardContainer>
-                <div style={{ padding: "1.5vh" }} />
-                <DashboardContainer>
-                  <div style={styles.wrapper_row}>
+                </div>
+                <div style={{ ...styles.widget, ...{ flex: 1 } }}>
+                  <div style={styles.content_row}>
                     <RecentlyAddedIcon size={8} color="white" />
                     <h1 style={styles.text_medium}>Recently Added</h1>
                   </div>
                   <h1 style={styles.text_medium}>Zidane's Water</h1>
                   <h1 style={styles.text_tiny}>Added 02/17/2023</h1>
-                </DashboardContainer>
+                </div>
               </div>
             </div>
           </div>
         </div>
         <div style={{ flex: 2 }}>
-          <DashboardContainer>
-            <div style={styles.wrapper_row}>
+          <div style={styles.widget}>
+            <div style={styles.content_row}>
               <LogsIcon size={8} color="white" />
               <div style={styles.wrapper_column}>
                 <h1 style={styles.text_medium}>Recent</h1>
@@ -98,14 +90,14 @@ export default function Dashboard() {
             <h1 style={styles.text_small}>Removed: 64</h1>
             <h1 style={styles.text_tiny}>02/17/2023</h1>
             <div style={{ marginBottom: "2vh" }} />
-            <div style={styles.wrapper_column}>
+            <div style={styles.content_column}>
               <h1 style={styles.text}>Canned</h1>
               <h1 style={styles.text}>Pagmamahal</h1>
             </div>
             <h1 style={styles.text_small}>Added: 0</h1>
             <h1 style={styles.text_small}>Removed: 60</h1>
             <h1 style={styles.text_tiny}>02/17/2023</h1>
-          </DashboardContainer>
+          </div>
         </div>
       </div>
     </div>
