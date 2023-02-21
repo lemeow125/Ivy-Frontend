@@ -7,15 +7,6 @@ const styles: { [key: string]: React.CSSProperties } = {
     height: "100%",
     backgroundColor: "#0b2322",
   },
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    flex: 1,
-    height: "100%",
-    alignItems: "center",
-    paddingTop: 0,
-    paddingLeft: 16,
-  },
   text_tiny: {
     fontSize: "0.6vw",
     color: "white",
@@ -129,6 +120,11 @@ const styles: { [key: string]: React.CSSProperties } = {
     display: "flex",
     flexDirection: "column",
     lineHeight: 0,
+  },
+  content_center: {
+    display: "flex",
+    justifyContent: "center",
+    textAlign: "center",
   },
   flex_row: {
     display: "flex",

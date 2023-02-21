@@ -4,9 +4,11 @@ import NotFoundIcon from "../../Components/Icons/NotFoundIcon/NotFoundIcon";
 
 export default function Error() {
   return (
-    <div style={styles.container}>
-      <NotFoundIcon size={64} color="#a44141" />
-      <p style={styles.text}>Could not find the requested page</p>
+    <div style={styles.content_center}>
+      <div style={styles.content_column}>
+        <NotFoundIcon size={64} color="#a44141" />
+        <p style={styles.text}>Could not find the requested page</p>
+      </div>
     </div>
   );
 }
