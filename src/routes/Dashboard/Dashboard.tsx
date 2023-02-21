@@ -17,7 +17,7 @@ export default function Dashboard() {
         <h1 style={styles.text_large}>Dashboard</h1>
       </div>
       <div style={{ display: "flex", flexDirection: "row" }}>
-        <div style={{ flex: 8 }}>
+        <div style={{ flex: 7 }}>
           <div style={styles.flex_column}>
             <div style={{ ...styles.widget, ...{ flex: 5 } }}>
               <div style={styles.content_row}>
@@ -64,7 +64,7 @@ export default function Dashboard() {
             </div>
           </div>
         </div>
-        <div style={{ flex: 2 }}>
+        <div style={{ flex: 3 }}>
           <div style={styles.widget}>
             <div style={styles.content_row}>
               <LogsIcon size={8} color="white" />
