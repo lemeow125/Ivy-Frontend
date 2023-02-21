@@ -1,6 +1,5 @@
 import React from "react";
 import TotalProductsIcon from "../../Components/Icons/TotalProductsIcon/TotalProductsIcon";
-import DashboardContainer from "../../Components/DashboardContainer/DashboardContainer";
 import LowStockIcon from "../../Components/Icons/LowStockIcon/LowStockIcon";
 import StatsIcon from "../../Components/Icons/StatsIcon/StatsIcon";
 import LogsIcon from "../../Components/Icons/LogsIcon/LogsIcon";
@@ -75,7 +74,7 @@ export default function Dashboard() {
               </div>
             </div>
             <div style={{ marginBottom: "2vh" }} />
-            <h1 style={styles.text}>Kopiko Blanca (Sack)</h1>
+            <h1 style={styles.text}>Kopiko Blanca</h1>
             <h1 style={styles.text_small}>Added: 96</h1>
             <h1 style={styles.text_small}>Removed: 105</h1>
             <h1 style={styles.text_tiny}>02/17/2023</h1>
