@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { toggle } from "../../Features/Login/LoginSlice";
 import { Button } from "@mui/material";
 import styles from "../../styles";
+import { useNavigate } from "react-router-dom";
 
 export interface state {
   logged_in: {
@@ -16,16 +17,17 @@ export interface props {
 export default function Logout(props: props) {
   const logged_in = useSelector((state: state) => state.logged_in.value);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  async function login() {
+  async function logout() {
     await dispatch(toggle());
-    await console.log("test " + logged_in);
+    navigate("/");
   }
 
   return (
     <div style={{ paddingTop: "40vh" }}>
       <Button
-        onClick={login}
+        onClick={logout}
         value="Log out"
         variant="contained"
         style={styles.logout_button}
