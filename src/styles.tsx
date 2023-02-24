@@ -37,6 +37,16 @@ const styles: { [key: string]: React.CSSProperties } = {
     color: "white",
     fontWeight: "bold",
   },
+  text_red: {
+    fontSize: "1.3vw",
+    color: "#a44141",
+    fontWeight: "bold",
+  },
+  text_green: {
+    fontSize: "1.3vw",
+    color: "#80b28a",
+    fontWeight: "bold",
+  },
   logo_title: {
     color: "#80b38b",
     fontSize: 26,
