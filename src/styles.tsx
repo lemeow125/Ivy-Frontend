@@ -129,7 +129,7 @@ const styles: { [key: string]: React.CSSProperties } = {
   flex_row: {
     display: "flex",
     flexDirection: "row",
-    alignItems: "stretch",
+    alignItems: "center",
   },
   flex_column: {
     display: "flex",

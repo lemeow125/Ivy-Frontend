@@ -2,6 +2,7 @@ import React from "react";
 import Dashboard from "./Routes/Dashboard/Dashboard";
 import Error from "./Routes/Error/Error";
 import Products from "./Routes/Products/Products";
+import Logs from "./Routes/Logs/Logs";
 import Container from "./Components/Container/Container";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Store from "./Plugins/Redux/Store/Store";
@@ -26,6 +27,14 @@ const router = createBrowserRouter([
     element: (
       <Container>
         <Products />
+      </Container>
+    ),
+  },
+  {
+    path: "/Logs",
+    element: (
+      <Container>
+        <Logs />
       </Container>
     ),
   },
