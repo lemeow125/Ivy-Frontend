@@ -5,6 +5,10 @@ import ProductInfo from "../../Components/ProductInfo/ProductInfo";
 import ProductsLists from "../../Components/ProductsLists/ProductsLists";
 
 export default function Products() {
+  const handleAddProduct = () => {
+    window.location.href = "/Products/AddProduct";
+  };
+
   return (
     <div style={{ margin: 32, height: "100%" }}>
       <div style={styles.content_row}>
@@ -12,6 +16,7 @@ export default function Products() {
         <h1 style={styles.text_large}>Products</h1>
       </div>
       <ProductInfo products={ProductsLists} />
+      <button onClick={handleAddProduct}>Add Product</button>
     </div>
   );
 }

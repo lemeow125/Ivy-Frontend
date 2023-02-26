@@ -1,14 +1,8 @@
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
-
-type Product = {
-  id: number;
-  name: string;
-  stocks: number;
-  lastModified: string;
-};
+import { ProductType } from '../ProductType/ProductType';
 
 type ProductInfoProps = {
-  products: Product[];
+  products: ProductType[];
 };
 
 export default function InventoryInfo(props: ProductInfoProps) {
