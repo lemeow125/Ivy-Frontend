@@ -1,14 +1,15 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import ProductsLists from "../../../Components/ProductsLists/ProductsLists";
 import { ProductType } from "../../../Components/ProductType/ProductType";
 import styles from "../../../styles";
 import ProductsIcon from "../../../Components/Icons/ProductsIcon/ProductsIcon";
 import ProductInfo from "../../../Components/ProductInfo/ProductInfo";
 
-
 export default function AddProduct() {
   const [name, setName] = useState("");
   const [stocks, setStocks] = useState("");
+  const navigate = useNavigate();
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
@@ -28,11 +29,11 @@ export default function AddProduct() {
       };
       ProductsLists.push(newProduct);
     }
-    //window.location.href = "/Products";
+    navigate("/Products");
   };
 
   const handleCancel = () => {
-    window.location.href = "/Products";
+    navigate("/Products");
   };
 
   return (
@@ -55,7 +56,6 @@ export default function AddProduct() {
       <br />
       <button onClick={handleAddProduct}>Add</button>
       <button onClick={handleCancel}>Cancel</button>
-      <ProductInfo products={ProductsLists} />
     </div>
   );
 }
