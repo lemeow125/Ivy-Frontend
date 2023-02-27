@@ -8,6 +8,7 @@ import Store from "./Plugins/Redux/Store/Store";
 import { Provider } from "react-redux";
 import Inventory from "./Routes/Inventory/Inventory";
 import AddProduct from "./Routes/Products/AddProduct/AddProduct";
+import EditProduct from "./Routes/Products/EditProduct/EditProduct";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,14 @@ const router = createBrowserRouter([
     element: (
       <Container>
         <AddProduct />
+      </Container>
+    ),
+  },
+  {
+    path: "/Products/EditProduct/:id", // Updated route with dynamic id parameter
+    element: (
+      <Container>
+        <EditProduct />
       </Container>
     ),
   },

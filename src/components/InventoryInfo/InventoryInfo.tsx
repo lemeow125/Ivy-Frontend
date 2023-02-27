@@ -22,7 +22,7 @@ export default function InventoryInfo(props: ProductInfoProps) {
         <TableBody>
           {products.map((product) => (
             <TableRow key={product.id}>
-              <TableCell style={{ color: 'white' }}>{product.id}</TableCell>
+              <TableCell style={{ color: 'white' }}>{product.id.toString().padStart(3, '0')}</TableCell>
               <TableCell style={{ color: 'white' }}>{product.name}</TableCell>
               <TableCell style={{ color: 'white' }}>{product.stocks}</TableCell>
               <TableCell style={{ color: 'white' }}>{product.lastModified}</TableCell>

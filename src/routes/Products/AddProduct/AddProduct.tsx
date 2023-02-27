@@ -1,10 +1,17 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import ProductsLists from "../../../Components/ProductsLists/ProductsLists";
 import { ProductType } from "../../../Components/ProductType/ProductType";
+import ProductsLists from "../../../Components/ProductsLists/ProductsLists";
 import styles from "../../../styles";
 import ProductsIcon from "../../../Components/Icons/ProductsIcon/ProductsIcon";
-import ProductInfo from "../../../Components/ProductInfo/ProductInfo";
+
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableRow,
+} from "@mui/material";
 
 export default function AddProduct() {
   const [name, setName] = useState("");
@@ -43,16 +50,24 @@ export default function AddProduct() {
         <h1 style={styles.text_large}>Products</h1>
       </div>
       <h1>Add Product</h1>
-      <label htmlFor="name">Name:</label>
-      <input type="text" id="name" value={name} onChange={handleNameChange} />
-      <br />
-      <label htmlFor="stocks">Stocks:</label>
-      <input
-        type="text"
-        id="stocks"
-        value={stocks}
-        onChange={handleStocksChange}
-      />
+      <TableContainer>
+        <Table>
+          <TableBody>
+            <TableRow>
+              <TableCell>Name:</TableCell>
+              <TableCell>
+                <input type="text" id="name" value={name} onChange={handleNameChange} />
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>Stocks:</TableCell>
+              <TableCell>
+                <input type="text" id="stocks" value={stocks} onChange={handleStocksChange} />
+              </TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+      </TableContainer>
       <br />
       <button onClick={handleAddProduct}>Add</button>
       <button onClick={handleCancel}>Cancel</button>
