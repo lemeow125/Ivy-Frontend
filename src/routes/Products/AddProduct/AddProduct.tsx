@@ -47,9 +47,8 @@ export default function AddProduct() {
     <div style={{ margin: 32, height: "100%" }}>
       <div style={styles.content_row}>
         <ProductsIcon size={8} color="white" />
-        <h1 style={styles.text_large}>Products</h1>
+        <h1 style={styles.text_large}>Add Product</h1>
       </div>
-      <h1>Add Product</h1>
       <TableContainer>
         <Table>
           <TableBody>
