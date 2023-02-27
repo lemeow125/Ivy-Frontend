@@ -1,13 +1,12 @@
 import React from "react";
 import styles from "../../styles";
+import { useNavigate } from "react-router-dom";
 import ProductsIcon from "../../Components/Icons/ProductsIcon/ProductsIcon";
 import ProductInfo from "../../Components/ProductInfo/ProductInfo";
 import ProductsLists from "../../Components/ProductsLists/ProductsLists";
 
 export default function Products() {
-  const handleAddProduct = () => {
-    window.location.href = "/Products/AddProduct";
-  };
+  const navigate = useNavigate();
 
   return (
     <div style={{ margin: 32, height: "100%" }}>
@@ -16,7 +15,7 @@ export default function Products() {
         <h1 style={styles.text_large}>Products</h1>
       </div>
       <ProductInfo products={ProductsLists} />
-      <button onClick={handleAddProduct}>Add Product</button>
+      <button onClick={() => navigate("/Products/AddProduct")}>Add Product</button>
     </div>
   );
 }

@@ -47,13 +47,6 @@ export default function Sidebar() {
             </SidebarButton>
 
             <SidebarButton
-              onClick={() => navigate("/Products/AddProduct")}
-              name="Add Product"
-            >
-              <ProductsIcon size={4} color="white" />
-            </SidebarButton>
-
-            <SidebarButton
               onClick={() => navigate("/Inventory")}
               name="Inventory"
             >
