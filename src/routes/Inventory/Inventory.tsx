@@ -22,36 +22,36 @@ export default function Inventory() {
     }
   }
   function StockRender(in_stock: number) {
-    const [stock, setStock] = useState("" + in_stock);
-    if (in_stock > 0 && in_stock < 3) {
+    const [stock, setStock] = useState(in_stock);
+    if (stock >= 0 && stock <= 3) {
       return (
-        <TableCell style={styles.text_red}>
+        <TableCell>
           <input
             style={{
-              ...styles.text,
+              ...styles.text_red,
               ...{ border: "none", background: "none" },
             }}
             value={stock}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
               if (is_number(e.target.value) === true) {
-                setStock(e.target.value);
+                setStock(parseInt(e.target.value));
               }
             }}
           />
         </TableCell>
       );
-    } else if (in_stock > 3 && in_stock < 9) {
+    } else if (stock >= 4 && stock < 9) {
       return (
-        <TableCell style={styles.text_orange}>
+        <TableCell>
           <input
             style={{
-              ...styles.text,
+              ...styles.text_orange,
               ...{ border: "none", background: "none" },
             }}
             value={stock}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
               if (is_number(e.target.value) === true) {
-                setStock(e.target.value);
+                setStock(parseInt(e.target.value));
               }
             }}
           />
@@ -59,16 +59,16 @@ export default function Inventory() {
       );
     } else {
       return (
-        <TableCell style={styles.text_green}>
+        <TableCell>
           <input
             style={{
-              ...styles.text,
+              ...styles.text_green,
               ...{ border: "none", background: "none" },
             }}
             value={stock}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
               if (is_number(e.target.value) === true) {
-                setStock(e.target.value);
+                setStock(parseInt(e.target.value));
               }
             }}
           />
