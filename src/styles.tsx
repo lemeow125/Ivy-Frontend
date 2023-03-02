@@ -84,6 +84,17 @@ const styles: { [key: string]: React.CSSProperties } = {
     padding: 8,
     borderRadius: 16,
   },
+  button_add_product: {
+    backgroundColor: "#80b38b",
+    display: "flex",
+    flexDirection: "row",
+    width: "256px",
+    height: "48px",
+    border: "none",
+    padding: 8,
+    borderRadius: 16,
+    gap: 4,
+  },
   logout_button: {
     backgroundColor: "#0b2322",
     width: "30vh",

@@ -9,23 +9,7 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
-
-function createData(
-  id: number,
-  p_id: number,
-  p_name: string,
-  amount_changed: number,
-  timestamp: string
-) {
-  return { id, p_id, p_name, amount_changed, timestamp };
-}
-
-const sample_data = [
-  createData(1, 1, "Zidanes Water", -5, "2/24/2023 10:05AM"),
-  createData(2, 1, "Zidanes Water", +10, "2/24/2023 1:05PM"),
-  createData(3, 2, "Dans Beefed Corn", +25, "2/25/2023 4:05PM"),
-  createData(4, 2, "Dans Beefed Corn", -15, "2/26/2023 3:35PM"),
-];
+import { SampleLogData } from "../../Components/SampleData/SampleData";
 
 export default function Logs() {
   function change_color(amount: number) {
@@ -58,7 +42,7 @@ export default function Logs() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {sample_data.map((row) => (
+            {SampleLogData.map((row) => (
               <TableRow
                 key={row.id}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}

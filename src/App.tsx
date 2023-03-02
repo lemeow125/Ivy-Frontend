@@ -7,8 +7,6 @@ import Container from "./Components/Container/Container";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Store from "./Plugins/Redux/Store/Store";
 import { Provider } from "react-redux";
-import AddProduct from "./Routes/Products/AddProduct/AddProduct";
-import EditProduct from "./Routes/Products/EditProduct/EditProduct";
 import Inventory from "./Routes/Inventory/Inventory";
 
 const router = createBrowserRouter([
@@ -46,22 +44,6 @@ const router = createBrowserRouter([
     element: (
       <Container>
         <Logs />
-      </Container>
-    ),
-  },
-  {
-    path: "/Products/AddProduct",
-    element: (
-      <Container>
-        <AddProduct />
-      </Container>
-    ),
-  },
-  {
-    path: "/Products/EditProduct/:id", // Updated route with dynamic id parameter
-    element: (
-      <Container>
-        <EditProduct />
       </Container>
     ),
   },

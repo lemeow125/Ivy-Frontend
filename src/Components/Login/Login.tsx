@@ -11,10 +11,9 @@ export interface state {
 export default function Login() {
   const logged_in = useSelector((state: state) => state.logged_in.value);
   const dispatch = useDispatch();
-
   async function login() {
     await dispatch(toggle());
-    await console.log("test " + logged_in);
+    await console.log("Login State Toggled " + logged_in);
   }
 
   if (logged_in) {
