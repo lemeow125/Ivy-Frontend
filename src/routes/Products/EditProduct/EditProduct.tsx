@@ -12,7 +12,10 @@ import {
 import { ProductType } from "../../../Components/ProductType/ProductType";
 import ProductsLists from "../../../Components/ProductsLists/ProductsLists";
 import ProductsIcon from "../../../Components/Icons/ProductsIcon/ProductsIcon";
+import CancelIcon from "../../../Components/Icons/CancelIcon/CancelIcon";
+import EditIcon from "../../../Components/Icons/EditIcon/EditIcon";
 import styles from "../../../styles";
+
 
 type EditProductParams = {
   id?: string;
@@ -26,15 +29,22 @@ export default function EditProduct() {
   const [stocks, setStocks] = useState("");
 
   useEffect(() => {
-    const product = ProductsLists.find((product) => product.id.toString().padStart(3, '0') === id);
+    const product = ProductsLists.find(
+      (product) => product.id.toString().padStart(3, "0") === id
+    );
     if (product) {
       setName(product.name);
       setStocks(product.stocks.toString());
     }
   }, [id]);
 
-  const handleStocksChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setStocks(event.target.value);
+  const handleStocksChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const value = parseInt(event.target.value);
+    if (!isNaN(value) && value >= 0) {
+      setStocks(value.toString());
+    }
   };
 
   const handleUpdateProduct = () => {
@@ -45,7 +55,9 @@ export default function EditProduct() {
       lastModified: new Date().toLocaleString(),
     };
 
-    const index = ProductsLists.findIndex((product) => product.id.toString().padStart(3, '0') === id);
+    const index = ProductsLists.findIndex(
+      (product) => product.id.toString().padStart(3, "0") === id
+    );
     ProductsLists.splice(index, 1, updatedProduct);
 
     navigate("/Products");
@@ -62,35 +74,64 @@ export default function EditProduct() {
         <h1 style={styles.text_large}>Edit Product</h1>
       </div>
       <TableContainer>
-        <Table>
+        <Table style={{ color: "white", textAlign: "center" }}>
           <TableHead>
             <TableRow>
-              <TableCell>Product ID</TableCell>
-              <TableCell>Product Name</TableCell>
-              <TableCell>Stocks</TableCell>
+              <TableCell style={{ color: "white" }}>Product ID</TableCell>
+              <TableCell style={{ color: "white" }}>Product Name</TableCell>
+              <TableCell style={{ color: "white" }}>Stocks</TableCell>
+              <TableCell style={{ color: 'white' }}>Actions</TableCell>
             </TableRow>
           </TableHead>
-          <TableBody>
+          <TableBody style={{ textAlign: "center" }}>
             <TableRow>
-              <TableCell>{id}</TableCell>
-              <TableCell>{name}</TableCell>
-              <TableCell>
+              <TableCell style={{ color: "white" }}>{id}</TableCell>
+              <TableCell style={{ color: "white" }}>{name}</TableCell>
+              <TableCell style={{ color: "white" }}>
                 <TextField
                   type="number"
                   value={stocks}
                   onChange={handleStocksChange}
                   InputProps={{
                     inputProps: { min: 0 },
+                    style: { color: "white" },
                   }}
+                  style={{ color: "white", border: "1px solid white" }}
                 />
+              </TableCell>
+              <TableCell style={{ color: 'white' }}>
+                <div style={{ display: "flex", gap: 8 }}>
+                <button onClick={handleUpdateProduct}
+                  style={{
+                  ...styles.button_primary,
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 8,
+                  backgroundColor: "#1d3b33",
+                  borderRadius: 50,
+                  }}>
+                  <EditIcon size={3} color="white" />
+                  <span style={styles.text_medium}>Update</span>
+                </button>
+                <button onClick={handleCancel}
+                  style={{
+                  ...styles.button_primary,
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 8,
+                  backgroundColor: "#1d3b33",
+                  borderRadius: 50,
+                  }}>
+                  <CancelIcon size={3} color="white" />
+                  <span style={styles.text_medium}>Cancel</span>
+                </button>
+                </div>
               </TableCell>
             </TableRow>
           </TableBody>
         </Table>
       </TableContainer>
       <br />
-      <button onClick={handleUpdateProduct}>Update</button>
-      <button onClick={handleCancel}>Cancel</button>
     </div>
   );
 }
