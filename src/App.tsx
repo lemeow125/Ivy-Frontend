@@ -2,11 +2,11 @@ import React from "react";
 import Dashboard from "./Routes/Dashboard/Dashboard";
 import Error from "./Routes/Error/Error";
 import Products from "./Routes/Products/Products";
+import Logs from "./Routes/Logs/Logs";
 import Container from "./Components/Container/Container";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Store from "./Plugins/Redux/Store/Store";
 import { Provider } from "react-redux";
-import Inventory from "./Routes/Inventory/Inventory";
 import AddProduct from "./Routes/Products/AddProduct/AddProduct";
 import EditProduct from "./Routes/Products/EditProduct/EditProduct";
 
@@ -33,10 +33,10 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/Inventory",
+    path: "/Logs",
     element: (
       <Container>
-        <Inventory />
+        <Logs />
       </Container>
     ),
   },
