@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { toggle } from "../../Features/Login/LoginSlice";
 import { Button } from "@mui/material";
 import styles from "../../styles";
@@ -15,7 +15,6 @@ export interface props {
 }
 
 export default function Logout(props: props) {
-  const logged_in = useSelector((state: state) => state.logged_in.value);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 

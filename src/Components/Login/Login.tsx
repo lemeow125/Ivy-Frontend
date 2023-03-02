@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { toggle } from "../../Features/Login/LoginSlice";
 import { Button } from "@mui/material";
@@ -11,16 +10,10 @@ export interface state {
 }
 export default function Login() {
   const logged_in = useSelector((state: state) => state.logged_in.value);
-  const [status, setStatus] = useState("Not logged in");
   const dispatch = useDispatch();
 
   async function login() {
     await dispatch(toggle());
-    if (logged_in) {
-      setStatus("Logged in");
-    } else {
-      setStatus("Not logged in");
-    }
     await console.log("test " + logged_in);
   }
 
