@@ -42,6 +42,11 @@ const styles: { [key: string]: React.CSSProperties } = {
     color: "#a44141",
     fontWeight: "bold",
   },
+  text_orange: {
+    fontSize: "1.3vw",
+    color: "#c57331",
+    fontWeight: "bold",
+  },
   text_green: {
     fontSize: "1.3vw",
     color: "#80b28a",
@@ -83,6 +88,17 @@ const styles: { [key: string]: React.CSSProperties } = {
     border: "none",
     padding: 8,
     borderRadius: 16,
+  },
+  button_add_product: {
+    backgroundColor: "#80b38b",
+    display: "flex",
+    flexDirection: "row",
+    width: "256px",
+    height: "48px",
+    border: "none",
+    padding: 8,
+    borderRadius: 16,
+    gap: 4,
   },
   logout_button: {
     backgroundColor: "#0b2322",

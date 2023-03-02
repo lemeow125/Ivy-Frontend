@@ -7,6 +7,7 @@ import Container from "./Components/Container/Container";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Store from "./Plugins/Redux/Store/Store";
 import { Provider } from "react-redux";
+import Inventory from "./Routes/Inventory/Inventory";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,14 @@ const router = createBrowserRouter([
     element: (
       <Container>
         <Products />
+      </Container>
+    ),
+  },
+  {
+    path: "/Inventory",
+    element: (
+      <Container>
+        <Inventory />
       </Container>
     ),
   },
