@@ -13,6 +13,15 @@ import {
 import { SampleInventoryData } from "../../Components/SampleData/SampleData";
 
 export default function Inventory() {
+  function change_color(in_stock: number) {
+    if (in_stock > 0 && in_stock < 3) {
+      return <TableCell style={styles.text_red}>{in_stock}</TableCell>;
+    } else if (in_stock > 3 && in_stock < 9) {
+      return <TableCell style={styles.text_orange}>{in_stock}</TableCell>;
+    } else {
+      return <TableCell style={styles.text_green}>{in_stock}</TableCell>;
+    }
+  }
   return (
     <div style={{ margin: 32, height: "100%" }}>
       <div style={styles.content_row}>
@@ -41,7 +50,7 @@ export default function Inventory() {
               >
                 <TableCell style={styles.text}>{row.id}</TableCell>
                 <TableCell style={styles.text}>{row.name}</TableCell>
-                <TableCell style={styles.text}>{row.in_stock}</TableCell>
+                {change_color(row.in_stock)}
               </TableRow>
             ))}
           </TableBody>

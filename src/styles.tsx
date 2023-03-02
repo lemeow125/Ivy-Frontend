@@ -42,6 +42,11 @@ const styles: { [key: string]: React.CSSProperties } = {
     color: "#a44141",
     fontWeight: "bold",
   },
+  text_orange: {
+    fontSize: "1.3vw",
+    color: "#c57331",
+    fontWeight: "bold",
+  },
   text_green: {
     fontSize: "1.3vw",
     color: "#80b28a",
