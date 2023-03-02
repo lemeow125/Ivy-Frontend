@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../../styles";
 import InventoryIcon from "../../Components/Icons/InventoryIcon/InventoryIcon";
 import {
@@ -13,13 +13,67 @@ import {
 import { SampleInventoryData } from "../../Components/SampleData/SampleData";
 
 export default function Inventory() {
-  function change_color(in_stock: number) {
-    if (in_stock > 0 && in_stock < 3) {
-      return <TableCell style={styles.text_red}>{in_stock}</TableCell>;
-    } else if (in_stock > 3 && in_stock < 9) {
-      return <TableCell style={styles.text_orange}>{in_stock}</TableCell>;
+  function is_number(number: string) {
+    const re = /^[0-9\b]+$/;
+    if (re.test(number)) {
+      return true;
     } else {
-      return <TableCell style={styles.text_green}>{in_stock}</TableCell>;
+      return false;
+    }
+  }
+  function StockRender(in_stock: number) {
+    const [stock, setStock] = useState("" + in_stock);
+    if (in_stock > 0 && in_stock < 3) {
+      return (
+        <TableCell style={styles.text_red}>
+          <input
+            style={{
+              ...styles.text,
+              ...{ border: "none", background: "none" },
+            }}
+            value={stock}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              if (is_number(e.target.value) === true) {
+                setStock(e.target.value);
+              }
+            }}
+          />
+        </TableCell>
+      );
+    } else if (in_stock > 3 && in_stock < 9) {
+      return (
+        <TableCell style={styles.text_orange}>
+          <input
+            style={{
+              ...styles.text,
+              ...{ border: "none", background: "none" },
+            }}
+            value={stock}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              if (is_number(e.target.value) === true) {
+                setStock(e.target.value);
+              }
+            }}
+          />
+        </TableCell>
+      );
+    } else {
+      return (
+        <TableCell style={styles.text_green}>
+          <input
+            style={{
+              ...styles.text,
+              ...{ border: "none", background: "none" },
+            }}
+            value={stock}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              if (is_number(e.target.value) === true) {
+                setStock(e.target.value);
+              }
+            }}
+          />
+        </TableCell>
+      );
     }
   }
   return (
@@ -50,7 +104,7 @@ export default function Inventory() {
               >
                 <TableCell style={styles.text}>{row.id}</TableCell>
                 <TableCell style={styles.text}>{row.name}</TableCell>
-                {change_color(row.in_stock)}
+                {StockRender(row.in_stock)}
               </TableRow>
             ))}
           </TableBody>
