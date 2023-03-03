@@ -42,7 +42,10 @@ export default function Products() {
           </div>
         </div>
       </div>
-      <Switch onClick={() => toggleTableView(!tableView)} />
+      <div style={styles.content_row}>
+        <Switch onClick={() => toggleTableView(!tableView)} />
+        <p style={styles.text_small}>View Type</p>
+      </div>
       {view()}
     </div>
   );

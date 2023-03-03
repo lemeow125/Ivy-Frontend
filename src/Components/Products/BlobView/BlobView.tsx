@@ -2,6 +2,7 @@ import * as React from "react";
 
 import styles from "../../../styles";
 import { ProductList } from "../../../Interfaces/Interfaces";
+import ProductIcon from "../../Icons/ProductIcon/ProductIcon";
 
 export default function BlobView({ Products }: ProductList) {
   return (
@@ -19,7 +20,11 @@ export default function BlobView({ Products }: ProductList) {
             padding: 16,
           }}
         >
-          <p style={styles.text}>{row.name}</p>
+          <div style={styles.content_row}>
+            <ProductIcon size={4} color="white" />{" "}
+            <p style={styles.text}>{row.name}</p>
+          </div>
+
           <p style={styles.text}>ID: {row.id}</p>
           <p style={styles.text_small}>Last Modified: {row.last_modified}</p>
         </div>
