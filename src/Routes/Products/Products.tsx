@@ -1,22 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../../styles";
 import { useNavigate } from "react-router-dom";
 import ProductsIcon from "../../Components/Icons/ProductsIcon/ProductsIcon";
 import AddIcon from "../../Components/Icons/AddIcon/AddIcon";
-import {
-  Button,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-} from "@mui/material";
+import { Button, Switch } from "@mui/material";
 import { SampleProducts } from "../../Components/SampleData/SampleData";
+import TableView from "../../Components/Products/TableView/TableView";
+import BlobView from "../../Components/Products/BlobView/BlobView";
 
 export default function Products() {
   const navigate = useNavigate();
-
+  const [tableView, toggleTableView] = useState(false);
+  function view() {
+    if (tableView) {
+      return <TableView Products={SampleProducts} />;
+    } else {
+      return <BlobView Products={SampleProducts} />;
+    }
+  }
   return (
     <div style={{ margin: 32, height: "100%" }}>
       <div style={styles.content_row}>
@@ -41,34 +42,8 @@ export default function Products() {
           </div>
         </div>
       </div>
-      <TableContainer
-        style={{
-          backgroundColor: "#1d3b33",
-          borderRadius: 8,
-        }}
-      >
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              <TableCell style={styles.text}>Product ID</TableCell>
-              <TableCell style={styles.text}>Product</TableCell>
-              <TableCell style={styles.text}>Last Modified</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {SampleProducts.map((row) => (
-              <TableRow
-                key={row.id}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell style={styles.text}>{row.id}</TableCell>
-                <TableCell style={styles.text}>{row.name}</TableCell>
-                <TableCell style={styles.text}>{row.last_modified}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+      <Switch onClick={() => toggleTableView(!tableView)} />
+      {view()}
     </div>
   );
 }
