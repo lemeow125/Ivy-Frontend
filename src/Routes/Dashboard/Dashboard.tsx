@@ -13,7 +13,7 @@ export default function Dashboard() {
   return (
     <div style={{ margin: 32, height: "100%" }}>
       <div style={styles.flex_row}>
-        <HomeIcon size={8} color="white" />
+        <HomeIcon size={64} color="white" />
         <h1 style={styles.text_large}>Dashboard</h1>
       </div>
       <div style={{ display: "flex", flexDirection: "row" }}>
@@ -21,7 +21,7 @@ export default function Dashboard() {
           <div style={styles.flex_column}>
             <div style={{ ...styles.widget, ...{ flex: 5 } }}>
               <div style={styles.content_row}>
-                <TotalProductsIcon size={8} color="white" />
+                <TotalProductsIcon size={64} color="white" />
                 <h1 style={styles.text_extra_large}>Total Products</h1>
               </div>
               <h1 style={styles.text_large}>2546 Unique Items</h1>
@@ -30,31 +30,49 @@ export default function Dashboard() {
             <div style={styles.flex_row}>
               <div style={{ ...styles.widget, ...{ flex: 6 } }}>
                 <div style={styles.content_row}>
-                  <StatsIcon size={8} color="white" />
+                  <StatsIcon size={64} color="white" />
                   <h1 style={styles.text_large}>Current Session</h1>
                 </div>
                 <div style={styles.content_row}>
-                  <ColoredCube size={3} color="#a48e41" />
+                  <ColoredCube size={32} color="#a48e41" />
                   <h1 style={styles.text_large}>Added</h1>
                 </div>
                 <h1 style={styles.text_large}>254</h1>
                 <div style={styles.content_row}>
-                  <ColoredCube size={3} color="#a44141" />
-                  <h1 style={styles.text_large}>Removed</h1>{" "}
+                  <ColoredCube size={32} color="#a44141" />
+                  <h1 style={styles.text_large}>Removed</h1>
                 </div>
+                <h1 style={styles.text_large}>118</h1>
               </div>
-              <div style={{ ...styles.flex_column, ...{ flex: 4 } }}>
-                <div style={{ ...styles.widget, ...{ flex: 1 } }}>
+              <div
+                style={{
+                  ...styles.flex_column,
+                  ...{
+                    flex: 4,
+                  },
+                }}
+              >
+                <div
+                  style={{
+                    ...styles.widget,
+                    ...{ flex: 1 },
+                  }}
+                >
                   <div style={styles.content_row}>
-                    <LowStockIcon size={8} color="white" />
+                    <LowStockIcon size={64} color="white" />
                     <h1 style={styles.text_medium}>Low Stock</h1>
                   </div>
                   <h1 style={styles.text_medium}>Canned Pagmamahal</h1>
                   <h1 style={styles.text_tiny}>In Stock: 3</h1>
                 </div>
-                <div style={{ ...styles.widget, ...{ flex: 1 } }}>
+                <div
+                  style={{
+                    ...styles.widget,
+                    ...{ flex: 1 },
+                  }}
+                >
                   <div style={styles.content_row}>
-                    <RecentlyAddedIcon size={8} color="white" />
+                    <RecentlyAddedIcon size={64} color="white" />
                     <h1 style={styles.text_medium}>Recently Added</h1>
                   </div>
                   <h1 style={styles.text_medium}>Zidane's Water</h1>
@@ -67,28 +85,28 @@ export default function Dashboard() {
         <div style={{ flex: 3 }}>
           <div style={styles.widget}>
             <div style={styles.content_row}>
-              <LogsIcon size={8} color="white" />
+              <LogsIcon size={64} color="white" />
               <div style={styles.wrapper_column}>
                 <h1 style={styles.text_medium}>Recent</h1>
                 <h1 style={styles.text_medium}>Transactions</h1>
               </div>
             </div>
-            <div style={{ marginBottom: "2vh" }} />
+            <div style={{ marginBottom: "8px" }} />
             <h1 style={styles.text}>Kopiko Blanca</h1>
             <h1 style={styles.text_small}>Added: 96</h1>
             <h1 style={styles.text_small}>Removed: 105</h1>
             <h1 style={styles.text_tiny}>02/17/2023</h1>
-            <div style={{ marginBottom: "2vh" }} />
+            <div style={{ marginBottom: "8px" }} />
             <h1 style={styles.text}>Zidane's Water</h1>
             <h1 style={styles.text_small}>Added: 49</h1>
             <h1 style={styles.text_small}>Removed: 24</h1>
             <h1 style={styles.text_tiny}>02/17/2023</h1>
-            <div style={{ marginBottom: "2vh" }} />
+            <div style={{ marginBottom: "8px" }} />
             <h1 style={styles.text}>Dan's Beefed Corn</h1>
             <h1 style={styles.text_small}>Added: 32</h1>
             <h1 style={styles.text_small}>Removed: 64</h1>
             <h1 style={styles.text_tiny}>02/17/2023</h1>
-            <div style={{ marginBottom: "2vh" }} />
+            <div style={{ marginBottom: "8px" }} />
             <div style={styles.content_column}>
               <h1 style={styles.text}>Canned</h1>
               <h1 style={styles.text}>Pagmamahal</h1>

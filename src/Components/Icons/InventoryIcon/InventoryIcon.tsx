@@ -9,8 +9,8 @@ export default function InventoryIcon(props: props) {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       className="icon icon-tabler icon-tabler-box-seam"
-      width={props.size + "vh"}
-      height={props.size + "vh"}
+      width={props.size + "px"}
+      height={props.size + "px"}
       viewBox="0 0 24 24"
       stroke-width="1"
       stroke={props.color}

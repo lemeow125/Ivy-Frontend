@@ -37,20 +37,20 @@ export default function Sidebar() {
             }}
           >
             <SidebarButton onClick={() => navigate("/")} name="Dashboard">
-              <HomeIcon size={4} color="white" />
+              <HomeIcon size={48} color="white" />
             </SidebarButton>
             <SidebarButton
               onClick={() => navigate("/Products")}
               name="Products"
             >
-              <ProductsIcon size={4} color="white" />
+              <ProductsIcon size={48} color="white" />
             </SidebarButton>
 
             <SidebarButton
               onClick={() => navigate("/Inventory")}
               name="Inventory"
             >
-              <InventoryIcon size={4} color="white" />
+              <InventoryIcon size={48} color="white" />
             </SidebarButton>
           </div>
         </div>
@@ -75,25 +75,25 @@ export default function Sidebar() {
             }}
           >
             <SidebarButton onClick={() => navigate("/")} name="Dashboard">
-              <HomeIcon size={4} color="white" />
+              <HomeIcon size={48} color="white" />
             </SidebarButton>
             <SidebarButton
               onClick={() => navigate("/Products")}
               name="Products"
             >
-              <ProductsIcon size={4} color="white" />
+              <ProductsIcon size={48} color="white" />
             </SidebarButton>
             <SidebarButton
               onClick={() => navigate("/Inventory")}
               name="Inventory"
             >
-              <InventoryIcon size={4} color="white" />
+              <InventoryIcon size={48} color="white" />
             </SidebarButton>
             <SidebarButton onClick={() => navigate("/Logs")} name="Logs">
-              <LogsIcon size={4} color="white" />
+              <LogsIcon size={48} color="white" />
             </SidebarButton>
             <Logout>
-              <LogoutIcon size={4} color="white" />
+              <LogoutIcon size={48} color="white" />
             </Logout>
           </div>
         </div>

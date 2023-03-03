@@ -23,7 +23,7 @@ export default function Products() {
       <div style={styles.content_row}>
         <div style={{ ...styles.content_row, ...{ flex: 1 } }}>
           <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-            <ProductsIcon size={8} color="white" />
+            <ProductsIcon size={64} color="white" />
             <h1 style={styles.text_large}>Products</h1>
           </div>
           <div
@@ -36,7 +36,7 @@ export default function Products() {
               onClick={() => navigate("/Products/AddProduct")}
               style={styles.button_add_product}
             >
-              <AddIcon size={8} color="white" />
+              <AddIcon size={32} color="white" />
               <p style={styles.text_medium}>Add Product</p>
             </Button>
           </div>
