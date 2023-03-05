@@ -6,12 +6,12 @@ export const loginSlice = createSlice({
     value: false,
   },
   reducers: {
-    toggle: (state) => {
+    toggle_login: (state) => {
       state.value = !state.value;
     },
   },
 });
 
-export const { toggle } = loginSlice.actions;
+export const { toggle_login } = loginSlice.actions;
 
 export default loginSlice.reducer;

@@ -94,6 +94,14 @@ const styles: { [key: string]: React.CSSProperties } = {
     borderRadius: 16,
     gap: 4,
   },
+  button_baseline: {
+    width: "8rem",
+    height: 32,
+    border: "none",
+    padding: 8,
+    borderRadius: 16,
+    margin: 4,
+  },
   logout_button: {
     backgroundColor: "#0b2322",
     width: "30vh",

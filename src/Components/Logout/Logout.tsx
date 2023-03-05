@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { toggle } from "../../Features/Login/LoginSlice";
+import { toggle_login } from "../../Features/Login/LoginSlice";
 import { Button } from "@mui/material";
 import styles from "../../styles";
 import { useNavigate } from "react-router-dom";
@@ -19,7 +19,7 @@ export default function Logout(props: props) {
   const navigate = useNavigate();
 
   async function logout() {
-    await dispatch(toggle());
+    await dispatch(toggle_login());
     navigate("/");
   }
 

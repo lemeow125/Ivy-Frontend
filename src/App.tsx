@@ -8,6 +8,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Store from "./Plugins/Redux/Store/Store";
 import { Provider } from "react-redux";
 import Inventory from "./Routes/Inventory/Inventory";
+import Login from "./Routes/Login/Login";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,14 @@ const router = createBrowserRouter([
     element: (
       <Container>
         <Logs />
+      </Container>
+    ),
+  },
+  {
+    path: "/Login",
+    element: (
+      <Container>
+        <Login />
       </Container>
     ),
   },
