@@ -32,7 +32,7 @@ export default function Logout(props: props) {
         style={styles.logout_button}
       >
         {props.children}
-        <p style={styles.text}>Log Out</p>
+        <p style={{ ...styles.text_white, ...styles.text_S }}>Log Out</p>
       </Button>
     </div>
   );

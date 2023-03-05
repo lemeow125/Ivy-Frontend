@@ -7,7 +7,7 @@ export default function Error() {
     <div style={styles.content_center}>
       <div style={{ ...styles.content_column, ...{ alignItems: "center" } }}>
         <NotFoundIcon size={256} color="#a44141" />
-        <p style={styles.text}>Could not find the requested page</p>
+        <p style={{ ...styles.text_red, ...styles.text_L }}>Page Not Found</p>
       </div>
     </div>
   );

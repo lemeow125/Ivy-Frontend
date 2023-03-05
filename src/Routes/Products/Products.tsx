@@ -5,8 +5,8 @@ import ProductsIcon from "../../Components/Icons/ProductsIcon/ProductsIcon";
 import AddIcon from "../../Components/Icons/AddIcon/AddIcon";
 import { Button, Switch } from "@mui/material";
 import { SampleProducts } from "../../Components/SampleData/SampleData";
-import TableView from "../../Components/Products/TableView/TableView";
-import BlobView from "../../Components/Products/BlobView/BlobView";
+import TableView from "../../Components/ProductsPage/TableView/TableView";
+import BlobView from "../../Components/ProductsPage/BlobView/BlobView";
 
 export default function Products() {
   const navigate = useNavigate();
@@ -24,7 +24,9 @@ export default function Products() {
         <div style={{ ...styles.content_row, ...{ flex: 1 } }}>
           <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
             <ProductsIcon size={64} color="white" />
-            <h1 style={styles.text_large}>Products</h1>
+            <h1 style={{ ...styles.text_white, ...styles.text_XL }}>
+              Products
+            </h1>
           </div>
           <div
             style={{
@@ -32,20 +34,20 @@ export default function Products() {
               ...{ flex: 1, justifyContent: "flex-end" },
             }}
           >
+            <Switch onClick={() => toggleTableView(!tableView)} />
             <Button
               onClick={() => navigate("/Products/AddProduct")}
               style={styles.button_add_product}
             >
               <AddIcon size={32} color="white" />
-              <p style={styles.text_medium}>Add Product</p>
+              <p style={{ ...styles.text_white, ...styles.text_M }}>
+                Add Product
+              </p>
             </Button>
           </div>
         </div>
       </div>
-      <div style={styles.content_row}>
-        <Switch onClick={() => toggleTableView(!tableView)} />
-        <p style={styles.text_small}>View Type</p>
-      </div>
+
       {view()}
     </div>
   );

@@ -8,7 +8,7 @@ export default function Header() {
     <div style={styles.header_wrapper}>
       <div style={styles.header_left}>
         <AppLogo size={64} color="#80b38b" />
-        <p style={styles.logo_title}>Ivy</p>
+        <p style={styles.logo_text}>Ivy</p>
       </div>
       <div style={styles.header_right}>
         <Login />

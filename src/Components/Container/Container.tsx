@@ -14,7 +14,10 @@ export default function Container(props: props) {
       <div style={{ width: "15%", position: "fixed" }}>
         <Sidebar />
       </div>
-      <div style={styles.route_wrapper}>{props.children}</div>
+      <div style={styles.route_wrapper}>
+        {props.children}
+        <div style={{ padding: 64 }} />
+      </div>
     </div>
   );
 }

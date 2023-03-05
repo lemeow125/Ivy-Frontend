@@ -7,16 +7,14 @@ export interface props {
 export default function RecentlyAddedIcon(props: props) {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="icon icon-tabler icon-tabler-book-upload"
       width={props.size + "px"}
       height={props.size + "px"}
       viewBox="0 0 24 24"
-      stroke-width="1"
+      strokeWidth="1"
       stroke={props.color}
       fill="none"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
       <path d="M14 20h-8a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12v5"></path>

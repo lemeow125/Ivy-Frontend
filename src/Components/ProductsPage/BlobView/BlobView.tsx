@@ -22,11 +22,13 @@ export default function BlobView({ Products }: ProductList) {
         >
           <div style={styles.content_row}>
             <ProductIcon size={4} color="white" />{" "}
-            <p style={styles.text}>{row.name}</p>
+            <p style={{ ...styles.text_white, ...styles.text_L }}>{row.name}</p>
           </div>
 
-          <p style={styles.text}>ID: {row.id}</p>
-          <p style={styles.text_small}>Last Modified: {row.last_modified}</p>
+          <p style={{ ...styles.text_white, ...styles.text_M }}>ID: {row.id}</p>
+          <p style={{ ...styles.text_white, ...styles.text_S }}>
+            Last Modified: {row.last_modified}
+          </p>
         </div>
       ))}
     </div>

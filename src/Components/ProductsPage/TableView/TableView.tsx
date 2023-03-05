@@ -1,6 +1,5 @@
 import * as React from "react";
 import {
-  Button,
   Table,
   TableBody,
   TableCell,
@@ -22,9 +21,15 @@ export default function TableView({ Products }: ProductList) {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell style={styles.text}>Product ID</TableCell>
-            <TableCell style={styles.text}>Product</TableCell>
-            <TableCell style={styles.text}>Last Modified</TableCell>
+            <TableCell style={{ ...styles.text_white, ...styles.text_M }}>
+              Product ID
+            </TableCell>
+            <TableCell style={{ ...styles.text_white, ...styles.text_M }}>
+              Product
+            </TableCell>
+            <TableCell style={{ ...styles.text_white, ...styles.text_M }}>
+              Last Modified
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -33,9 +38,15 @@ export default function TableView({ Products }: ProductList) {
               key={row.id}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
-              <TableCell style={styles.text}>{row.id}</TableCell>
-              <TableCell style={styles.text}>{row.name}</TableCell>
-              <TableCell style={styles.text}>{row.last_modified}</TableCell>
+              <TableCell style={{ ...styles.text_white, ...styles.text_S }}>
+                {row.id}
+              </TableCell>
+              <TableCell style={{ ...styles.text_white, ...styles.text_S }}>
+                {row.name}
+              </TableCell>
+              <TableCell style={{ ...styles.text_white, ...styles.text_S }}>
+                {row.last_modified}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

@@ -7,16 +7,14 @@ export interface props {
 export default function AppLogo(props: props) {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="icon icon-tabler icon-tabler-plant-2"
       width={props.size + "px"}
       height={props.size + "px"}
       viewBox="0 0 24 24"
-      stroke-width="2"
+      strokeWidth="2"
       stroke={props.color}
       fill="none"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
       <path d="M2 9a10 10 0 1 0 20 0"></path>

@@ -20,7 +20,7 @@ export default function SidebarButton(props: props) {
         style={styles.sidebar_button}
       >
         {props.children}
-        <p style={styles.text}>{props.name}</p>
+        <p style={{ ...styles.text_white, ...styles.text_S }}>{props.name}</p>
       </Button>
     </div>
   );

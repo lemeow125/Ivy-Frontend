@@ -7,54 +7,48 @@ const styles: { [key: string]: React.CSSProperties } = {
     height: "100%",
     backgroundColor: "#0b2322",
   },
-  text_tiny: {
-    fontSize: "0.6vw",
-    color: "white",
-    fontWeight: "bold",
-  },
-  text_small: {
-    fontSize: "0.8vw",
-    color: "white",
-    fontWeight: "bold",
-  },
-  text: {
-    fontSize: "1.3vw",
-    color: "white",
-    fontWeight: "bold",
-  },
-  text_medium: {
-    fontSize: "1.2vw",
-    color: "white",
-    fontWeight: "bold",
-  },
-  text_large: {
-    fontSize: "2.2vw",
-    color: "white",
-    fontWeight: "bold",
-  },
-  text_extra_large: {
-    fontSize: "3.2vw",
+  /*
+  Font Sizes
+  Extra-Large: 2rem
+  Large: 1.6rem
+  Medium: 1.2rem
+  Small: 1rem
+  Tiny: 0.8rem
+   */
+  text_white: {
     color: "white",
     fontWeight: "bold",
   },
   text_red: {
-    fontSize: "1.3vw",
     color: "#a44141",
     fontWeight: "bold",
   },
   text_orange: {
-    fontSize: "1.3vw",
     color: "#c57331",
     fontWeight: "bold",
   },
   text_green: {
-    fontSize: "1.3vw",
     color: "#80b28a",
     fontWeight: "bold",
   },
-  logo_title: {
+  text_XL: {
+    fontSize: "2rem",
+  },
+  text_L: {
+    fontSize: "1.6rem",
+  },
+  text_M: {
+    fontSize: "1.2rem",
+  },
+  text_S: {
+    fontSize: "1rem",
+  },
+  text_XS: {
+    fontSize: "0.8rem",
+  },
+  logo_text: {
     color: "#80b38b",
-    fontSize: 26,
+    fontSize: "2rem",
     fontWeight: "bold",
   },
   header_wrapper: {
@@ -130,6 +124,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     display: "flex",
     flexDirection: "column",
     backgroundColor: "#1d3b33",
+    alignSelf: "stretch",
     borderRadius: 8,
     paddingLeft: 16,
     paddingRight: 16,

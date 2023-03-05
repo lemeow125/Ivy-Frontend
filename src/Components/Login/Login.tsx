@@ -17,7 +17,9 @@ export default function Login() {
   }
 
   if (logged_in) {
-    return <p style={styles.text}>Welcome Jophiel</p>;
+    return (
+      <p style={{ ...styles.text_white, ...styles.text_M }}>Welcome Jophiel</p>
+    );
   } else {
     return (
       <div>
@@ -27,7 +29,7 @@ export default function Login() {
           variant="contained"
           style={styles.login_button}
         >
-          <p style={styles.text}>Login</p>
+          <p style={{ ...styles.text, ...styles.text_M }}>Login</p>
         </Button>
       </div>
     );

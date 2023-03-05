@@ -7,15 +7,14 @@ export interface props {
 export default function ProductIcon(props: props) {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
       width={props.size + "px"}
       height={props.size + "px"}
       viewBox="0 0 24 24"
-      stroke-width="2"
+      strokeWidth="2"
       stroke={props.color}
       fill="none"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
       <path d="M7.05 11.293l4.243 -4.243a2 2 0 0 1 2.828 0l2.829 2.83a2 2 0 0 1 0 2.828l-4.243 4.243a2 2 0 0 1 -2.828 0l-2.829 -2.831a2 2 0 0 1 0 -2.828z"></path>
