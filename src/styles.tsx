@@ -77,7 +77,7 @@ const styles: { [key: string]: React.CSSProperties } = {
   },
   login_button: {
     backgroundColor: "#9e8500",
-    width: "120%",
+    width: "8rem",
     height: 32,
     border: "none",
     padding: 8,
@@ -87,7 +87,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     backgroundColor: "#80b38b",
     display: "flex",
     flexDirection: "row",
-    width: "384px",
+    width: "14rem",
     height: "64px",
     border: "none",
     padding: 8,
