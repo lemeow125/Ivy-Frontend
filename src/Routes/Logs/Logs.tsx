@@ -12,18 +12,11 @@ import {
 import { SampleLogData } from "../../Components/SampleData/SampleData";
 
 export default function Logs() {
-  function change_color(amount: number) {
-    if (amount > 0) {
-      return <TableCell style={styles.text_green}>{amount}</TableCell>;
-    } else {
-      return <TableCell style={styles.text_red}>{amount}</TableCell>;
-    }
-  }
   return (
     <div style={{ margin: 32, height: "100%" }}>
       <div style={styles.flex_row}>
         <LogsIcon size={64} color="white" />
-        <h1 style={styles.text_large}>Logs</h1>
+        <h1 style={{ ...styles.text_white, ...styles.text_XL }}>Logs</h1>
       </div>
       <TableContainer
         style={{
@@ -34,11 +27,21 @@ export default function Logs() {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell style={styles.text}>Log ID</TableCell>
-              <TableCell style={styles.text}>Product ID</TableCell>
-              <TableCell style={styles.text}>Product</TableCell>
-              <TableCell style={styles.text}>Amount Change</TableCell>
-              <TableCell style={styles.text}>Timestamp</TableCell>
+              <TableCell style={{ ...styles.text_white, ...styles.text_M }}>
+                Log ID
+              </TableCell>
+              <TableCell style={{ ...styles.text_white, ...styles.text_M }}>
+                Product ID
+              </TableCell>
+              <TableCell style={{ ...styles.text_white, ...styles.text_M }}>
+                Product
+              </TableCell>
+              <TableCell style={{ ...styles.text_white, ...styles.text_M }}>
+                Amount Change
+              </TableCell>
+              <TableCell style={{ ...styles.text_white, ...styles.text_M }}>
+                Timestamp
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -47,11 +50,28 @@ export default function Logs() {
                 key={row.id}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
-                <TableCell style={styles.text}>{row.id}</TableCell>
-                <TableCell style={styles.text}>{row.p_id}</TableCell>
-                <TableCell style={styles.text}>{row.p_name}</TableCell>
-                {change_color(row.amount_changed)}
-                <TableCell style={styles.text}>{row.timestamp}</TableCell>
+                <TableCell style={{ ...styles.text_white, ...styles.text_S }}>
+                  {row.id}
+                </TableCell>
+                <TableCell style={{ ...styles.text_white, ...styles.text_S }}>
+                  {row.p_id}
+                </TableCell>
+                <TableCell style={{ ...styles.text_white, ...styles.text_S }}>
+                  {row.p_name}
+                </TableCell>
+                <TableCell
+                  style={{
+                    ...{
+                      color: row.amount_changed < 0 ? "#a44141" : "#80b28a",
+                    },
+                    ...styles.text_S,
+                  }}
+                >
+                  {row.amount_changed}
+                </TableCell>
+                <TableCell style={{ ...styles.text_white, ...styles.text_S }}>
+                  {row.timestamp}
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
