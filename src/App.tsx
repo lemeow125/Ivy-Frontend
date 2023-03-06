@@ -11,6 +11,7 @@ import Inventory from "./Routes/Inventory/Inventory";
 import Login from "./Routes/Login/Login";
 import Product from "./Routes/Product/Product";
 import Activation from "./Routes/Activation/Activation";
+import AddProduct from "./Routes/AddProduct/AddProduct";
 
 const router = createBrowserRouter([
   {
@@ -71,6 +72,14 @@ const router = createBrowserRouter([
     element: (
       <Container>
         <Activation />
+      </Container>
+    ),
+  },
+  {
+    path: "/AddProduct",
+    element: (
+      <Container>
+        <AddProduct />
       </Container>
     ),
   },

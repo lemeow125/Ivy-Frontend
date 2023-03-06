@@ -4,13 +4,11 @@ import { useNavigate } from "react-router-dom";
 import ProductsIcon from "../../Components/Icons/ProductsIcon/ProductsIcon";
 import AddIcon from "../../Components/Icons/AddIcon/AddIcon";
 import { Button } from "@mui/material";
-import { SampleProducts } from "../../Components/SampleData/SampleData";
-import ViewManager from "../../Components/ProductsPage/ViewManager";
 import { Navigate } from "react-router-dom";
 import { LoginState } from "../../Interfaces/Interfaces";
 import { useSelector } from "react-redux";
 
-export default function Products() {
+export default function AddProduct() {
   const navigate = useNavigate();
   const logged_in = useSelector((state: LoginState) => state.logged_in.value);
   if (!logged_in) {
@@ -18,12 +16,12 @@ export default function Products() {
   }
   return (
     <div>
-      <div style={styles.content_row}>
+      <div style={styles.conter_center}>
         <div style={{ ...styles.content_row, ...{ flex: 1 } }}>
           <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-            <ProductsIcon size={64} color="white" />
+            <AddIcon size={64} color="white" />
             <h1 style={{ ...styles.text_white, ...styles.text_XL }}>
-              Products
+              Add Product
             </h1>
           </div>
           <div
@@ -31,20 +29,16 @@ export default function Products() {
               ...styles.content_row,
               ...{ justifyContent: "flex-end", flex: 1 },
             }}
-          >
-            <Button
-              onClick={() => navigate("/AddProduct")}
-              style={styles.button_add_product}
-            >
-              <AddIcon size={32} color="white" />
-              <p style={{ ...styles.text_white, ...styles.text_M }}>
-                Add Product
-              </p>
-            </Button>
-          </div>
+          ></div>
         </div>
       </div>
-      <ViewManager Products={SampleProducts} />
+      <Button
+        onClick={() => navigate("/Products/AddProduct")}
+        style={styles.button_add_product}
+      >
+        <AddIcon size={32} color="white" />
+        <p style={{ ...styles.text_white, ...styles.text_M }}>Add Product</p>
+      </Button>
     </div>
   );
 }

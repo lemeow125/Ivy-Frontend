@@ -5,6 +5,9 @@ import { Button } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { Navigate } from "react-router-dom";
+import { LoginState } from "../../Interfaces/Interfaces";
+import { useSelector } from "react-redux";
 
 import { UserInfo, UserLogin } from "../../Components/Api/Api";
 import { toggle_login } from "../../Features/Redux/Slices/Login/LoginSlice";
@@ -18,6 +21,10 @@ export default function Login() {
     password: "",
   });
   const [error, setError] = useState("");
+  const logged_in = useSelector((state: LoginState) => state.logged_in.value);
+  if (logged_in) {
+    return <Navigate to="/" replace />;
+  }
   return (
     <div>
       <div
