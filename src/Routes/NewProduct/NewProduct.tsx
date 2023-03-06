@@ -41,8 +41,11 @@ export default function NewProduct() {
               Product Name
             </p>
             <input
-              style={{ width: "32rem" }}
-              onChange={(e: { target: { value: any } }) => {
+              style={{
+                ...{ width: "32rem", height: "2rem" },
+                ...styles.text_S,
+              }}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 setProduct(e.target.value);
               }}
               maxLength={20}
