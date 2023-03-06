@@ -11,13 +11,15 @@ import {
 } from "@mui/material";
 import { SampleInventoryData } from "../../Components/SampleData/SampleData";
 import StockRenderer from "../../Components/InventoryPage/StockRenderer/StockRenderer";
+import LoginChecker from "../../Components/LoginChecker/LoginChecker";
 
 export default function Inventory() {
   return (
-    <div style={{ margin: 32, height: "100%" }}>
+    <div style={{ height: "100%" }}>
+      <LoginChecker />
       <div style={styles.content_row}>
         <InventoryIcon size={64} color="white" />
-        <h1 style={{ ...styles.text_white, ...styles.text_XL }}>Inventory</h1>
+        <p style={{ ...styles.text_white, ...styles.text_XL }}>Inventory</p>
       </div>
       <TableContainer
         style={{

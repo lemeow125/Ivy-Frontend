@@ -9,6 +9,12 @@ import Store from "./Plugins/Redux/Store/Store";
 import { Provider } from "react-redux";
 import Inventory from "./Routes/Inventory/Inventory";
 import Login from "./Routes/Login/Login";
+import Product from "./Routes/Product/Product";
+import Activation from "./Routes/Activation/Activation";
+import { QueryClient, QueryClientProvider } from "react-query";
+import NewProduct from "./Routes/NewProduct/NewProduct";
+
+const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
   {
@@ -56,12 +62,38 @@ const router = createBrowserRouter([
       </Container>
     ),
   },
+  {
+    path: "/Product/:id",
+    element: (
+      <Container>
+        <Product />
+      </Container>
+    ),
+  },
+  {
+    path: "/Activation/:uid/:token",
+    element: (
+      <Container>
+        <Activation />
+      </Container>
+    ),
+  },
+  {
+    path: "/NewProduct",
+    element: (
+      <Container>
+        <NewProduct />
+      </Container>
+    ),
+  },
 ]);
 
 export default function App() {
   return (
     <Provider store={Store}>
-      <RouterProvider router={router} />
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
     </Provider>
   );
 }

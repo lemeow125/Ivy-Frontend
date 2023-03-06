@@ -5,6 +5,9 @@ import { Button } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { Navigate } from "react-router-dom";
+import { LoginState } from "../../Interfaces/Interfaces";
+import { useSelector } from "react-redux";
 
 import { UserInfo, UserLogin } from "../../Components/Api/Api";
 import { toggle_login } from "../../Features/Redux/Slices/Login/LoginSlice";
@@ -18,8 +21,12 @@ export default function Login() {
     password: "",
   });
   const [error, setError] = useState("");
+  const logged_in = useSelector((state: LoginState) => state.logged_in.value);
+  if (logged_in) {
+    return <Navigate to="/" replace />;
+  }
   return (
-    <div style={{ margin: 32, height: "100%" }}>
+    <div>
       <div
         style={{
           display: "flex",
@@ -29,9 +36,9 @@ export default function Login() {
       >
         <div style={styles.flex_row}>
           <LoginIcon size={64} color="white" />
-          <h1 style={{ ...styles.text_white, ...styles.text_XL }}>
+          <p style={{ ...styles.text_white, ...styles.text_XL }}>
             Login to Ivy
-          </h1>
+          </p>
         </div>
         <div style={styles.flex_row}>
           <p style={{ ...styles.text_white, ...styles.text_M }}>Username</p>

@@ -95,7 +95,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     gap: 4,
   },
   button_baseline: {
-    width: "8rem",
+    width: "12rem",
     height: 32,
     border: "none",
     padding: 8,
@@ -152,8 +152,10 @@ const styles: { [key: string]: React.CSSProperties } = {
   },
   content_center: {
     display: "flex",
+    flexDirection: "column",
     justifyContent: "center",
     textAlign: "center",
+    alignItems: "center",
   },
   flex_row: {
     display: "flex",
