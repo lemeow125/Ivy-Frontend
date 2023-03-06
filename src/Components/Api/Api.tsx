@@ -35,15 +35,20 @@ export function GetProduct(id: number) {
     });
 }
 
-export function UpdateProduct(note: UpdateProductParams) {
+export function UpdateProduct(product: UpdateProductParams) {
   const token = JSON.parse(localStorage.getItem("token") || "{}");
   return axios
-    .patch("http://localhost:8000/api/v1/products/" + note.id + "/", note, {
-      headers: {
-        Authorization: "Token " + token,
-      },
-    })
+    .patch(
+      "http://localhost:8000/api/v1/products/" + product.id + "/",
+      product,
+      {
+        headers: {
+          Authorization: "Token " + token,
+        },
+      }
+    )
     .then((response) => {
+      console.log("Product update successful", response.data);
       return response.data;
     })
     .catch((error) => {

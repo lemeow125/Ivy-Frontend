@@ -6,6 +6,7 @@ export interface Product {
   id: number;
   name: string;
   date_added: string;
+  quantity: number;
 }
 
 // Redux Interfaces
@@ -63,5 +64,5 @@ export interface AddProductParams {
 export interface UpdateProductParams {
   id: number;
   name: string;
-  quantity: string;
+  quantity: number;
 }

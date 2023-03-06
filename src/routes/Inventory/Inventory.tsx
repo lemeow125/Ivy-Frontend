@@ -12,8 +12,59 @@ import {
 import { SampleInventoryData } from "../../Components/SampleData/SampleData";
 import StockRenderer from "../../Components/InventoryPage/StockRenderer/StockRenderer";
 import LoginChecker from "../../Components/LoginChecker/LoginChecker";
+import { GetProducts, UpdateProduct } from "../../Components/Api/Api";
+import { useMutation, useQuery, useQueryClient } from "react-query";
+import RowRenderer from "../../Components/InventoryPage/RowRenderer/RowRenderer";
 
 export default function Inventory() {
+  const {
+    data: products,
+    isLoading,
+    error,
+  } = useQuery("products", GetProducts, { retry: 0 });
+
+  if (isLoading) {
+    return (
+      <div>
+        <LoginChecker />
+        <div style={styles.content_row}>
+          <div style={{ ...styles.content_row, ...{ flex: 1 } }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+              <InventoryIcon size={64} color="white" />
+              <p style={{ ...styles.text_white, ...styles.text_XL }}>
+                Inventory
+              </p>
+            </div>
+          </div>
+        </div>
+        <div style={{ ...styles.content_column, ...{ alignItems: "center" } }}>
+          <p style={{ ...styles.text_white, ...styles.text_L }}>
+            Loading inventory...
+          </p>
+        </div>
+      </div>
+    );
+  } else if (error) {
+    return (
+      <div>
+        <div style={styles.content_row}>
+          <div style={{ ...styles.content_row, ...{ flex: 1 } }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+              <InventoryIcon size={64} color="white" />
+              <p style={{ ...styles.text_white, ...styles.text_XL }}>
+                Inventory
+              </p>
+            </div>
+          </div>
+        </div>
+        <div style={{ ...styles.content_column, ...{ alignItems: "center" } }}>
+          <p style={{ ...styles.text_red, ...styles.text_L }}>
+            Error loading inventory
+          </p>
+        </div>
+      </div>
+    );
+  }
   return (
     <div style={{ height: "100%" }}>
       <LoginChecker />
@@ -41,22 +92,7 @@ export default function Inventory() {
               </TableCell>
             </TableRow>
           </TableHead>
-          <TableBody>
-            {SampleInventoryData.map((row) => (
-              <TableRow
-                key={row.id}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell style={{ ...styles.text_white, ...styles.text_S }}>
-                  {row.id}
-                </TableCell>
-                <TableCell style={{ ...styles.text_white, ...styles.text_S }}>
-                  {row.name}
-                </TableCell>
-                {StockRenderer(row.in_stock)}
-              </TableRow>
-            ))}
-          </TableBody>
+          <RowRenderer Products={products} />
         </Table>
       </TableContainer>
     </div>
