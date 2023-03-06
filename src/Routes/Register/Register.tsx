@@ -42,7 +42,7 @@ export default function Register() {
           <p style={{ ...styles.text_white, ...styles.text_L }}>Username</p>
           <div style={{ margin: 4 }} />
           <input
-            style={{ ...styles.text_white, ...styles.text_L }}
+            style={styles.text_L}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
               setUser({ ...user, username: e.target.value });
             }}
@@ -53,7 +53,7 @@ export default function Register() {
           <p style={{ ...styles.text_white, ...styles.text_L }}>Password</p>
           <div style={{ margin: 4 }} />
           <input
-            style={{ ...styles.text_white, ...styles.text_L }}
+            style={styles.text_L}
             type="password"
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
               setUser({ ...user, password: e.target.value });
