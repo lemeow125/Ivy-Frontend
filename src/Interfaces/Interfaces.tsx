@@ -15,6 +15,12 @@ export interface LoginState {
   };
 }
 
+export interface OldSessionState {
+  old_session_checked: {
+    value: boolean;
+  };
+}
+
 export interface LoggedInUserState {
   logged_in_user: {
     value: {
