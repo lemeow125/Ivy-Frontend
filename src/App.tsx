@@ -11,7 +11,10 @@ import Inventory from "./Routes/Inventory/Inventory";
 import Login from "./Routes/Login/Login";
 import Product from "./Routes/Product/Product";
 import Activation from "./Routes/Activation/Activation";
-import AddProduct from "./Routes/AddProduct/AddProduct";
+import { QueryClient, QueryClientProvider } from "react-query";
+import NewProduct from "./Routes/NewProduct/NewProduct";
+
+const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
   {
@@ -76,10 +79,10 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/AddProduct",
+    path: "/NewProduct",
     element: (
       <Container>
-        <AddProduct />
+        <NewProduct />
       </Container>
     ),
   },
@@ -88,7 +91,9 @@ const router = createBrowserRouter([
 export default function App() {
   return (
     <Provider store={Store}>
-      <RouterProvider router={router} />
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
     </Provider>
   );
 }

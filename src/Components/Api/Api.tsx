@@ -6,11 +6,7 @@ import {
   LoginParams,
   RegistrationParams,
 } from "../../Interfaces/Interfaces";
-import { useDispatch } from "react-redux";
-import { SetUser } from "../../Features/Redux/Slices/LoggedInUserSlice/LoggedInUserSlice";
-import { toggle_login } from "../../Features/Redux/Slices/Login/LoginSlice";
-
-// Note APIs
+// Product APIs
 
 export function GetProducts() {
   const token = JSON.parse(localStorage.getItem("token") || "{}");
@@ -25,7 +21,7 @@ export function GetProducts() {
     });
 }
 
-export function GetNote(id: number) {
+export function GetProduct(id: number) {
   const token = JSON.parse(localStorage.getItem("token") || "{}");
   return axios
     .get("http://localhost:8000/api/v1/products/" + id + "/", {
@@ -156,7 +152,8 @@ export async function CheckSavedSession() {
       console.log("Previous session found");
       return true;
     } else {
-      console.log("Previous session found but expired");
+      console.log("Previous session found but expired. Clearing token");
+      localStorage.removeItem("token");
       return false;
     }
   }

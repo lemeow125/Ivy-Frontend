@@ -152,6 +152,7 @@ const styles: { [key: string]: React.CSSProperties } = {
   },
   content_center: {
     display: "flex",
+    flexDirection: "column",
     justifyContent: "center",
     textAlign: "center",
   },

@@ -52,7 +52,6 @@ export interface ActivationParams {
 
 export interface AddProductParams {
   name: string;
-  quantity: string;
 }
 
 export interface UpdateProductParams {
