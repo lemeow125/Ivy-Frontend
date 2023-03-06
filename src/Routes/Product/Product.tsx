@@ -1,12 +1,14 @@
 import * as React from "react";
 import styles from "../../styles";
 import { Button } from "@mui/material";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import LoginChecker from "../../Components/LoginChecker/LoginChecker";
-import { GetProduct } from "../../Components/Api/Api";
-import { useQuery } from "react-query";
+import { DeleteProduct, GetProduct } from "../../Components/Api/Api";
+import { useMutation, useQuery, useQueryClient } from "react-query";
+import ProductIcon from "../../Components/Icons/ProductIcon/ProductIcon";
 
 export default function Product() {
+  const navigate = useNavigate();
   let { id } = useParams();
   const {
     data: product,
@@ -16,17 +18,38 @@ export default function Product() {
     queryKey: ["product", Number(id)],
     queryFn: () => GetProduct(Number(id)),
   });
+  const queryClient = useQueryClient();
+  const mutation = useMutation({
+    mutationFn: DeleteProduct,
+    onSuccess: () => {
+      queryClient.invalidateQueries("products");
+    },
+  });
   if (isLoading) {
     return (
       <div>
         <LoginChecker />
-        <h1 style={{ ...styles.text_white, ...styles.text_XL }}>
+        <p style={{ ...styles.text_white, ...styles.text_XL }}>
           Individual Product View for id {id}
-        </h1>
+        </p>
         <div style={styles.content_center}>
-          <h1 style={{ ...styles.text_white, ...styles.text_L }}>
+          <p style={{ ...styles.text_white, ...styles.text_L }}>
             Loading product...
-          </h1>
+          </p>
+        </div>
+      </div>
+    );
+  } else if (error) {
+    return (
+      <div>
+        <LoginChecker />
+        <p style={{ ...styles.text_white, ...styles.text_XL }}>
+          Individual Product View for id {id}
+        </p>
+        <div style={styles.content_center}>
+          <p style={{ ...styles.text_red, ...styles.text_L }}>
+            Error loading product
+          </p>
         </div>
       </div>
     );
@@ -34,24 +57,32 @@ export default function Product() {
   return (
     <div>
       <LoginChecker />
-      <h1 style={{ ...styles.text_white, ...styles.text_XL }}>
-        Individual Product View for id {id}
-      </h1>
+      <div style={styles.content_row}>
+        <ProductIcon size={64} color="white" />
+        <p style={{ ...styles.text_white, ...styles.text_XL }}>Product View</p>
+      </div>
+
       <div style={styles.content_center}>
-        <h1 style={{ ...styles.text_white, ...styles.text_L }}>
-          Product Name: {product.name}
-        </h1>
-        <h1 style={{ ...styles.text_white, ...styles.text_L }}>
-          Date Added: {product.date_added}
-        </h1>
+        <div style={{ ...styles.content_column, ...styles.content_column }}>
+          <p style={{ ...styles.text_white, ...styles.text_L }}>
+            Product Name: {product.name}
+          </p>
+          <p style={{ ...styles.text_white, ...styles.text_L }}>
+            Date Added: {product.date_added}
+          </p>
+        </div>
         <Button
           style={{
             ...styles.button_baseline,
-            ...{ backgroundColor: "#80b38b", justifySelf: "center" },
+            ...{ backgroundColor: "#a44141" },
+          }}
+          onClick={() => {
+            mutation.mutate(product.id);
+            navigate("/Products");
           }}
           variant="contained"
         >
-          Login
+          Delete Product
         </Button>
       </div>
     </div>

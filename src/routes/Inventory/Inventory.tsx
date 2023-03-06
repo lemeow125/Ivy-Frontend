@@ -19,7 +19,7 @@ export default function Inventory() {
       <LoginChecker />
       <div style={styles.content_row}>
         <InventoryIcon size={64} color="white" />
-        <h1 style={{ ...styles.text_white, ...styles.text_XL }}>Inventory</h1>
+        <p style={{ ...styles.text_white, ...styles.text_XL }}>Inventory</p>
       </div>
       <TableContainer
         style={{

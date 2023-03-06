@@ -25,16 +25,16 @@ export default function Products() {
           <div style={{ ...styles.content_row, ...{ flex: 1 } }}>
             <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
               <ProductsIcon size={64} color="white" />
-              <h1 style={{ ...styles.text_white, ...styles.text_XL }}>
+              <p style={{ ...styles.text_white, ...styles.text_XL }}>
                 Products
-              </h1>
+              </p>
             </div>
           </div>
         </div>
         <div style={{ ...styles.content_column, ...{ alignItems: "center" } }}>
-          <h1 style={{ ...styles.text_white, ...styles.text_L }}>
+          <p style={{ ...styles.text_white, ...styles.text_L }}>
             Loading products...
-          </h1>
+          </p>
         </div>
       </div>
     );
@@ -45,16 +45,16 @@ export default function Products() {
           <div style={{ ...styles.content_row, ...{ flex: 1 } }}>
             <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
               <ProductsIcon size={64} color="white" />
-              <h1 style={{ ...styles.text_white, ...styles.text_XL }}>
+              <p style={{ ...styles.text_white, ...styles.text_XL }}>
                 Products
-              </h1>
+              </p>
             </div>
           </div>
         </div>
         <div style={{ ...styles.content_column, ...{ alignItems: "center" } }}>
-          <h1 style={{ ...styles.text_red, ...styles.text_L }}>
+          <p style={{ ...styles.text_red, ...styles.text_L }}>
             Error loading products
-          </h1>
+          </p>
         </div>
       </div>
     );
@@ -65,9 +65,7 @@ export default function Products() {
         <div style={{ ...styles.content_row, ...{ flex: 1 } }}>
           <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
             <ProductsIcon size={64} color="white" />
-            <h1 style={{ ...styles.text_white, ...styles.text_XL }}>
-              Products
-            </h1>
+            <p style={{ ...styles.text_white, ...styles.text_XL }}>Products</p>
           </div>
           <div
             style={{

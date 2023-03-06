@@ -18,7 +18,7 @@ export default function Logs() {
       <LoginChecker />
       <div style={styles.flex_row}>
         <LogsIcon size={64} color="white" />
-        <h1 style={{ ...styles.text_white, ...styles.text_XL }}>Logs</h1>
+        <p style={{ ...styles.text_white, ...styles.text_XL }}>Logs</p>
       </div>
       <TableContainer
         style={{

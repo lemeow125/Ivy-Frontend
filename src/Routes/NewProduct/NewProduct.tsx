@@ -25,9 +25,7 @@ export default function NewProduct() {
       <div style={{ ...styles.content_row, ...{ flex: 1 } }}>
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
           <AddIcon size={64} color="white" />
-          <h1 style={{ ...styles.text_white, ...styles.text_XL }}>
-            Add Product
-          </h1>
+          <p style={{ ...styles.text_white, ...styles.text_XL }}>Add Product</p>
         </div>
       </div>
       <div style={styles.content_center}>

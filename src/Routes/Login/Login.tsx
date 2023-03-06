@@ -36,9 +36,9 @@ export default function Login() {
       >
         <div style={styles.flex_row}>
           <LoginIcon size={64} color="white" />
-          <h1 style={{ ...styles.text_white, ...styles.text_XL }}>
+          <p style={{ ...styles.text_white, ...styles.text_XL }}>
             Login to Ivy
-          </h1>
+          </p>
         </div>
         <div style={styles.flex_row}>
           <p style={{ ...styles.text_white, ...styles.text_M }}>Username</p>
