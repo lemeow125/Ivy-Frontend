@@ -13,6 +13,7 @@ import Product from "./Routes/Product/Product";
 import Activation from "./Routes/Activation/Activation";
 import { QueryClient, QueryClientProvider } from "react-query";
 import NewProduct from "./Routes/NewProduct/NewProduct";
+import Register from "./Routes/Register/Register";
 
 const queryClient = new QueryClient();
 
@@ -83,6 +84,14 @@ const router = createBrowserRouter([
     element: (
       <Container>
         <NewProduct />
+      </Container>
+    ),
+  },
+  {
+    path: "/Register",
+    element: (
+      <Container>
+        <Register />
       </Container>
     ),
   },
