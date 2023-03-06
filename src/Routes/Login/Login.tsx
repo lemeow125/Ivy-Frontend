@@ -6,8 +6,9 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-import { UserLogin } from "../../Components/Api/Api";
-import { toggle_login } from "../../Features/Login/LoginSlice";
+import { UserInfo, UserLogin } from "../../Components/Api/Api";
+import { toggle_login } from "../../Features/Redux/Slices/Login/LoginSlice";
+import { SetUser } from "../../Features/Redux/Slices/LoggedInUserSlice/LoggedInUserSlice";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -68,7 +69,7 @@ export default function Login() {
             });
             if (await UserLogin(user)) {
               await dispatch(toggle_login());
-              // await dispatch(SetUser(await UserInfo()));
+              await dispatch(SetUser(await UserInfo()));
               navigate("/");
             } else {
               setError("Invalid Login");
@@ -89,6 +90,7 @@ export default function Login() {
         >
           Register
         </Button>
+        <p style={{ ...styles.text_red, ...styles.text_M }}>{error}</p>
       </div>
     </div>
   );

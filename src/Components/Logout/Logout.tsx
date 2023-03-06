@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { toggle_login } from "../../Features/Login/LoginSlice";
+import { toggle_login } from "../../Features/Redux/Slices/Login/LoginSlice";
 import { Button } from "@mui/material";
 import styles from "../../styles";
 import { useNavigate } from "react-router-dom";

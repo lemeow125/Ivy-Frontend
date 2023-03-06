@@ -6,6 +6,9 @@ import {
   LoginParams,
   RegistrationParams,
 } from "../../Interfaces/Interfaces";
+import { useDispatch } from "react-redux";
+import { SetUser } from "../../Features/Redux/Slices/LoggedInUserSlice/LoggedInUserSlice";
+import { toggle_login } from "../../Features/Redux/Slices/Login/LoginSlice";
 
 // Note APIs
 
@@ -47,7 +50,7 @@ export function UpdateProduct(note: UpdateProductParams) {
       return response.data;
     })
     .catch((error) => {
-      console.log("Error updating product", error);
+      console.log("Error updating product", error.response);
       return error;
     });
 }
@@ -64,7 +67,7 @@ export function AddProduct(note: AddProductParams) {
       return response.data;
     })
     .catch((error) => {
-      console.log("Error adding product", error);
+      console.log("Error adding product", error.response);
       return error;
     });
 }
@@ -78,7 +81,7 @@ export function DeleteProduct(id: number) {
       },
     })
     .catch((error) => {
-      console.log("Error deleting product", error);
+      console.log("Error deleting product", error.response);
       return error;
     });
 }
@@ -93,7 +96,7 @@ export function UserRegister(register: RegistrationParams) {
       return true;
     })
     .catch((error) => {
-      console.log("Registration failed: " + error);
+      console.log("Registration failed: " + error.response);
       return false;
     });
 }
@@ -110,7 +113,7 @@ export function UserLogin(user: LoginParams) {
       return true;
     })
     .catch((error) => {
-      console.log("Login Failed: " + error);
+      console.log("Login Failed: " + error.response);
       return false;
     });
 }
@@ -126,6 +129,10 @@ export function UserInfo() {
     .then((response) => {
       console.log(response.data);
       return response.data;
+    })
+    .catch((error) => {
+      console.log("Error retrieving user data", error.response);
+      return false;
     });
 }
 
@@ -137,7 +144,22 @@ export function UserActivate(activation: ActivationParams) {
       return true;
     })
     .catch((error) => {
-      console.log("Activation failed: " + error);
+      console.log("Activation failed: " + error.response);
       return false;
     });
+}
+
+export async function CheckSavedSession() {
+  console.log("Checking for saved session by querying user data");
+  if (JSON.parse(localStorage.getItem("token") || "{}")) {
+    if (await UserInfo()) {
+      console.log("Previous session found");
+      return true;
+    } else {
+      console.log("Previous session found but expired");
+      return false;
+    }
+  }
+  console.log("No previous session found");
+  return false;
 }

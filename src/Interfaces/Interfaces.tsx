@@ -14,7 +14,7 @@ export interface LoginState {
 }
 
 export interface LoggedInUserState {
-  LoggedInUser: {
+  logged_in_user: {
     value: {
       email: string;
       id: number;
