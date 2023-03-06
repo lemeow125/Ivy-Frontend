@@ -7,6 +7,7 @@ import { toggle_login } from "../../Features/Redux/Slices/Login/LoginSlice";
 import { SetUser } from "../../Features/Redux/Slices/LoggedInUserSlice/LoggedInUserSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { LoginState } from "../../Interfaces/Interfaces";
+import { useNavigate } from "react-router-dom";
 
 export interface props {
   children: React.ReactNode;
@@ -14,6 +15,7 @@ export interface props {
 
 export default function Container(props: props) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const logged_in = useSelector((state: LoginState) => state.logged_in.value);
   // Function to check for previous login session
   async function CheckPreviousSession() {
@@ -35,7 +37,15 @@ export default function Container(props: props) {
         <Sidebar />
       </div>
       <div style={styles.route_wrapper}>
-        {props.children}
+        <div
+          style={{
+            paddingTop: 16,
+            paddingLeft: 16,
+            paddingRight: 16,
+          }}
+        >
+          {props.children}
+        </div>
         <div style={{ padding: 64 }} />
       </div>
     </div>

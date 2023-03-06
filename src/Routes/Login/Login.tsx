@@ -19,7 +19,7 @@ export default function Login() {
   });
   const [error, setError] = useState("");
   return (
-    <div style={{ margin: 32, height: "100%" }}>
+    <div>
       <div
         style={{
           display: "flex",

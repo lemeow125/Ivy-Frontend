@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 export default function Product() {
   let { id } = useParams();
   return (
-    <div style={{ margin: 32, height: "100%" }}>
+    <div>
       <h1 style={{ ...styles.text_white, ...styles.text_XL }}>
         Individual Product View for id {id}
       </h1>

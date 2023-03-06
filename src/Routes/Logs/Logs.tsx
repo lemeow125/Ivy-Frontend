@@ -13,7 +13,7 @@ import { SampleLogData } from "../../Components/SampleData/SampleData";
 
 export default function Logs() {
   return (
-    <div style={{ margin: 32, height: "100%" }}>
+    <div>
       <div style={styles.flex_row}>
         <LogsIcon size={64} color="white" />
         <h1 style={{ ...styles.text_white, ...styles.text_XL }}>Logs</h1>

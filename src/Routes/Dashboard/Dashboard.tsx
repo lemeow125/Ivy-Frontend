@@ -11,7 +11,7 @@ import RecentlyAddedIcon from "../../Components/Icons/RecentlyAddedIcon/Recently
 
 export default function Dashboard() {
   return (
-    <div style={{ margin: 32, height: "100%" }}>
+    <div>
       <div style={styles.flex_row}>
         <HomeIcon size={64} color="white" />
         <h1 style={{ ...styles.text_white, ...styles.text_XL }}>Dashboard</h1>

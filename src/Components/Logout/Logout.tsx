@@ -20,6 +20,7 @@ export default function Logout(props: props) {
 
   async function logout() {
     await dispatch(toggle_login());
+    localStorage.removeItem("token");
     navigate("/");
   }
 

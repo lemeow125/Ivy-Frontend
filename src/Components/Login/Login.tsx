@@ -1,5 +1,4 @@
-import { useSelector, useDispatch } from "react-redux";
-import { toggle_login } from "../../Features/Redux/Slices/Login/LoginSlice";
+import { useSelector } from "react-redux";
 import { Button } from "@mui/material";
 import styles from "../../styles";
 import { useNavigate } from "react-router-dom";
@@ -12,12 +11,6 @@ export default function Login() {
     (state: LoggedInUserState) => state.logged_in_user.value
   );
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  async function login() {
-    await dispatch(toggle_login());
-    await console.log("Login State Toggled " + logged_in);
-  }
-
   if (logged_in) {
     return (
       <p style={{ ...styles.text_white, ...styles.text_M }}>

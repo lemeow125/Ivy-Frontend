@@ -14,7 +14,7 @@ import StockRenderer from "../../Components/InventoryPage/StockRenderer/StockRen
 
 export default function Inventory() {
   return (
-    <div style={{ margin: 32, height: "100%" }}>
+    <div style={{ height: "100%" }}>
       <div style={styles.content_row}>
         <InventoryIcon size={64} color="white" />
         <h1 style={{ ...styles.text_white, ...styles.text_XL }}>Inventory</h1>

@@ -10,6 +10,7 @@ import { Provider } from "react-redux";
 import Inventory from "./Routes/Inventory/Inventory";
 import Login from "./Routes/Login/Login";
 import Product from "./Routes/Product/Product";
+import Activation from "./Routes/Activation/Activation";
 
 const router = createBrowserRouter([
   {
@@ -62,6 +63,14 @@ const router = createBrowserRouter([
     element: (
       <Container>
         <Product />
+      </Container>
+    ),
+  },
+  {
+    path: "/Activation/:uid/:token",
+    element: (
+      <Container>
+        <Activation />
       </Container>
     ),
   },

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "../../styles";
 import { useNavigate } from "react-router-dom";
 import ProductsIcon from "../../Components/Icons/ProductsIcon/ProductsIcon";
@@ -10,7 +10,7 @@ import ViewManager from "../../Components/ProductsPage/ViewManager";
 export default function Products() {
   const navigate = useNavigate();
   return (
-    <div style={{ margin: 32, height: "100%" }}>
+    <div>
       <div style={styles.content_row}>
         <div style={{ ...styles.content_row, ...{ flex: 1 } }}>
           <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
