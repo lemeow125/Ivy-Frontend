@@ -5,21 +5,6 @@ import { TableBody, TableRow, TableCell } from "@mui/material";
 import StockRenderer from "../StockRenderer/StockRenderer";
 
 export default function RowRenderer(props: ProductList) {
-  if (props.Products.length === 0) {
-    return (
-      <div
-        style={{
-          alignItems: "center",
-          justifyContent: "center",
-          marginLeft: 12,
-        }}
-      >
-        <p style={{ ...styles.text_white, ...styles.text_L }}>
-          No products yet. Add one!
-        </p>
-      </div>
-    );
-  }
   return (
     <TableBody>
       {props.Products.map((row) => (

@@ -2,6 +2,7 @@ import React from "react";
 import styles from "../../styles";
 import InventoryIcon from "../../Components/Icons/InventoryIcon/InventoryIcon";
 import {
+  Button,
   Table,
   TableBody,
   TableCell,
@@ -15,6 +16,8 @@ import LoginChecker from "../../Components/LoginChecker/LoginChecker";
 import { GetProducts, UpdateProduct } from "../../Components/Api/Api";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import RowRenderer from "../../Components/InventoryPage/RowRenderer/RowRenderer";
+import AddIcon from "../../Components/Icons/AddIcon/AddIcon";
+import { useNavigate } from "react-router-dom";
 
 export default function Inventory() {
   const {
@@ -22,6 +25,7 @@ export default function Inventory() {
     isLoading,
     error,
   } = useQuery("products", GetProducts, { retry: 0 });
+  const navigate = useNavigate();
 
   if (isLoading) {
     return (
@@ -61,6 +65,36 @@ export default function Inventory() {
           <p style={{ ...styles.text_red, ...styles.text_L }}>
             Error loading inventory
           </p>
+        </div>
+      </div>
+    );
+  } else if (products.length === 0) {
+    return (
+      <div style={{ height: "100%" }}>
+        <LoginChecker />
+        <div style={styles.content_row}>
+          <InventoryIcon size={64} color="white" />
+          <p style={{ ...styles.text_white, ...styles.text_XL }}>Inventory</p>
+        </div>
+        <div style={{ ...styles.content_column, ...{ alignItems: "center" } }}>
+          <p
+            style={{
+              ...styles.text_white,
+              ...styles.text_L,
+              ...{ marginLeft: 16 },
+            }}
+          >
+            No products yet. Add one!
+          </p>
+          <Button
+            onClick={() => navigate("/NewProduct")}
+            style={styles.button_add_product}
+          >
+            <AddIcon size={32} color="white" />
+            <p style={{ ...styles.text_white, ...styles.text_M }}>
+              Add Product
+            </p>
+          </Button>
         </div>
       </div>
     );
