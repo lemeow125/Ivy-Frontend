@@ -5,12 +5,14 @@ export interface ProductList {
 export interface Product {
   id: number;
   name: string;
-  last_modified: string;
+  date_added: string;
 }
 
 // Redux Interfaces
 export interface LoginState {
-  Login: { logged_in: boolean };
+  logged_in: {
+    value: boolean;
+  };
 }
 
 export interface LoggedInUserState {

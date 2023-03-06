@@ -2,12 +2,12 @@ export const SampleProducts = [
   {
     id: 1,
     name: "Zidane's Water",
-    last_modified: "2/24/2023 10:05AM",
+    date_added: "2/24/2023 10:05AM",
   },
   {
     id: 2,
     name: "Dan's Beefed Corn",
-    last_modified: "2/25/2023 4:05PM",
+    date_added: "2/25/2023 4:05PM",
   },
 ];
 

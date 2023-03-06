@@ -9,6 +9,7 @@ import Store from "./Plugins/Redux/Store/Store";
 import { Provider } from "react-redux";
 import Inventory from "./Routes/Inventory/Inventory";
 import Login from "./Routes/Login/Login";
+import Product from "./Routes/Product/Product";
 
 const router = createBrowserRouter([
   {
@@ -53,6 +54,14 @@ const router = createBrowserRouter([
     element: (
       <Container>
         <Login />
+      </Container>
+    ),
+  },
+  {
+    path: "/Product/:id",
+    element: (
+      <Container>
+        <Product />
       </Container>
     ),
   },

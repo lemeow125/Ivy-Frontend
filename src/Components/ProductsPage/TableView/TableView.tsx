@@ -9,8 +9,10 @@ import {
 } from "@mui/material";
 import styles from "../../../styles";
 import { ProductList } from "../../../Interfaces/Interfaces";
+import { useNavigate } from "react-router-dom";
 
 export default function TableView({ Products }: ProductList) {
+  const navigate = useNavigate();
   return (
     <TableContainer
       style={{
@@ -28,7 +30,7 @@ export default function TableView({ Products }: ProductList) {
               Product
             </TableCell>
             <TableCell style={{ ...styles.text_white, ...styles.text_M }}>
-              Last Modified
+              Date Added
             </TableCell>
           </TableRow>
         </TableHead>
@@ -36,7 +38,10 @@ export default function TableView({ Products }: ProductList) {
           {Products.map((row) => (
             <TableRow
               key={row.id}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+              sx={{
+                "&:last-child td, &:last-child th": { border: 0 },
+              }}
+              onClick={() => navigate("/Product/" + row.id)}
             >
               <TableCell style={{ ...styles.text_white, ...styles.text_S }}>
                 {row.id}
@@ -45,7 +50,7 @@ export default function TableView({ Products }: ProductList) {
                 {row.name}
               </TableCell>
               <TableCell style={{ ...styles.text_white, ...styles.text_S }}>
-                {row.last_modified}
+                {row.date_added}
               </TableCell>
             </TableRow>
           ))}
