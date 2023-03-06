@@ -11,8 +11,15 @@ import {
 } from "@mui/material";
 import { SampleInventoryData } from "../../Components/SampleData/SampleData";
 import StockRenderer from "../../Components/InventoryPage/StockRenderer/StockRenderer";
+import { Navigate } from "react-router-dom";
+import { LoginState } from "../../Interfaces/Interfaces";
+import { useSelector } from "react-redux";
 
 export default function Inventory() {
+  const logged_in = useSelector((state: LoginState) => state.logged_in.value);
+  if (!logged_in) {
+    return <Navigate to="/Login" replace />;
+  }
   return (
     <div style={{ height: "100%" }}>
       <div style={styles.content_row}>

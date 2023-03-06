@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "../../styles";
 import { useNavigate } from "react-router-dom";
 import ProductsIcon from "../../Components/Icons/ProductsIcon/ProductsIcon";
@@ -6,9 +6,16 @@ import AddIcon from "../../Components/Icons/AddIcon/AddIcon";
 import { Button } from "@mui/material";
 import { SampleProducts } from "../../Components/SampleData/SampleData";
 import ViewManager from "../../Components/ProductsPage/ViewManager";
+import { Navigate } from "react-router-dom";
+import { LoginState } from "../../Interfaces/Interfaces";
+import { useSelector } from "react-redux";
 
 export default function Products() {
   const navigate = useNavigate();
+  const logged_in = useSelector((state: LoginState) => state.logged_in.value);
+  if (!logged_in) {
+    return <Navigate to="/Login" replace />;
+  }
   return (
     <div>
       <div style={styles.content_row}>

@@ -45,12 +45,14 @@ export default function Sidebar() {
             >
               <ProductsIcon size={48} color="white" />
             </SidebarButton>
-
             <SidebarButton
               onClick={() => navigate("/Inventory")}
               name="Inventory"
             >
               <InventoryIcon size={48} color="white" />
+            </SidebarButton>
+            <SidebarButton onClick={() => navigate("/Logs")} name="Logs">
+              <LogsIcon size={48} color="white" />
             </SidebarButton>
           </div>
         </div>

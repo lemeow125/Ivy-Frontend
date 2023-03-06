@@ -10,8 +10,15 @@ import {
   TableRow,
 } from "@mui/material";
 import { SampleLogData } from "../../Components/SampleData/SampleData";
+import { Navigate } from "react-router-dom";
+import { LoginState } from "../../Interfaces/Interfaces";
+import { useSelector } from "react-redux";
 
 export default function Logs() {
+  const logged_in = useSelector((state: LoginState) => state.logged_in.value);
+  if (!logged_in) {
+    return <Navigate to="/Login" replace />;
+  }
   return (
     <div>
       <div style={styles.flex_row}>
