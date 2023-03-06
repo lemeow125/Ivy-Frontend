@@ -33,7 +33,7 @@ export default function BlobView({ Products }: ProductList) {
             onClick={() => navigate("/Product/" + row.id)}
           >
             <div style={styles.content_row}>
-              <ProductIcon size={4} color="white" />{" "}
+              <ProductIcon size={32} color="white" />{" "}
               <p style={{ ...styles.text_white, ...styles.text_L }}>
                 {row.name}
               </p>
