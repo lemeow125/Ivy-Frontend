@@ -30,8 +30,10 @@ export default function Products() {
               </h1>
             </div>
           </div>
+        </div>
+        <div style={{ ...styles.content_column, ...{ alignItems: "center" } }}>
           <h1 style={{ ...styles.text_white, ...styles.text_L }}>
-            Loading Products...
+            Loading products...
           </h1>
         </div>
       </div>
@@ -48,6 +50,8 @@ export default function Products() {
               </h1>
             </div>
           </div>
+        </div>
+        <div style={{ ...styles.content_column, ...{ alignItems: "center" } }}>
           <h1 style={{ ...styles.text_red, ...styles.text_L }}>
             Error loading products
           </h1>
