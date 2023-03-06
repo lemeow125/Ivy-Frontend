@@ -6,6 +6,7 @@ import {
   LoginParams,
   RegistrationParams,
 } from "../../Interfaces/Interfaces";
+
 // Product APIs
 
 export function GetProducts() {

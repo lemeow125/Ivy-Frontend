@@ -11,17 +11,12 @@ import {
 } from "@mui/material";
 import { SampleInventoryData } from "../../Components/SampleData/SampleData";
 import StockRenderer from "../../Components/InventoryPage/StockRenderer/StockRenderer";
-import { Navigate } from "react-router-dom";
-import { LoginState } from "../../Interfaces/Interfaces";
-import { useSelector } from "react-redux";
+import LoginChecker from "../../Components/LoginChecker/LoginChecker";
 
 export default function Inventory() {
-  const logged_in = useSelector((state: LoginState) => state.logged_in.value);
-  if (!logged_in) {
-    return <Navigate to="/Login" replace />;
-  }
   return (
     <div style={{ height: "100%" }}>
+      <LoginChecker />
       <div style={styles.content_row}>
         <InventoryIcon size={64} color="white" />
         <h1 style={{ ...styles.text_white, ...styles.text_XL }}>Inventory</h1>

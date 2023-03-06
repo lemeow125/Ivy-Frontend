@@ -8,10 +8,9 @@ import { LoginState } from "../../Interfaces/Interfaces";
 import { useSelector } from "react-redux";
 import { AddProduct } from "../../Components/Api/Api";
 import { useMutation, useQueryClient } from "react-query";
-
+import LoginChecker from "../../Components/LoginChecker/LoginChecker";
 export default function NewProduct() {
   const navigate = useNavigate();
-  const logged_in = useSelector((state: LoginState) => state.logged_in.value);
   const [product, setProduct] = useState("");
   const queryClient = useQueryClient();
   const mutation = useMutation({
@@ -20,11 +19,9 @@ export default function NewProduct() {
       queryClient.invalidateQueries("products");
     },
   });
-  if (!logged_in) {
-    return <Navigate to="/Login" replace />;
-  }
   return (
     <div>
+      <LoginChecker />
       <div style={{ ...styles.content_row, ...{ flex: 1 } }}>
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
           <AddIcon size={64} color="white" />

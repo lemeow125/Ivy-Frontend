@@ -10,17 +10,12 @@ import {
   TableRow,
 } from "@mui/material";
 import { SampleLogData } from "../../Components/SampleData/SampleData";
-import { Navigate } from "react-router-dom";
-import { LoginState } from "../../Interfaces/Interfaces";
-import { useSelector } from "react-redux";
+import LoginChecker from "../../Components/LoginChecker/LoginChecker";
 
 export default function Logs() {
-  const logged_in = useSelector((state: LoginState) => state.logged_in.value);
-  if (!logged_in) {
-    return <Navigate to="/Login" replace />;
-  }
   return (
     <div>
+      <LoginChecker />
       <div style={styles.flex_row}>
         <LogsIcon size={64} color="white" />
         <h1 style={{ ...styles.text_white, ...styles.text_XL }}>Logs</h1>
