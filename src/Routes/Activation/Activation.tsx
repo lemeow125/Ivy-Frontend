@@ -23,11 +23,11 @@ export default function Activation() {
   if (status === 1) {
     return (
       <div style={{ ...styles.content_column, ...{ alignItems: "center" } }}>
-        <p style={{ ...styles.text_white, ...styles.text_S }}>User ID: {uid}</p>
-        <p style={{ ...styles.text_white, ...styles.text_S }}>
+        <p style={{ ...styles.text_white, ...styles.text_L }}>User ID: {uid}</p>
+        <p style={{ ...styles.text_white, ...styles.text_L }}>
           Activation Token: {token}
         </p>
-        <p style={{ ...styles.text_green, ...styles.text_S }}>
+        <p style={{ ...styles.text_green, ...styles.text_L }}>
           Activation Successful. Please login
         </p>
       </div>
@@ -36,11 +36,11 @@ export default function Activation() {
   if (status === 2) {
     return (
       <div style={{ ...styles.content_column, ...{ alignItems: "center" } }}>
-        <p style={{ ...styles.text_white, ...styles.text_S }}>User ID: {uid}</p>
-        <p style={{ ...styles.text_white, ...styles.text_S }}>
+        <p style={{ ...styles.text_white, ...styles.text_L }}>User ID: {uid}</p>
+        <p style={{ ...styles.text_white, ...styles.text_L }}>
           Activation Token: {token}
         </p>
-        <p style={{ ...styles.text_red, ...styles.text_S }}>
+        <p style={{ ...styles.text_red, ...styles.text_L }}>
           Invalid Activation Link
         </p>
       </div>
@@ -48,11 +48,11 @@ export default function Activation() {
   }
   return (
     <div style={{ ...styles.content_column, ...{ alignItems: "center" } }}>
-      <p style={{ ...styles.text_white, ...styles.text_S }}>User ID: {uid}</p>
-      <p style={{ ...styles.text_white, ...styles.text_S }}>
+      <p style={{ ...styles.text_white, ...styles.text_L }}>User ID: {uid}</p>
+      <p style={{ ...styles.text_white, ...styles.text_L }}>
         Activation Token: {token}
       </p>
-      <p style={{ ...styles.text_white, ...styles.text_S }}>Activating...</p>
+      <p style={{ ...styles.text_white, ...styles.text_L }}>Activating...</p>
     </div>
   );
 }
