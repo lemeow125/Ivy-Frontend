@@ -104,8 +104,8 @@ const styles: { [key: string]: React.CSSProperties } = {
   },
   logout_button: {
     backgroundColor: "#0b2322",
-    width: "30vh",
-    height: "6vh",
+    width: "14rem",
+    height: "3rem",
     border: "none",
     padding: 8,
     borderRadius: 16,
@@ -117,8 +117,8 @@ const styles: { [key: string]: React.CSSProperties } = {
   },
   sidebar_button: {
     backgroundColor: "#0b2322",
-    width: "30vh",
-    height: "6vh",
+    width: "14rem",
+    height: "3rem",
     border: "none",
     padding: 8,
     paddingRight: "32",
@@ -169,7 +169,7 @@ const styles: { [key: string]: React.CSSProperties } = {
   sidebar_container: {
     height: "100vh",
     width: "100%",
-    paddingLeft: "2vh",
+    paddingLeft: "2rem",
     backgroundColor: "#3d4848",
   },
 };
