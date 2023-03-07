@@ -8,10 +8,10 @@ export const TransactionsThisSessionSlice = createSlice({
   },
   reducers: {
     this_session_increment_added: (state, action) => {
-      state.added = action.payload;
+      state.added += action.payload;
     },
     this_session_increment_removed: (state, action) => {
-      state.removed = action.payload;
+      state.removed += action.payload;
     },
   },
 });

@@ -30,9 +30,7 @@ export default function StockRenderer(product: Product) {
       quantity: stock,
     });
     if (stock > product.quantity) {
-      dispatch(
-        this_session_increment_added(Math.abs(stock - product.quantity))
-      );
+      dispatch(this_session_increment_added(stock - product.quantity));
     } else {
       dispatch(
         this_session_increment_removed(Math.abs(stock - product.quantity))

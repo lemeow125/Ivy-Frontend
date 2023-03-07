@@ -15,7 +15,6 @@ import { useQuery } from "react-query";
 import { GetLogs, UserInfo } from "../../Components/Api/Api";
 import { OldSessionState, ProductLog } from "../../Interfaces/Interfaces";
 import { useState } from "react";
-import RowRenderer from "../../Components/LogsPage/RowRenderer/RowRenderer";
 import { useSelector } from "react-redux";
 
 export default function Logs() {
@@ -92,7 +91,29 @@ export default function Logs() {
           </TableHead>
           <TableBody>
             {logs.data.map((row: ProductLog, index: number) => (
-              <RowRenderer key={index} Product={row} />
+              <TableRow
+                key={row.id}
+                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+              >
+                <TableCell style={{ ...styles.text_white, ...styles.text_S }}>
+                  {row.history_id}
+                </TableCell>
+                <TableCell style={{ ...styles.text_white, ...styles.text_S }}>
+                  {row.id}
+                </TableCell>
+                <TableCell style={{ ...styles.text_white, ...styles.text_S }}>
+                  {row.name}
+                </TableCell>
+                <TableCell style={{ ...styles.text_white, ...styles.text_S }}>
+                  {row.quantity}
+                </TableCell>
+                <TableCell style={{ ...styles.text_white, ...styles.text_S }}>
+                  {row.changed_by}
+                </TableCell>
+                <TableCell style={{ ...styles.text_white, ...styles.text_S }}>
+                  {row.history_date}
+                </TableCell>
+              </TableRow>
             ))}
           </TableBody>
         </Table>
