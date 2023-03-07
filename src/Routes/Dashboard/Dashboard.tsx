@@ -126,10 +126,10 @@ export default function Dashboard() {
                     </p>
                   </div>
                   <p style={{ ...styles.text_white, ...styles.text_M }}>
-                    Zidane's Water
+                    {products.data[0].name}
                   </p>
                   <p style={{ ...styles.text_white, ...styles.text_S }}>
-                    Added 02/17/2023
+                    {products.data[0].date_added}
                   </p>
                 </div>
               </div>
