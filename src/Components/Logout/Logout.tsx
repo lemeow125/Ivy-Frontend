@@ -25,12 +25,12 @@ export default function Logout(props: props) {
   }
 
   return (
-    <div style={{ paddingTop: "40vh" }}>
+    <div>
       <Button
         onClick={logout}
         value="Log out"
         variant="contained"
-        style={styles.logout_button}
+        style={styles.sidebar_button}
       >
         {props.children}
         <p style={{ ...styles.text_white, ...styles.text_S }}>Log Out</p>
