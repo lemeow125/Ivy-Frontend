@@ -15,7 +15,8 @@ import {
   GetLowestStockedProduct,
   GetProducts,
 } from "../../Components/Api/Api";
-import { ProductLog } from "../../Interfaces/Interfaces";
+import { ProductLog, SessionTransactions } from "../../Interfaces/Interfaces";
+import { useSelector } from "react-redux";
 
 export default function Dashboard() {
   const logs = useQuery("logs", GetLogs, { retry: 0 });
@@ -26,6 +27,12 @@ export default function Dashboard() {
     {
       retry: 0,
     }
+  );
+  const session_added = useSelector(
+    (state: SessionTransactions) => state.session_transactions.added
+  );
+  const session_removed = useSelector(
+    (state: SessionTransactions) => state.session_transactions.removed
   );
   if (logs.isLoading || products.isLoading || lowest_stock_product.isLoading) {
     return (
@@ -110,14 +117,18 @@ export default function Dashboard() {
                     Added
                   </p>
                 </div>
-                <p style={{ ...styles.text_white, ...styles.text_L }}>254</p>
+                <p style={{ ...styles.text_white, ...styles.text_L }}>
+                  {session_added}
+                </p>
                 <div style={styles.content_row}>
                   <ColoredCube size={32} color="#a44141" />
                   <p style={{ ...styles.text_white, ...styles.text_L }}>
                     Removed
                   </p>
                 </div>
-                <p style={{ ...styles.text_white, ...styles.text_XL }}>118</p>
+                <p style={{ ...styles.text_white, ...styles.text_XL }}>
+                  {session_removed}
+                </p>
               </div>
               <div
                 style={{

@@ -5,10 +5,16 @@ import IsNumber from "../IsNumber/IsNumber";
 import { UpdateProduct } from "../../Api/Api";
 import { useQueryClient, useMutation } from "react-query";
 import { Product } from "../../../Interfaces/Interfaces";
+import { useDispatch } from "react-redux";
+import {
+  this_session_increment_removed,
+  this_session_increment_added,
+} from "../../../Features/Redux/Slices/TransactionsThisSessionSlice/TransactionsThisSessionSlice";
 
 export default function StockRenderer(product: Product) {
   const [stock, setStock] = useState(product.quantity);
   const [valueChanged, setValueChanged] = useState(false);
+  const dispatch = useDispatch();
   const queryClient = useQueryClient();
   const mutation = useMutation({
     mutationFn: UpdateProduct,
@@ -23,6 +29,15 @@ export default function StockRenderer(product: Product) {
       name: product.name,
       quantity: stock,
     });
+    if (stock > product.quantity) {
+      dispatch(
+        this_session_increment_added(Math.abs(stock - product.quantity))
+      );
+    } else {
+      dispatch(
+        this_session_increment_removed(Math.abs(stock - product.quantity))
+      );
+    }
     setValueChanged(false);
   }
   useEffect(() => {

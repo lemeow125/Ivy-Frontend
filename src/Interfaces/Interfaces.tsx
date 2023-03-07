@@ -43,6 +43,13 @@ export interface LoggedInUserState {
   };
 }
 
+export interface SessionTransactions {
+  session_transactions: {
+    added: number;
+    removed: number;
+  };
+}
+
 // Component Props Interfaces
 
 export interface IconProps {
