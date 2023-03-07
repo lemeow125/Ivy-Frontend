@@ -1,13 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Sidebar from "../Sidebar/Sidebar";
 import Header from "../Header/Header";
 import styles from "../../styles";
-import { CheckSavedSession, UserInfo } from "../Api/Api";
-import { toggle_login } from "../../Features/Redux/Slices/Login/LoginSlice";
-import { SetUser } from "../../Features/Redux/Slices/LoggedInUserSlice/LoggedInUserSlice";
-import { useDispatch, useSelector } from "react-redux";
-import { LoginState } from "../../Interfaces/Interfaces";
-import { useNavigate } from "react-router-dom";
 import PreviousSessionChecker from "../PreviousSessionChecker/PreviousSessionChecker";
 
 export interface props {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import TotalProductsIcon from "../../Components/Icons/TotalProductsIcon/TotalProductsIcon";
 import LowStockIcon from "../../Components/Icons/LowStockIcon/LowStockIcon";
 import StatsIcon from "../../Components/Icons/StatsIcon/StatsIcon";
@@ -9,8 +9,16 @@ import HomeIcon from "../../Components/Icons/HomeIcon/HomeIcon";
 import ColoredCube from "../../Components/ColoredCube/ColoredCube";
 import RecentlyAddedIcon from "../../Components/Icons/RecentlyAddedIcon/RecentlyAddedIcon";
 import LoginChecker from "../../Components/LoginChecker/LoginChecker";
+import { useQuery } from "react-query";
+import { GetLogs, GetProducts } from "../../Components/Api/Api";
+import { ProductLog } from "../../Interfaces/Interfaces";
 
 export default function Dashboard() {
+  const logs = useQuery("logs", GetLogs, { retry: 0 });
+  const products = useQuery("products", GetProducts, { retry: 0 });
+  if (logs.isLoading && products.isLoading) {
+    return <div>heh</div>;
+  }
   return (
     <div>
       <LoginChecker />
@@ -39,7 +47,7 @@ export default function Dashboard() {
                 </p>
               </div>
               <p style={{ ...styles.text_white, ...styles.text_L }}>
-                2546 Unique Items
+                {products.data.length} Unique Item/s
               </p>
               <p style={{ ...styles.text_white, ...styles.text_L }}>
                 In inventory
@@ -139,52 +147,26 @@ export default function Dashboard() {
                 </p>
               </div>
             </div>
-            <div style={{ marginBottom: "8px" }} />
-            <p style={{ ...styles.text_white, ...styles.text_M }}>
-              Kopiko Blanca
-            </p>
-            <p style={{ ...styles.text_white, ...styles.text_S }}>Added: 96</p>
-            <p style={{ ...styles.text_white, ...styles.text_S }}>
-              Removed: 105
-            </p>
-            <p style={{ ...styles.text_white, ...styles.text_XS }}>
-              02/17/2023
-            </p>
-            <div style={{ marginBottom: "8px" }} />
-            <p style={{ ...styles.text_white, ...styles.text_M }}>
-              Zidane's Water
-            </p>
-            <p style={{ ...styles.text_white, ...styles.text_S }}>Added: 49</p>
-            <p style={{ ...styles.text_white, ...styles.text_S }}>
-              Removed: 24
-            </p>
-            <p style={{ ...styles.text_white, ...styles.text_XS }}>
-              02/17/2023
-            </p>
-            <div style={{ marginBottom: "8px" }} />
-            <p style={{ ...styles.text_white, ...styles.text_M }}>
-              Dan's Beefed Corn
-            </p>
-            <p style={{ ...styles.text_white, ...styles.text_S }}>Added: 32</p>
-            <p style={{ ...styles.text_white, ...styles.text_S }}>
-              Removed: 64
-            </p>
-            <p style={{ ...styles.text_white, ...styles.text_XS }}>
-              02/17/2023
-            </p>
-            <div style={{ marginBottom: "8px" }} />
-            <div style={styles.content_column}>
-              <p style={{ ...styles.text_white, ...styles.text_M }}>
-                Canned Pagmamahal
-              </p>
-            </div>
-            <p style={{ ...styles.text_white, ...styles.text_S }}>Added: 0</p>
-            <p style={{ ...styles.text_white, ...styles.text_S }}>
-              Removed: 60
-            </p>
-            <p style={{ ...styles.text_white, ...styles.text_XS }}>
-              02/17/2023
-            </p>
+            {logs.data.slice(0, 5).map((log: ProductLog, index: number) => {
+              console.log(log);
+              return (
+                <div key={index}>
+                  <div style={{ marginBottom: "8px" }} />
+                  <p style={{ ...styles.text_white, ...styles.text_M }}>
+                    {log.name}
+                  </p>
+                  <p style={{ ...styles.text_white, ...styles.text_S }}>
+                    Quantity: {log.quantity}
+                  </p>
+                  <p style={{ ...styles.text_white, ...styles.text_S }}>
+                    Date: {log.history_date}
+                  </p>
+                  <p style={{ ...styles.text_white, ...styles.text_XS }}>
+                    Transaction ID: {log.history_id}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

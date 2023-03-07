@@ -9,6 +9,17 @@ export interface Product {
   quantity: number;
 }
 
+export interface ProductLogList {
+  ProductLogs: ProductLog[];
+}
+
+export interface ProductLog {
+  history_id: number;
+  name: string;
+  quantity: string;
+  history_date: string;
+}
+
 // Redux Interfaces
 export interface LoginState {
   logged_in: {

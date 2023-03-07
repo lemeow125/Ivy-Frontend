@@ -57,6 +57,19 @@ export function UpdateProduct(product: UpdateProductParams) {
     });
 }
 
+export function GetLogs() {
+  const token = JSON.parse(localStorage.getItem("token") || "{}");
+  return axios
+    .get("http://localhost:8000/api/v1/logs/", {
+      headers: {
+        Authorization: "Token " + token,
+      },
+    })
+    .then((response) => {
+      return response.data;
+    });
+}
+
 export function AddProduct(note: AddProductParams) {
   const token = JSON.parse(localStorage.getItem("token") || "{}");
   return axios
