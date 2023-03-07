@@ -55,6 +55,7 @@ export default function Inventory() {
   } else if (error) {
     return (
       <div>
+        <LoginChecker />
         <div style={styles.content_row}>
           <div style={{ ...styles.content_row, ...{ flex: 1 } }}>
             <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
