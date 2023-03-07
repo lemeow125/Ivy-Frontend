@@ -70,19 +70,13 @@ export default function Logs() {
           <TableHead>
             <TableRow>
               <TableCell style={{ ...styles.text_white, ...styles.text_M }}>
-                Log ID
+                Product Changed
               </TableCell>
               <TableCell style={{ ...styles.text_white, ...styles.text_M }}>
-                Product ID
+                Quantity Changed To
               </TableCell>
               <TableCell style={{ ...styles.text_white, ...styles.text_M }}>
-                Product
-              </TableCell>
-              <TableCell style={{ ...styles.text_white, ...styles.text_M }}>
-                Quantity
-              </TableCell>
-              <TableCell style={{ ...styles.text_white, ...styles.text_M }}>
-                User
+                Transaction by
               </TableCell>
               <TableCell style={{ ...styles.text_white, ...styles.text_M }}>
                 Timestamp
@@ -95,12 +89,6 @@ export default function Logs() {
                 key={row.id}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
-                <TableCell style={{ ...styles.text_white, ...styles.text_S }}>
-                  {row.history_id}
-                </TableCell>
-                <TableCell style={{ ...styles.text_white, ...styles.text_S }}>
-                  {row.id}
-                </TableCell>
                 <TableCell style={{ ...styles.text_white, ...styles.text_S }}>
                   {row.name}
                 </TableCell>
