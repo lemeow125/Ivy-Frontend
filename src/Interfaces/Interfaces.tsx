@@ -20,8 +20,7 @@ export interface ProductLogEntry {
     name: string;
     quantity: string;
     history_date: string;
-    history_user_id: number;
-    changed_by: string;
+    history_user: string;
   };
 }
 
@@ -31,8 +30,7 @@ export interface ProductLog {
   name: string;
   quantity: string;
   history_date: string;
-  history_user_id: number;
-  changed_by: string;
+  history_user: string;
 }
 
 // Redux Interfaces

@@ -108,7 +108,7 @@ export default function Logs() {
                   {row.quantity}
                 </TableCell>
                 <TableCell style={{ ...styles.text_white, ...styles.text_S }}>
-                  {row.changed_by}
+                  {row.history_user}
                 </TableCell>
                 <TableCell style={{ ...styles.text_white, ...styles.text_S }}>
                   {row.history_date}
