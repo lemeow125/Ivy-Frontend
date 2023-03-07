@@ -17,7 +17,34 @@ export default function Dashboard() {
   const logs = useQuery("logs", GetLogs, { retry: 0 });
   const products = useQuery("products", GetProducts, { retry: 0 });
   if (logs.isLoading && products.isLoading) {
-    return <div>heh</div>;
+    return (
+      <div>
+        <LoginChecker />
+        <div style={styles.flex_row}>
+          <HomeIcon size={64} color="white" />
+          <p style={{ ...styles.text_white, ...styles.text_XL }}>Dashboard</p>
+        </div>
+        <div style={{ ...styles.content_column, ...{ alignItems: "center" } }}>
+          <p style={{ ...styles.text_white, ...styles.text_L }}>
+            Loading dashboard...
+          </p>
+        </div>
+      </div>
+    );
+  }
+  if (logs.error || products.error) {
+    <div>
+      <LoginChecker />
+      <div style={styles.flex_row}>
+        <HomeIcon size={64} color="white" />
+        <p style={{ ...styles.text_white, ...styles.text_XL }}>Dashboard</p>
+      </div>
+      <div style={{ ...styles.content_column, ...{ alignItems: "center" } }}>
+        <p style={{ ...styles.text_red, ...styles.text_L }}>
+          Error loading dashboard
+        </p>
+      </div>
+    </div>;
   }
   return (
     <div>
