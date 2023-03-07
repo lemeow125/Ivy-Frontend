@@ -11,8 +11,49 @@ import {
 } from "@mui/material";
 import { SampleLogData } from "../../Components/SampleData/SampleData";
 import LoginChecker from "../../Components/LoginChecker/LoginChecker";
+import { useQuery } from "react-query";
+import { GetLogs, UserInfo } from "../../Components/Api/Api";
+import { OldSessionState, ProductLog } from "../../Interfaces/Interfaces";
+import { useState } from "react";
+import RowRenderer from "../../Components/LogsPage/RowRenderer/RowRenderer";
+import { useSelector } from "react-redux";
 
 export default function Logs() {
+  const logs = useQuery("logs", GetLogs, { retry: 0 });
+  const old_session_checked = useSelector(
+    (state: OldSessionState) => state.old_session_checked.value
+  );
+  if (logs.isLoading || !old_session_checked) {
+    return (
+      <div>
+        <LoginChecker />
+        <div style={styles.flex_row}>
+          <LogsIcon size={64} color="white" />
+          <p style={{ ...styles.text_white, ...styles.text_XL }}>Logs</p>
+        </div>
+        <div style={{ ...styles.content_column, ...{ alignItems: "center" } }}>
+          <p style={{ ...styles.text_white, ...styles.text_L }}>
+            Loading logs...
+          </p>
+        </div>
+      </div>
+    );
+  } else if (logs.error) {
+    return (
+      <div>
+        <LoginChecker />
+        <div style={styles.flex_row}>
+          <LogsIcon size={64} color="white" />
+          <p style={{ ...styles.text_white, ...styles.text_XL }}>Logs</p>
+        </div>
+        <div style={{ ...styles.content_column, ...{ alignItems: "center" } }}>
+          <p style={{ ...styles.text_red, ...styles.text_L }}>
+            Error loading logs
+          </p>
+        </div>
+      </div>
+    );
+  }
   return (
     <div>
       <LoginChecker />
@@ -39,7 +80,10 @@ export default function Logs() {
                 Product
               </TableCell>
               <TableCell style={{ ...styles.text_white, ...styles.text_M }}>
-                Amount Change
+                Quantity
+              </TableCell>
+              <TableCell style={{ ...styles.text_white, ...styles.text_M }}>
+                User
               </TableCell>
               <TableCell style={{ ...styles.text_white, ...styles.text_M }}>
                 Timestamp
@@ -47,34 +91,8 @@ export default function Logs() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {SampleLogData.map((row) => (
-              <TableRow
-                key={row.id}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell style={{ ...styles.text_white, ...styles.text_S }}>
-                  {row.id}
-                </TableCell>
-                <TableCell style={{ ...styles.text_white, ...styles.text_S }}>
-                  {row.p_id}
-                </TableCell>
-                <TableCell style={{ ...styles.text_white, ...styles.text_S }}>
-                  {row.p_name}
-                </TableCell>
-                <TableCell
-                  style={{
-                    ...{
-                      color: row.amount_changed < 0 ? "#a44141" : "#80b28a",
-                    },
-                    ...styles.text_S,
-                  }}
-                >
-                  {row.amount_changed}
-                </TableCell>
-                <TableCell style={{ ...styles.text_white, ...styles.text_S }}>
-                  {row.timestamp}
-                </TableCell>
-              </TableRow>
+            {logs.data.map((row: ProductLog, index: number) => (
+              <RowRenderer key={index} Product={row} />
             ))}
           </TableBody>
         </Table>

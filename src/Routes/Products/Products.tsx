@@ -9,6 +9,8 @@ import ViewManager from "../../Components/ProductsPage/ViewManager";
 import { useQuery } from "react-query";
 import { GetProducts } from "../../Components/Api/Api";
 import LoginChecker from "../../Components/LoginChecker/LoginChecker";
+import { useSelector } from "react-redux";
+import { OldSessionState } from "../../Interfaces/Interfaces";
 
 export default function Products() {
   const navigate = useNavigate();
@@ -17,7 +19,10 @@ export default function Products() {
     isLoading,
     error,
   } = useQuery("products", GetProducts, { retry: 0 });
-  if (isLoading) {
+  const old_session_checked = useSelector(
+    (state: OldSessionState) => state.old_session_checked.value
+  );
+  if (isLoading || !old_session_checked) {
     return (
       <div>
         <LoginChecker />

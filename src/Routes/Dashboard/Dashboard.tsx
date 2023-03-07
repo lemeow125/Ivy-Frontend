@@ -15,8 +15,16 @@ import {
   GetLowestStockedProduct,
   GetProducts,
 } from "../../Components/Api/Api";
-import { ProductLog, SessionTransactions } from "../../Interfaces/Interfaces";
+import {
+  OldSessionState,
+  ProductLog,
+  SessionTransactions,
+} from "../../Interfaces/Interfaces";
 import { useSelector } from "react-redux";
+import LowestStockWidget from "../../Components/DashboardPage/LowestStockWidget/LowestStockWidget";
+import RecentlyAddedWidget from "../../Components/DashboardPage/RecentlyAddedWidget/RecentlyAddedWidget";
+import TotalProductsWidget from "../../Components/DashboardPage/TotalProductsWidget/TotalProductsWidget";
+import SessionStatsWidget from "../../Components/DashboardPage/SessionStatsWidget/SessionStatsWidget";
 
 export default function Dashboard() {
   const logs = useQuery("logs", GetLogs, { retry: 0 });
@@ -28,13 +36,15 @@ export default function Dashboard() {
       retry: 0,
     }
   );
-  const session_added = useSelector(
-    (state: SessionTransactions) => state.session_transactions.added
+  const old_session_checked = useSelector(
+    (state: OldSessionState) => state.old_session_checked.value
   );
-  const session_removed = useSelector(
-    (state: SessionTransactions) => state.session_transactions.removed
-  );
-  if (logs.isLoading || products.isLoading || lowest_stock_product.isLoading) {
+  if (
+    logs.isLoading ||
+    products.isLoading ||
+    lowest_stock_product.isLoading ||
+    !old_session_checked
+  ) {
     return (
       <div>
         <LoginChecker />
@@ -79,108 +89,20 @@ export default function Dashboard() {
       >
         <div style={{ flex: 7 }}>
           <div style={styles.flex_column}>
-            <div
-              style={{
-                ...styles.widget,
-                ...{ flex: 5 },
-              }}
-            >
-              <div style={styles.content_row}>
-                <TotalProductsIcon size={64} color="white" />
-                <p style={{ ...styles.text_white, ...styles.text_XL }}>
-                  Total Products
-                </p>
-              </div>
-              <p style={{ ...styles.text_white, ...styles.text_L }}>
-                {products.data.length} Unique Item/s
-              </p>
-              <p style={{ ...styles.text_white, ...styles.text_L }}>
-                In inventory
-              </p>
-            </div>
+            <TotalProductsWidget Products={products.data} />
             <div style={styles.flex_row}>
-              <div
-                style={{
-                  ...styles.widget,
-                  ...{ flex: 5 },
-                }}
-              >
-                <div style={styles.content_row}>
-                  <StatsIcon size={64} color="white" />
-                  <p style={{ ...styles.text_white, ...styles.text_XL }}>
-                    Current Session
-                  </p>
-                </div>
-                <div style={styles.content_row}>
-                  <ColoredCube size={32} color="#a48e41" />
-                  <p style={{ ...styles.text_white, ...styles.text_L }}>
-                    Added
-                  </p>
-                </div>
-                <p style={{ ...styles.text_white, ...styles.text_L }}>
-                  {session_added}
-                </p>
-                <div style={styles.content_row}>
-                  <ColoredCube size={32} color="#a44141" />
-                  <p style={{ ...styles.text_white, ...styles.text_L }}>
-                    Removed
-                  </p>
-                </div>
-                <p style={{ ...styles.text_white, ...styles.text_XL }}>
-                  {session_removed}
-                </p>
-              </div>
+              <SessionStatsWidget />
               <div
                 style={{
                   ...styles.flex_column,
                   ...{
                     flex: 5,
+                    alignSelf: "stretch",
                   },
                 }}
               >
-                <div
-                  style={{
-                    ...styles.widget,
-                    ...{ flex: 1 },
-                  }}
-                >
-                  <div style={styles.content_row}>
-                    <LowStockIcon size={64} color="white" />
-                    <p style={{ ...styles.text_white, ...styles.text_L }}>
-                      Lowest Stock
-                    </p>
-                  </div>
-                  <p style={{ ...styles.text_white, ...styles.text_S }}>
-                    {lowest_stock_product.data[0].name}
-                  </p>
-                  <p style={{ ...styles.text_white, ...styles.text_S }}>
-                    In Stock: {lowest_stock_product.data[0].quantity}
-                  </p>
-                </div>
-                <div
-                  style={{
-                    ...styles.widget,
-                    ...{ flex: 1 },
-                  }}
-                >
-                  <div style={styles.content_row}>
-                    <RecentlyAddedIcon size={64} color="white" />
-                    <p
-                      style={{
-                        ...styles.text_white,
-                        ...styles.text_L,
-                      }}
-                    >
-                      Recently Added
-                    </p>
-                  </div>
-                  <p style={{ ...styles.text_white, ...styles.text_M }}>
-                    {products.data[0].name}
-                  </p>
-                  <p style={{ ...styles.text_white, ...styles.text_S }}>
-                    {products.data[0].date_added}
-                  </p>
-                </div>
+                <LowestStockWidget Products={lowest_stock_product.data} />
+                <RecentlyAddedWidget Products={products.data} />
               </div>
             </div>
           </div>

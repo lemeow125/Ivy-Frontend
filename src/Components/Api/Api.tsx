@@ -164,6 +164,24 @@ export function UserInfo() {
     });
 }
 
+export function QueryUser(id: number) {
+  const token = JSON.parse(localStorage.getItem("token") || "{}");
+  return axios
+    .get("http://localhost:8000/api/v1/user_list/" + id, {
+      headers: {
+        Authorization: "Token " + token,
+      },
+    })
+    .then((response) => {
+      console.log("Querying one user...", response.data);
+      return response.data;
+    })
+    .catch((error) => {
+      console.log("Error retrieving single user data", error.response);
+      return false;
+    });
+}
+
 export function UserActivate(activation: ActivationParams) {
   return axios
     .post("http://localhost:8000/api/v1/accounts/users/activation/", activation)

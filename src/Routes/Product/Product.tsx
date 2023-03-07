@@ -6,6 +6,8 @@ import LoginChecker from "../../Components/LoginChecker/LoginChecker";
 import { DeleteProduct, GetProduct } from "../../Components/Api/Api";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import ProductIcon from "../../Components/Icons/ProductIcon/ProductIcon";
+import { useSelector } from "react-redux";
+import { OldSessionState } from "../../Interfaces/Interfaces";
 
 export default function Product() {
   const navigate = useNavigate();
@@ -25,7 +27,10 @@ export default function Product() {
       queryClient.invalidateQueries("products");
     },
   });
-  if (isLoading) {
+  const old_session_checked = useSelector(
+    (state: OldSessionState) => state.old_session_checked.value
+  );
+  if (isLoading || !old_session_checked) {
     return (
       <div>
         <LoginChecker />

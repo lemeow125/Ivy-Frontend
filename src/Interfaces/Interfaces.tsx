@@ -13,11 +13,24 @@ export interface ProductLogList {
   ProductLogs: ProductLog[];
 }
 
+export interface ProductLogEntry {
+  Product: {
+    history_id: number;
+    id: number;
+    name: string;
+    quantity: string;
+    history_date: string;
+    history_user_id: number;
+  };
+}
+
 export interface ProductLog {
   history_id: number;
+  id: number;
   name: string;
   quantity: string;
   history_date: string;
+  history_user_id: number;
 }
 
 // Redux Interfaces

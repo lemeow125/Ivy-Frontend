@@ -18,6 +18,8 @@ import { useMutation, useQuery, useQueryClient } from "react-query";
 import RowRenderer from "../../Components/InventoryPage/RowRenderer/RowRenderer";
 import AddIcon from "../../Components/Icons/AddIcon/AddIcon";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { OldSessionState } from "../../Interfaces/Interfaces";
 
 export default function Inventory() {
   const {
@@ -26,8 +28,10 @@ export default function Inventory() {
     error,
   } = useQuery("products", GetProducts, { retry: 0 });
   const navigate = useNavigate();
-
-  if (isLoading) {
+  const old_session_checked = useSelector(
+    (state: OldSessionState) => state.old_session_checked.value
+  );
+  if (isLoading || !old_session_checked) {
     return (
       <div>
         <LoginChecker />
