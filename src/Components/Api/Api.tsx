@@ -57,6 +57,19 @@ export function UpdateProduct(product: UpdateProductParams) {
     });
 }
 
+export function GetLowestStockedProduct() {
+  const token = JSON.parse(localStorage.getItem("token") || "{}");
+  return axios
+    .get("http://localhost:8000/api/v1/lowest_stock_product/", {
+      headers: {
+        Authorization: "Token " + token,
+      },
+    })
+    .then((response) => {
+      return response.data;
+    });
+}
+
 export function GetLogs() {
   const token = JSON.parse(localStorage.getItem("token") || "{}");
   return axios

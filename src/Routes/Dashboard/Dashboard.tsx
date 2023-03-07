@@ -10,13 +10,24 @@ import ColoredCube from "../../Components/ColoredCube/ColoredCube";
 import RecentlyAddedIcon from "../../Components/Icons/RecentlyAddedIcon/RecentlyAddedIcon";
 import LoginChecker from "../../Components/LoginChecker/LoginChecker";
 import { useQuery } from "react-query";
-import { GetLogs, GetProducts } from "../../Components/Api/Api";
+import {
+  GetLogs,
+  GetLowestStockedProduct,
+  GetProducts,
+} from "../../Components/Api/Api";
 import { ProductLog } from "../../Interfaces/Interfaces";
 
 export default function Dashboard() {
   const logs = useQuery("logs", GetLogs, { retry: 0 });
   const products = useQuery("products", GetProducts, { retry: 0 });
-  if (logs.isLoading && products.isLoading) {
+  const lowest_stock_product = useQuery(
+    "lowest_stock_product",
+    GetLowestStockedProduct,
+    {
+      retry: 0,
+    }
+  );
+  if (logs.isLoading || products.isLoading || lowest_stock_product.isLoading) {
     return (
       <div>
         <LoginChecker />
@@ -32,7 +43,7 @@ export default function Dashboard() {
       </div>
     );
   }
-  if (logs.error || products.error) {
+  if (logs.error || products.error || lowest_stock_product.isError) {
     <div>
       <LoginChecker />
       <div style={styles.flex_row}>
@@ -125,14 +136,14 @@ export default function Dashboard() {
                   <div style={styles.content_row}>
                     <LowStockIcon size={64} color="white" />
                     <p style={{ ...styles.text_white, ...styles.text_L }}>
-                      Low Stock
+                      Lowest Stock
                     </p>
                   </div>
                   <p style={{ ...styles.text_white, ...styles.text_S }}>
-                    Canned Pagmamahal
+                    {lowest_stock_product.data[0].name}
                   </p>
                   <p style={{ ...styles.text_white, ...styles.text_S }}>
-                    In Stock: 3
+                    In Stock: {lowest_stock_product.data[0].quantity}
                   </p>
                 </div>
                 <div
@@ -175,7 +186,6 @@ export default function Dashboard() {
               </div>
             </div>
             {logs.data.slice(0, 5).map((log: ProductLog, index: number) => {
-              console.log(log);
               return (
                 <div key={index}>
                   <div style={{ marginBottom: "8px" }} />
