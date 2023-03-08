@@ -14,7 +14,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     left: "15%",
     overflowY: "scroll",
     height: "100%",
-    backgroundColor: "#0b2322",
+    backgroundColor: colors.background,
   },
   text_white: {
     color: "white",
