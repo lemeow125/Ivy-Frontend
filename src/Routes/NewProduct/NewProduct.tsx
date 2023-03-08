@@ -15,6 +15,7 @@ export default function NewProduct() {
     onSuccess: () => {
       queryClient.invalidateQueries("products");
       queryClient.invalidateQueries("logs");
+      queryClient.invalidateQueries("logs");
     },
   });
   return (
