@@ -25,6 +25,7 @@ export default function Product() {
     mutationFn: DeleteProduct,
     onSuccess: () => {
       queryClient.invalidateQueries("products");
+      queryClient.invalidateQueries("product");
       queryClient.invalidateQueries("logs");
     },
   });
