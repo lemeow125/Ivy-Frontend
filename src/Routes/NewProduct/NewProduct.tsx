@@ -1,11 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from "../../styles";
 import { useNavigate } from "react-router-dom";
 import AddIcon from "../../Components/Icons/AddIcon/AddIcon";
 import { Button } from "@mui/material";
-import { Navigate } from "react-router-dom";
-import { LoginState } from "../../Interfaces/Interfaces";
-import { useSelector } from "react-redux";
 import { AddProduct } from "../../Components/Api/Api";
 import { useMutation, useQueryClient } from "react-query";
 import LoginChecker from "../../Components/LoginChecker/LoginChecker";
