@@ -1,3 +1,12 @@
+export const colors = {
+  background: "#0b2322",
+  red: "#a44141",
+  orange: "#c57331",
+  green: "#80b28a",
+  yellow: "#9e8500",
+  header: "#3d4848",
+  widget: "#1d3b33",
+};
 const styles: { [key: string]: React.CSSProperties } = {
   route_wrapper: {
     width: "85%",
@@ -7,28 +16,20 @@ const styles: { [key: string]: React.CSSProperties } = {
     height: "100%",
     backgroundColor: "#0b2322",
   },
-  /*
-  Font Sizes
-  Extra-Large: 2rem
-  Large: 1.6rem
-  Medium: 1.2rem
-  Small: 1rem
-  Tiny: 0.8rem
-   */
   text_white: {
     color: "white",
     fontWeight: "bold",
   },
   text_red: {
-    color: "#a44141",
+    color: colors.red,
     fontWeight: "bold",
   },
   text_orange: {
-    color: "#c57331",
+    color: colors.orange,
     fontWeight: "bold",
   },
   text_green: {
-    color: "#80b28a",
+    color: colors.green,
     fontWeight: "bold",
   },
   text_XL: {
@@ -47,7 +48,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     fontSize: "0.8rem",
   },
   logo_text: {
-    color: "#80b38b",
+    color: colors.green,
     fontSize: "2rem",
     fontWeight: "bold",
   },
@@ -56,7 +57,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     flexDirection: "row",
     position: "sticky",
     top: 0,
-    backgroundColor: "#3d4848",
+    backgroundColor: colors.header,
     paddingRight: 32,
     paddingLeft: 0,
   },
@@ -76,7 +77,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     alignItems: "center",
   },
   login_button: {
-    backgroundColor: "#9e8500",
+    backgroundColor: colors.yellow,
     width: "8rem",
     height: 32,
     border: "none",
@@ -84,7 +85,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     borderRadius: 16,
   },
   button_add_product: {
-    backgroundColor: "#80b38b",
+    backgroundColor: colors.green,
     display: "flex",
     flexDirection: "row",
     width: "14rem",
@@ -103,7 +104,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     margin: 4,
   },
   sidebar_button: {
-    backgroundColor: "#0b2322",
+    backgroundColor: colors.background,
     width: "14rem",
     height: "3rem",
     border: "none",
@@ -118,7 +119,7 @@ const styles: { [key: string]: React.CSSProperties } = {
   widget: {
     display: "flex",
     flexDirection: "column",
-    backgroundColor: "#1d3b33",
+    backgroundColor: colors.widget,
     alignSelf: "stretch",
     borderRadius: 8,
     paddingLeft: 16,
@@ -157,7 +158,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     height: "100vh",
     width: "100%",
     paddingLeft: "2rem",
-    backgroundColor: "#3d4848",
+    backgroundColor: colors.header,
   },
 };
 

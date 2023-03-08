@@ -25,6 +25,7 @@ export default function Product() {
     mutationFn: DeleteProduct,
     onSuccess: () => {
       queryClient.invalidateQueries("products");
+      queryClient.invalidateQueries("logs");
     },
   });
   const old_session_checked = useSelector(
