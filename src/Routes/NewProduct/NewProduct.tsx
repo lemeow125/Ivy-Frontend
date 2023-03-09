@@ -14,7 +14,7 @@ export default function NewProduct() {
     mutationFn: AddProduct,
     onSuccess: () => {
       queryClient.invalidateQueries("products");
-      queryClient.invalidateQueries("logs");
+      queryClient.invalidateQueries("product");
       queryClient.invalidateQueries("logs");
     },
   });
