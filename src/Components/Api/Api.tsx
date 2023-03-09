@@ -8,11 +8,14 @@ import {
 } from "../../Interfaces/Interfaces";
 
 // Product APIs
+// Local Testing "http://localhost:8000"
+// Remote Deploy "http://keannu125.pythonanywhere.com"
+export const baseurl = "http://localhost:8000";
 
 export function GetProducts() {
   const token = JSON.parse(localStorage.getItem("token") || "{}");
   return axios
-    .get("http://localhost:8000/api/v1/products/", {
+    .get(baseurl + "/api/v1/products/", {
       headers: {
         Authorization: "Token " + token,
       },
@@ -25,7 +28,7 @@ export function GetProducts() {
 export function GetProduct(id: number) {
   const token = JSON.parse(localStorage.getItem("token") || "{}");
   return axios
-    .get("http://localhost:8000/api/v1/products/" + id + "/", {
+    .get(baseurl + "/api/v1/products/" + id + "/", {
       headers: {
         Authorization: "Token " + token,
       },
@@ -38,15 +41,11 @@ export function GetProduct(id: number) {
 export function UpdateProduct(product: UpdateProductParams) {
   const token = JSON.parse(localStorage.getItem("token") || "{}");
   return axios
-    .patch(
-      "http://localhost:8000/api/v1/products/" + product.id + "/",
-      product,
-      {
-        headers: {
-          Authorization: "Token " + token,
-        },
-      }
-    )
+    .patch(baseurl + "/api/v1/products/" + product.id + "/", product, {
+      headers: {
+        Authorization: "Token " + token,
+      },
+    })
     .then((response) => {
       console.log("Product update successful", response.data);
       return response.data;
@@ -60,7 +59,7 @@ export function UpdateProduct(product: UpdateProductParams) {
 export function GetLowestStockedProduct() {
   const token = JSON.parse(localStorage.getItem("token") || "{}");
   return axios
-    .get("http://localhost:8000/api/v1/lowest_stock_product/", {
+    .get(baseurl + "/api/v1/lowest_stock_product/", {
       headers: {
         Authorization: "Token " + token,
       },
@@ -73,7 +72,7 @@ export function GetLowestStockedProduct() {
 export function GetLogs() {
   const token = JSON.parse(localStorage.getItem("token") || "{}");
   return axios
-    .get("http://localhost:8000/api/v1/logs/", {
+    .get(baseurl + "/api/v1/logs/", {
       headers: {
         Authorization: "Token " + token,
       },
@@ -86,7 +85,7 @@ export function GetLogs() {
 export function AddProduct(note: AddProductParams) {
   const token = JSON.parse(localStorage.getItem("token") || "{}");
   return axios
-    .post("http://localhost:8000/api/v1/products/", note, {
+    .post(baseurl + "/api/v1/products/", note, {
       headers: {
         Authorization: "Token " + token,
       },
@@ -103,7 +102,7 @@ export function AddProduct(note: AddProductParams) {
 export function DeleteProduct(id: number) {
   const token = JSON.parse(localStorage.getItem("token") || "{}");
   return axios
-    .delete("http://localhost:8000/api/v1/products/" + id + "/", {
+    .delete(baseurl + "/api/v1/products/" + id + "/", {
       headers: {
         Authorization: "Token " + token,
       },
@@ -118,7 +117,7 @@ export function DeleteProduct(id: number) {
 
 export function UserRegister(register: RegistrationParams) {
   return axios
-    .post("http://localhost:8000/api/v1/accounts/users/", register)
+    .post(baseurl + "/api/v1/accounts/users/", register)
     .then(async (response) => {
       console.log(response.data);
       return true;
@@ -131,7 +130,7 @@ export function UserRegister(register: RegistrationParams) {
 
 export function UserLogin(user: LoginParams) {
   return axios
-    .post("http://localhost:8000/api/v1/accounts/token/login/", user)
+    .post(baseurl + "/api/v1/accounts/token/login/", user)
     .then(async (response) => {
       localStorage.setItem("token", JSON.stringify(response.data.auth_token));
       console.log(
@@ -149,7 +148,7 @@ export function UserLogin(user: LoginParams) {
 export function UserInfo() {
   const token = JSON.parse(localStorage.getItem("token") || "{}");
   return axios
-    .get("http://localhost:8000/api/v1/accounts/users/me/", {
+    .get(baseurl + "/api/v1/accounts/users/me/", {
       headers: {
         Authorization: "Token " + token,
       },
@@ -167,7 +166,7 @@ export function UserInfo() {
 export function QueryUser(id: number) {
   const token = JSON.parse(localStorage.getItem("token") || "{}");
   return axios
-    .get("http://localhost:8000/api/v1/user_list/" + id, {
+    .get(baseurl + "/api/v1/user_list/" + id, {
       headers: {
         Authorization: "Token " + token,
       },
@@ -184,7 +183,7 @@ export function QueryUser(id: number) {
 
 export function UserActivate(activation: ActivationParams) {
   return axios
-    .post("http://localhost:8000/api/v1/accounts/users/activation/", activation)
+    .post(baseurl + "/api/v1/accounts/users/activation/", activation)
     .then(async (response) => {
       console.log("Activation Success");
       return true;
