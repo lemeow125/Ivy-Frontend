@@ -89,7 +89,6 @@ export default function ViewManager(props: ProductList) {
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 setSearchTerm(e.target.value);
               }}
-              maxLength={20}
             />
           </div>
         </div>
