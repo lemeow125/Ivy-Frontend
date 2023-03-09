@@ -10,7 +10,7 @@ import {
 // Product APIs
 // Local Testing "http://localhost:8000"
 // Remote Deploy "http://keannu125.pythonanywhere.com"
-export const baseurl = "http://localhost:8000";
+export const baseurl = "http://keannu125.pythonanywhere.com";
 
 export function GetProducts() {
   const token = JSON.parse(localStorage.getItem("token") || "{}");
