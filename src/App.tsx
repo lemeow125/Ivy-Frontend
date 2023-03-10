@@ -17,88 +17,85 @@ import Register from "./Routes/Register/Register";
 
 const queryClient = new QueryClient();
 
-const router = createBrowserRouter(
-  [
-    {
-      path: "/",
-      element: (
-        <Container>
-          <Dashboard />
-        </Container>
-      ),
-      errorElement: (
-        <Container>
-          <Error />
-        </Container>
-      ),
-    },
-    {
-      path: "/Products",
-      element: (
-        <Container>
-          <Products />
-        </Container>
-      ),
-    },
-    {
-      path: "/Inventory",
-      element: (
-        <Container>
-          <Inventory />
-        </Container>
-      ),
-    },
-    {
-      path: "/Logs",
-      element: (
-        <Container>
-          <Logs />
-        </Container>
-      ),
-    },
-    {
-      path: "/Login",
-      element: (
-        <Container>
-          <Login />
-        </Container>
-      ),
-    },
-    {
-      path: "/Product/:id",
-      element: (
-        <Container>
-          <Product />
-        </Container>
-      ),
-    },
-    {
-      path: "/Activation/:uid/:token",
-      element: (
-        <Container>
-          <Activation />
-        </Container>
-      ),
-    },
-    {
-      path: "/NewProduct",
-      element: (
-        <Container>
-          <NewProduct />
-        </Container>
-      ),
-    },
-    {
-      path: "/Register",
-      element: (
-        <Container>
-          <Register />
-        </Container>
-      ),
-    },
-  ],
-  { basename: "Ivy" }
-);
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <Container>
+        <Dashboard />
+      </Container>
+    ),
+    errorElement: (
+      <Container>
+        <Error />
+      </Container>
+    ),
+  },
+  {
+    path: "/Products",
+    element: (
+      <Container>
+        <Products />
+      </Container>
+    ),
+  },
+  {
+    path: "/Inventory",
+    element: (
+      <Container>
+        <Inventory />
+      </Container>
+    ),
+  },
+  {
+    path: "/Logs",
+    element: (
+      <Container>
+        <Logs />
+      </Container>
+    ),
+  },
+  {
+    path: "/Login",
+    element: (
+      <Container>
+        <Login />
+      </Container>
+    ),
+  },
+  {
+    path: "/Product/:id",
+    element: (
+      <Container>
+        <Product />
+      </Container>
+    ),
+  },
+  {
+    path: "/Activation/:uid/:token",
+    element: (
+      <Container>
+        <Activation />
+      </Container>
+    ),
+  },
+  {
+    path: "/NewProduct",
+    element: (
+      <Container>
+        <NewProduct />
+      </Container>
+    ),
+  },
+  {
+    path: "/Register",
+    element: (
+      <Container>
+        <Register />
+      </Container>
+    ),
+  },
+]);
 
 export default function App() {
   return (
