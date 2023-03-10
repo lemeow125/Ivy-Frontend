@@ -25,7 +25,7 @@ import Register from "./Routes/Register/Register";
 
 const queryClient = new QueryClient();
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: (

@@ -38,6 +38,7 @@ export default function Login() {
           <div style={{ margin: 4 }} />
           <input
             style={styles.input_notetitle}
+            value={user.username}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
               setUser({ ...user, username: e.target.value });
             }}
@@ -50,6 +51,7 @@ export default function Login() {
           <input
             style={styles.input_notetitle}
             type="password"
+            value={user.password}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
               setUser({ ...user, password: e.target.value });
             }}

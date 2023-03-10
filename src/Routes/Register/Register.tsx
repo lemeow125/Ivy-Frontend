@@ -32,6 +32,7 @@ export default function Register() {
           <div style={{ margin: 4 }} />
           <input
             style={styles.text_L}
+            value={user.email}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
               setUser({ ...user, email: e.target.value });
             }}
@@ -43,6 +44,7 @@ export default function Register() {
           <div style={{ margin: 4 }} />
           <input
             style={styles.text_L}
+            value={user.username}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
               setUser({ ...user, username: e.target.value });
             }}
@@ -55,6 +57,7 @@ export default function Register() {
           <input
             style={styles.text_L}
             type="password"
+            value={user.password}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
               setUser({ ...user, password: e.target.value });
             }}
