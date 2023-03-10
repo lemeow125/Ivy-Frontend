@@ -9,106 +9,123 @@ import {
 
 // Product APIs
 // Local Testing "http://localhost:8000"
-// Remote Deploy "http://keannu125.pythonanywhere.com"
-export const baseurl = "http://localhost:8000";
-
+// Remote Deploy "https://keannu125.pythonanywhere.com"
+axios.defaults.baseURL = "https://keannu125.pythonanywhere.com";
+const token = JSON.parse(localStorage.getItem("token") || "{}");
 export function GetProducts() {
-  const token = JSON.parse(localStorage.getItem("token") || "{}");
   return axios
-    .get(baseurl + "/api/v1/products/", {
+    .get("/api/v1/products/", {
       headers: {
         Authorization: "Token " + token,
       },
     })
     .then((response) => {
+      console.log("Queried products successfully");
       return response.data;
+    })
+    .catch((error) => {
+      console.log("Error querying products");
+      return error;
     });
 }
 
 export function GetProduct(id: number) {
-  const token = JSON.parse(localStorage.getItem("token") || "{}");
   return axios
-    .get(baseurl + "/api/v1/products/" + id + "/", {
+    .get("/api/v1/products/" + id + "/", {
       headers: {
         Authorization: "Token " + token,
       },
     })
     .then((response) => {
+      console.log("Queried product successfully");
       return response.data;
+    })
+    .catch((error) => {
+      console.log("Error querying product");
+      return error;
     });
 }
 
 export function UpdateProduct(product: UpdateProductParams) {
-  const token = JSON.parse(localStorage.getItem("token") || "{}");
   return axios
-    .patch(baseurl + "/api/v1/products/" + product.id + "/", product, {
+    .patch("/api/v1/products/" + product.id + "/", product, {
       headers: {
         Authorization: "Token " + token,
       },
     })
     .then((response) => {
-      console.log("Product update successful", response.data);
+      console.log("Product update successful");
       return response.data;
     })
     .catch((error) => {
-      console.log("Error updating product", error.response);
+      console.log("Error updating product");
       return error;
     });
 }
 
 export function GetLowestStockedProduct() {
-  const token = JSON.parse(localStorage.getItem("token") || "{}");
   return axios
-    .get(baseurl + "/api/v1/lowest_stock_product/", {
+    .get("/api/v1/lowest_stock_product/", {
       headers: {
         Authorization: "Token " + token,
       },
     })
     .then((response) => {
+      console.log("Queried lowest stocekd product successfully");
       return response.data;
+    })
+    .catch((error) => {
+      console.log("Error querying lowest stocked product");
     });
 }
 
 export function GetLogs() {
-  const token = JSON.parse(localStorage.getItem("token") || "{}");
   return axios
-    .get(baseurl + "/api/v1/logs/", {
+    .get("/api/v1/logs/", {
       headers: {
         Authorization: "Token " + token,
       },
     })
     .then((response) => {
+      console.log("Queried logs successfully");
       return response.data;
+    })
+    .catch((error) => {
+      console.log("Error querying logs");
+      return error;
     });
 }
 
 export function AddProduct(note: AddProductParams) {
-  const token = JSON.parse(localStorage.getItem("token") || "{}");
   return axios
-    .post(baseurl + "/api/v1/products/", note, {
+    .post("/api/v1/products/", note, {
       headers: {
         Authorization: "Token " + token,
       },
     })
     .then((response) => {
+      console.log("Added product successfully");
       return response.data;
     })
     .catch((error) => {
-      console.log("Error adding product", error.response);
+      console.log("Error adding product");
       return error;
     });
 }
 
 export function DeleteProduct(id: number) {
-  const token = JSON.parse(localStorage.getItem("token") || "{}");
   return axios
-    .delete(baseurl + "/api/v1/products/" + id + "/", {
+    .delete("/api/v1/products/" + id + "/", {
       headers: {
         Authorization: "Token " + token,
       },
     })
+    .then((response) => {
+      console.log("Deleted product successfully");
+      return response;
+    })
     .catch((error) => {
-      console.log("Error deleting product", error.response);
+      console.log("Error deleting product");
       return error;
     });
 }
@@ -117,79 +134,74 @@ export function DeleteProduct(id: number) {
 
 export function UserRegister(register: RegistrationParams) {
   return axios
-    .post(baseurl + "/api/v1/accounts/users/", register)
+    .post("/api/v1/accounts/users/", register)
     .then(async (response) => {
-      console.log(response.data);
+      console.log("Registration success");
       return true;
     })
     .catch((error) => {
-      console.log("Registration failed: " + error.response);
+      console.log("Registration failed");
       return false;
     });
 }
 
 export function UserLogin(user: LoginParams) {
   return axios
-    .post(baseurl + "/api/v1/accounts/token/login/", user)
+    .post("/api/v1/accounts/token/login/", user)
     .then(async (response) => {
       localStorage.setItem("token", JSON.stringify(response.data.auth_token));
-      console.log(
-        "Login Success! Stored Token: ",
-        JSON.parse(localStorage.getItem("token") || "{}")
-      );
+      console.log("Login Success!");
       return true;
     })
     .catch((error) => {
-      console.log("Login Failed: " + error.response);
+      console.log("Login Failed");
       return false;
     });
 }
 
 export function UserInfo() {
-  const token = JSON.parse(localStorage.getItem("token") || "{}");
   return axios
-    .get(baseurl + "/api/v1/accounts/users/me/", {
+    .get("/api/v1/accounts/users/me/", {
       headers: {
         Authorization: "Token " + token,
       },
     })
     .then((response) => {
-      console.log(response.data);
+      console.log("Success querying self info");
       return response.data;
     })
     .catch((error) => {
-      console.log("Error retrieving user data", error.response);
+      console.log("Error querying self info");
       return false;
     });
 }
 
 export function QueryUser(id: number) {
-  const token = JSON.parse(localStorage.getItem("token") || "{}");
   return axios
-    .get(baseurl + "/api/v1/user_list/" + id, {
+    .get("/api/v1/user_list/" + id, {
       headers: {
         Authorization: "Token " + token,
       },
     })
     .then((response) => {
-      console.log("Querying one user...", response.data);
+      console.log("Success querying user");
       return response.data;
     })
     .catch((error) => {
-      console.log("Error retrieving single user data", error.response);
+      console.log("Error querying user");
       return false;
     });
 }
 
 export function UserActivate(activation: ActivationParams) {
   return axios
-    .post(baseurl + "/api/v1/accounts/users/activation/", activation)
+    .post("/api/v1/accounts/users/activation/", activation)
     .then(async (response) => {
       console.log("Activation Success");
       return true;
     })
     .catch((error) => {
-      console.log("Activation failed: " + error.response);
+      console.log("Activation failed");
       return false;
     });
 }
