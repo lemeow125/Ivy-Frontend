@@ -21,6 +21,7 @@ import {
 } from "../../Interfaces/Interfaces";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import GetToday from "../../Components/LogsPage/GetToday/GetToday";
 
 export default function Logs() {
   const logs = useQuery("logs", GetLogs, { retry: 0 });
@@ -29,17 +30,6 @@ export default function Logs() {
   );
   const [searchTerm, setSearchTerm] = useState("");
   const [searchToday, setSearchToday] = useState("");
-  function getToday() {
-    const current = new Date();
-    const date =
-      ("0" + (current.getMonth() + 1)).slice(-2) +
-      "-" +
-      ("0" + current.getDate()).slice(-2) +
-      "-" +
-      current.getFullYear();
-    console.log("Today is " + date);
-    return date;
-  }
   if (logs.isLoading || !old_session_checked) {
     return (
       <div>
@@ -85,7 +75,7 @@ export default function Logs() {
             style={{ flex: 1 }}
             onClick={() => {
               if (searchToday === "") {
-                setSearchToday(getToday());
+                setSearchToday(GetToday());
               } else {
                 setSearchToday("");
               }
