@@ -8,124 +8,113 @@ import {
 } from "../../Interfaces/Interfaces";
 
 // Product APIs
-// Local Testing "http://localhost:8000"
-// Remote Deploy "https://keannu125.pythonanywhere.com"
-axios.defaults.baseURL = "https://keannu125.pythonanywhere.com";
-const token = JSON.parse(localStorage.getItem("token") || "{}");
+
 export function GetProducts() {
+  const token = JSON.parse(localStorage.getItem("token") || "{}");
   return axios
-    .get("/api/v1/products/", {
+    .get("https://keannu125.pythonanywhere.com/api/v1/products/", {
       headers: {
         Authorization: "Token " + token,
       },
     })
     .then((response) => {
-      console.log("Queried products successfully");
       return response.data;
-    })
-    .catch((error) => {
-      console.log("Error querying products");
-      return error;
     });
 }
 
 export function GetProduct(id: number) {
+  const token = JSON.parse(localStorage.getItem("token") || "{}");
   return axios
-    .get("/api/v1/products/" + id + "/", {
+    .get("https://keannu125.pythonanywhere.com/api/v1/products/" + id + "/", {
       headers: {
         Authorization: "Token " + token,
       },
     })
     .then((response) => {
-      console.log("Queried product successfully");
       return response.data;
-    })
-    .catch((error) => {
-      console.log("Error querying product");
-      return error;
     });
 }
 
 export function UpdateProduct(product: UpdateProductParams) {
+  const token = JSON.parse(localStorage.getItem("token") || "{}");
   return axios
-    .patch("/api/v1/products/" + product.id + "/", product, {
-      headers: {
-        Authorization: "Token " + token,
-      },
-    })
+    .patch(
+      "https://keannu125.pythonanywhere.com/api/v1/products/" +
+        product.id +
+        "/",
+      product,
+      {
+        headers: {
+          Authorization: "Token " + token,
+        },
+      }
+    )
     .then((response) => {
-      console.log("Product update successful");
+      console.log("Product update successful", response.data);
       return response.data;
     })
     .catch((error) => {
-      console.log("Error updating product");
+      console.log("Error updating product", error.response);
       return error;
     });
 }
 
 export function GetLowestStockedProduct() {
+  const token = JSON.parse(localStorage.getItem("token") || "{}");
   return axios
-    .get("/api/v1/lowest_stock_product/", {
+    .get("https://keannu125.pythonanywhere.com/api/v1/lowest_stock_product/", {
       headers: {
         Authorization: "Token " + token,
       },
     })
     .then((response) => {
-      console.log("Queried lowest stocekd product successfully");
       return response.data;
-    })
-    .catch((error) => {
-      console.log("Error querying lowest stocked product");
     });
 }
 
 export function GetLogs() {
+  const token = JSON.parse(localStorage.getItem("token") || "{}");
   return axios
-    .get("/api/v1/logs/", {
+    .get("https://keannu125.pythonanywhere.com/api/v1/logs/", {
       headers: {
         Authorization: "Token " + token,
       },
     })
     .then((response) => {
-      console.log("Queried logs successfully");
       return response.data;
-    })
-    .catch((error) => {
-      console.log("Error querying logs");
-      return error;
     });
 }
 
 export function AddProduct(note: AddProductParams) {
+  const token = JSON.parse(localStorage.getItem("token") || "{}");
   return axios
-    .post("/api/v1/products/", note, {
+    .post("https://keannu125.pythonanywhere.com/api/v1/products/", note, {
       headers: {
         Authorization: "Token " + token,
       },
     })
     .then((response) => {
-      console.log("Added product successfully");
       return response.data;
     })
     .catch((error) => {
-      console.log("Error adding product");
+      console.log("Error adding product", error.response);
       return error;
     });
 }
 
 export function DeleteProduct(id: number) {
+  const token = JSON.parse(localStorage.getItem("token") || "{}");
   return axios
-    .delete("/api/v1/products/" + id + "/", {
-      headers: {
-        Authorization: "Token " + token,
-      },
-    })
-    .then((response) => {
-      console.log("Deleted product successfully");
-      return response;
-    })
+    .delete(
+      "https://keannu125.pythonanywhere.com/api/v1/products/" + id + "/",
+      {
+        headers: {
+          Authorization: "Token " + token,
+        },
+      }
+    )
     .catch((error) => {
-      console.log("Error deleting product");
+      console.log("Error deleting product", error.response);
       return error;
     });
 }
@@ -134,74 +123,88 @@ export function DeleteProduct(id: number) {
 
 export function UserRegister(register: RegistrationParams) {
   return axios
-    .post("/api/v1/accounts/users/", register)
+    .post(
+      "https://keannu125.pythonanywhere.com/api/v1/accounts/users/",
+      register
+    )
     .then(async (response) => {
-      console.log("Registration success");
+      console.log(response.data);
       return true;
     })
     .catch((error) => {
-      console.log("Registration failed");
+      console.log("Registration failed: " + error.response);
       return false;
     });
 }
 
 export function UserLogin(user: LoginParams) {
   return axios
-    .post("/api/v1/accounts/token/login/", user)
+    .post(
+      "https://keannu125.pythonanywhere.com/api/v1/accounts/token/login/",
+      user
+    )
     .then(async (response) => {
       localStorage.setItem("token", JSON.stringify(response.data.auth_token));
-      console.log("Login Success!");
+      console.log(
+        "Login Success! Stored Token: ",
+        JSON.parse(localStorage.getItem("token") || "{}")
+      );
       return true;
     })
     .catch((error) => {
-      console.log("Login Failed");
+      console.log("Login Failed: " + error.response);
       return false;
     });
 }
 
 export function UserInfo() {
+  const token = JSON.parse(localStorage.getItem("token") || "{}");
   return axios
-    .get("/api/v1/accounts/users/me/", {
+    .get("https://keannu125.pythonanywhere.com/api/v1/accounts/users/me/", {
       headers: {
         Authorization: "Token " + token,
       },
     })
     .then((response) => {
-      console.log("Success querying self info");
+      console.log(response.data);
       return response.data;
     })
     .catch((error) => {
-      console.log("Error querying self info");
+      console.log("Error retrieving user data", error.response);
       return false;
     });
 }
 
 export function QueryUser(id: number) {
+  const token = JSON.parse(localStorage.getItem("token") || "{}");
   return axios
-    .get("/api/v1/user_list/" + id, {
+    .get("https://keannu125.pythonanywhere.com/api/v1/user_list/" + id, {
       headers: {
         Authorization: "Token " + token,
       },
     })
     .then((response) => {
-      console.log("Success querying user");
+      console.log("Querying one user...", response.data);
       return response.data;
     })
     .catch((error) => {
-      console.log("Error querying user");
+      console.log("Error retrieving single user data", error.response);
       return false;
     });
 }
 
 export function UserActivate(activation: ActivationParams) {
   return axios
-    .post("/api/v1/accounts/users/activation/", activation)
+    .post(
+      "https://keannu125.pythonanywhere.com/api/v1/accounts/users/activation/",
+      activation
+    )
     .then(async (response) => {
       console.log("Activation Success");
       return true;
     })
     .catch((error) => {
-      console.log("Activation failed");
+      console.log("Activation failed: " + error.response);
       return false;
     });
 }
