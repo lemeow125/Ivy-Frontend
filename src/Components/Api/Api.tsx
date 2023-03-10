@@ -50,11 +50,11 @@ export function UpdateProduct(product: UpdateProductParams) {
       }
     )
     .then((response) => {
-      console.log("Product update successful", response.data);
+      console.log("Product update successful");
       return response.data;
     })
     .catch((error) => {
-      console.log("Error updating product", error.response);
+      console.log("Error updating product");
       return error;
     });
 }
@@ -97,7 +97,7 @@ export function AddProduct(note: AddProductParams) {
       return response.data;
     })
     .catch((error) => {
-      console.log("Error adding product", error.response);
+      console.log("Error adding product");
       return error;
     });
 }
@@ -114,7 +114,7 @@ export function DeleteProduct(id: number) {
       }
     )
     .catch((error) => {
-      console.log("Error deleting product", error.response);
+      console.log("Error deleting product");
       return error;
     });
 }
@@ -132,7 +132,7 @@ export function UserRegister(register: RegistrationParams) {
       return true;
     })
     .catch((error) => {
-      console.log("Registration failed: " + error.response);
+      console.log("Registration failed");
       return false;
     });
 }
@@ -152,7 +152,7 @@ export function UserLogin(user: LoginParams) {
       return true;
     })
     .catch((error) => {
-      console.log("Login Failed: " + error.response);
+      console.log("Login Failed");
       return false;
     });
 }
@@ -170,7 +170,7 @@ export function UserInfo() {
       return response.data;
     })
     .catch((error) => {
-      console.log("Error retrieving user data", error.response);
+      console.log("Error retrieving user data");
       return false;
     });
 }
@@ -184,11 +184,11 @@ export function QueryUser(id: number) {
       },
     })
     .then((response) => {
-      console.log("Querying one user...", response.data);
+      console.log("Success querying one user");
       return response.data;
     })
     .catch((error) => {
-      console.log("Error retrieving single user data", error.response);
+      console.log("Error querying one user");
       return false;
     });
 }
@@ -204,7 +204,7 @@ export function UserActivate(activation: ActivationParams) {
       return true;
     })
     .catch((error) => {
-      console.log("Activation failed: " + error.response);
+      console.log("Activation failed");
       return false;
     });
 }
