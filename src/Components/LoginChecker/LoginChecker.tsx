@@ -14,7 +14,7 @@ export default function LoginChecker() {
   if (!logged_in && !old_session_checked) {
   } else if (!logged_in && old_session_checked) {
     console.log("Not logged in. Redirecting to login page");
-    return <Navigate to="/Login" replace />;
+    return <Navigate to="Ivy/Login" replace />;
   }
   return <div />;
 }

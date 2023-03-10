@@ -1,7 +1,7 @@
 {
   "name": "ivy-inventorymanager",
   "version": "0.1.0",
-  "homepage": "https://lemeow125.github.io/Ivy",
+  "homepage": "https://lemeow125.github.io/Ivy/#",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.5",
