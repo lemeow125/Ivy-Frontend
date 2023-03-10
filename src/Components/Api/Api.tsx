@@ -145,10 +145,7 @@ export function UserLogin(user: LoginParams) {
     )
     .then(async (response) => {
       localStorage.setItem("token", JSON.stringify(response.data.auth_token));
-      console.log(
-        "Login Success! Stored Token: ",
-        JSON.parse(localStorage.getItem("token") || "{}")
-      );
+      console.log("Login Success ");
       return true;
     })
     .catch((error) => {
