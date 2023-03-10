@@ -28,7 +28,7 @@ export default function Logs() {
     (state: OldSessionState) => state.old_session_checked.value
   );
   const [searchTerm, setSearchTerm] = useState("");
-  const [searchToday, setSearchToday] = useState(true);
+  const [searchToday, setSearchToday] = useState("");
   function getToday() {
     const current = new Date();
     const date =
@@ -84,11 +84,10 @@ export default function Logs() {
           <Switch
             style={{ flex: 1 }}
             onClick={() => {
-              setSearchToday(!searchToday);
-              if (searchTerm != getToday()) {
-                setSearchTerm(getToday());
+              if (searchToday === "") {
+                setSearchToday(getToday());
               } else {
-                setSearchTerm("");
+                setSearchToday("");
               }
             }}
           />
@@ -112,7 +111,6 @@ export default function Logs() {
             }}
             value={searchTerm}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              setSearchToday(false);
               setSearchTerm(e.target.value);
             }}
           />
@@ -145,9 +143,10 @@ export default function Logs() {
             {logs.data
               .filter(
                 (Log: ProductLog) =>
-                  Log.name.toLowerCase().includes(searchTerm) ||
-                  Log.history_user.toLowerCase().includes(searchTerm) ||
-                  Log.history_date.toLowerCase().includes(searchTerm)
+                  (Log.name.toLowerCase().includes(searchTerm) ||
+                    Log.history_user.toLowerCase().includes(searchTerm) ||
+                    Log.history_date.toLowerCase().includes(searchTerm)) &&
+                  Log.history_date.toLowerCase().includes(searchToday)
               )
               .map((row: ProductLog, index: number) => (
                 <TableRow
