@@ -54,8 +54,11 @@ export default function ViewManager(props: ProductList) {
           </div>
         </div>
         <TableView
-          Products={props.Products.filter((Product) =>
-            Product.name.toLowerCase().includes(searchTerm)
+          Products={props.Products.filter(
+            (Product) =>
+              Product.name.toLowerCase().includes(searchTerm) ||
+              Product.date_added.toLowerCase().includes(searchTerm) ||
+              Product.id.toString().includes(searchTerm)
           )}
         />
       </div>
