@@ -66,7 +66,9 @@ export default function Register() {
           variant="contained"
           onClick={async () => {
             setUser({
-              ...user,
+              email: "",
+              username: "",
+              password: "",
             });
             if (await UserRegister(user)) {
               setFeedback(
