@@ -25,6 +25,7 @@ import LowestStockWidget from "../../Components/DashboardPage/LowestStockWidget/
 import RecentlyAddedWidget from "../../Components/DashboardPage/RecentlyAddedWidget/RecentlyAddedWidget";
 import TotalProductsWidget from "../../Components/DashboardPage/TotalProductsWidget/TotalProductsWidget";
 import SessionStatsWidget from "../../Components/DashboardPage/SessionStatsWidget/SessionStatsWidget";
+import RecentTransactionsWidget from "../../Components/DashboardPage/RecentTransactionsWidget/RecentTransactionsWidget";
 
 export default function Dashboard() {
   const logs = useQuery("logs", GetLogs, { retry: 0 });
@@ -107,38 +108,7 @@ export default function Dashboard() {
             </div>
           </div>
         </div>
-        <div style={{ flex: 3 }}>
-          <div style={styles.widget}>
-            <div style={styles.content_row}>
-              <LogsIcon size={64} color="white" />
-              <div style={styles.wrapper_column}>
-                <p style={{ ...styles.text_white, ...styles.text_L }}>Recent</p>
-                <p style={{ ...styles.text_white, ...styles.text_L }}>
-                  Transactions
-                </p>
-              </div>
-            </div>
-            {logs.data.slice(0, 5).map((log: ProductLog, index: number) => {
-              return (
-                <div key={index}>
-                  <div style={{ marginBottom: "8px" }} />
-                  <p style={{ ...styles.text_white, ...styles.text_M }}>
-                    {log.name}
-                  </p>
-                  <p style={{ ...styles.text_white, ...styles.text_S }}>
-                    Quantity: {log.quantity}
-                  </p>
-                  <p style={{ ...styles.text_white, ...styles.text_S }}>
-                    Date: {log.history_date}
-                  </p>
-                  <p style={{ ...styles.text_white, ...styles.text_XS }}>
-                    Transaction ID: {log.history_id}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
+        <RecentTransactionsWidget ProductLogs={logs.data} />
       </div>
     </div>
   );
