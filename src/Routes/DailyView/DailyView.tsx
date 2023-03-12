@@ -1,13 +1,6 @@
-import React, { useState } from "react";
-import TotalProductsIcon from "../../Components/Icons/TotalProductsIcon/TotalProductsIcon";
-import LowStockIcon from "../../Components/Icons/LowStockIcon/LowStockIcon";
-import StatsIcon from "../../Components/Icons/StatsIcon/StatsIcon";
-import LogsIcon from "../../Components/Icons/LogsIcon/LogsIcon";
+import React from "react";
 import "../../index.css";
 import styles from "../../styles";
-import HomeIcon from "../../Components/Icons/HomeIcon/HomeIcon";
-import ColoredCube from "../../Components/ColoredCube/ColoredCube";
-import RecentlyAddedIcon from "../../Components/Icons/RecentlyAddedIcon/RecentlyAddedIcon";
 import LoginChecker from "../../Components/LoginChecker/LoginChecker";
 import { useQuery } from "react-query";
 import {
@@ -15,17 +8,14 @@ import {
   GetLowestStockedProduct,
   GetProducts,
 } from "../../Components/Api/Api";
-import {
-  OldSessionState,
-  ProductLog,
-  SessionTransactions,
-} from "../../Interfaces/Interfaces";
+import { OldSessionState, Product } from "../../Interfaces/Interfaces";
 import { useSelector } from "react-redux";
-import LowestStockWidget from "../../Components/DashboardPage/LowestStockWidget/LowestStockWidget";
-import RecentlyAddedWidget from "../../Components/DashboardPage/RecentlyAddedWidget/RecentlyAddedWidget";
-import TotalProductsWidget from "../../Components/DashboardPage/TotalProductsWidget/TotalProductsWidget";
-import SessionStatsWidget from "../../Components/DashboardPage/SessionStatsWidget/SessionStatsWidget";
 import TodayIcon from "../../Components/Icons/TodayIcon/TodayIcon";
+import moment from "moment";
+import GetToday from "../../Components/GetToday/GetToday";
+import Moment from "react-moment";
+import { useNavigate } from "react-router-dom";
+import { Button } from "@mui/material";
 
 export default function DailyView() {
   const logs = useQuery("logs", GetLogs, { retry: 0 });
@@ -40,6 +30,7 @@ export default function DailyView() {
   const old_session_checked = useSelector(
     (state: OldSessionState) => state.old_session_checked.value
   );
+  const navigate = useNavigate();
   if (
     logs.isLoading ||
     products.isLoading ||
@@ -80,10 +71,34 @@ export default function DailyView() {
       <LoginChecker />
       <div style={styles.flex_row}>
         <TodayIcon size={64} color="white" />
-        <p style={{ ...styles.text_white, ...styles.text_XL }}>Daily View</p>
+        <p style={{ ...styles.text_white, ...styles.text_XL }}>
+          Products Modified Today
+        </p>
       </div>
-      <div style={styles.content_row}>
-        <p style={{ ...styles.text_white, ...styles.text_XL }}>Heh</p>
+      <div style={styles.content_column}>
+        {products.data
+          .filter(
+            (Product: Product) =>
+              moment(Product.history[0].history_date).format("MM-DD-YYYY") ===
+              GetToday()
+          )
+          .map((Product: Product) => (
+            <button
+              style={{ ...styles.widget, ...{ border: "None" } }}
+              onClick={() => navigate("/Product/" + Product.id)}
+            >
+              <p style={{ ...styles.text_white, ...styles.text_XL }}>
+                Product: {Product.name}
+              </p>
+              <p style={{ ...styles.text_white, ...styles.text_XL }}>
+                Last Modified:{" "}
+                <Moment date={Product.history[0].history_date} fromNow />
+              </p>
+              <p style={{ ...styles.text_white, ...styles.text_XL }}>
+                Current Stock: {Product.history[0].quantity}
+              </p>
+            </button>
+          ))}
       </div>
     </div>
   );

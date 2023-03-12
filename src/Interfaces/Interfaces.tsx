@@ -7,6 +7,12 @@ export interface Product {
   name: string;
   date_added: string;
   quantity: number;
+  history: ProductHistoryEntry[];
+}
+
+export interface ProductHistoryEntry {
+  quantity: number;
+  history_date: string;
 }
 
 export interface ProductLogList {
