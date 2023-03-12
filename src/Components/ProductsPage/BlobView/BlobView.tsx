@@ -21,7 +21,7 @@ export default function BlobView({ Products }: ProductList) {
             padding: 16,
           }}
         >
-          <Button
+          <button
             style={{
               lineHeight: 0,
               display: "flex",
@@ -29,6 +29,8 @@ export default function BlobView({ Products }: ProductList) {
               justifySelf: "flex-start",
               alignItems: "flex-start",
               width: "100%",
+              border: "none",
+              background: "none",
             }}
             onClick={() => navigate("/Product/" + row.id)}
           >
@@ -45,7 +47,7 @@ export default function BlobView({ Products }: ProductList) {
             <p style={{ ...styles.text_white, ...styles.text_S }}>
               Date Added: {row.date_added}
             </p>
-          </Button>
+          </button>
         </div>
       ))}
     </div>
