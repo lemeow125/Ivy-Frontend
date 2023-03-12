@@ -61,7 +61,7 @@ export default function Sidebar() {
           </SidebarButton>
           <SidebarButton
             onClick={() => navigate("/ActivityToday")}
-            name="Daily View"
+            name="Summary"
           >
             <TodayIcon size={48} color="white" />
           </SidebarButton>
