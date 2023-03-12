@@ -1,13 +1,24 @@
 import * as React from "react";
 import styles from "../../styles";
-import { Button } from "@mui/material";
+import {
+  Button,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+} from "@mui/material";
 import { useNavigate, useParams } from "react-router-dom";
 import LoginChecker from "../../Components/LoginChecker/LoginChecker";
 import { DeleteProduct, GetProduct } from "../../Components/Api/Api";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import ProductIcon from "../../Components/Icons/ProductIcon/ProductIcon";
 import { useSelector } from "react-redux";
-import { OldSessionState } from "../../Interfaces/Interfaces";
+import {
+  OldSessionState,
+  ProductHistoryEntry,
+} from "../../Interfaces/Interfaces";
+import moment from "moment";
 
 export default function Product() {
   const navigate = useNavigate();
@@ -91,6 +102,48 @@ export default function Product() {
         >
           Delete Product
         </Button>
+        <p style={{ ...styles.text_white, ...styles.text_XL }}>
+          Individual Transaction Log
+        </p>
+        <div style={{ alignSelf: "center" }}>
+          <TableContainer>
+            <TableHead>
+              <TableRow>
+                <TableCell style={{ ...styles.text_white, ...styles.text_M }}>
+                  Time
+                </TableCell>
+                <TableCell style={{ ...styles.text_white, ...styles.text_M }}>
+                  Quantity
+                </TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {product.history.map(
+                (history_entry: ProductHistoryEntry, index: number) => (
+                  <TableRow
+                    key={index}
+                    sx={{
+                      "&:last-child td, &:last-child th": { border: 0 },
+                    }}
+                  >
+                    <TableCell
+                      style={{ ...styles.text_white, ...styles.text_S }}
+                    >
+                      {moment(history_entry.history_date).format(
+                        "MM-DD-YYYY hh:mm A"
+                      )}
+                    </TableCell>
+                    <TableCell
+                      style={{ ...styles.text_white, ...styles.text_S }}
+                    >
+                      {history_entry.quantity}
+                    </TableCell>
+                  </TableRow>
+                )
+              )}
+            </TableBody>
+          </TableContainer>
+        </div>
       </div>
     </div>
   );
