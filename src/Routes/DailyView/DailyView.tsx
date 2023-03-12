@@ -15,7 +15,14 @@ import moment from "moment";
 import GetToday from "../../Components/GetToday/GetToday";
 import Moment from "react-moment";
 import { useNavigate } from "react-router-dom";
-import { Button } from "@mui/material";
+import {
+  Button,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+} from "@mui/material";
 
 export default function DailyView() {
   const logs = useQuery("logs", GetLogs, { retry: 0 });
@@ -84,7 +91,10 @@ export default function DailyView() {
           )
           .map((Product: Product) => (
             <button
-              style={{ ...styles.widget, ...{ border: "None" } }}
+              style={{
+                ...styles.widget,
+                ...{ border: "None" },
+              }}
               onClick={() => navigate("/Product/" + Product.id)}
             >
               <p style={{ ...styles.text_white, ...styles.text_XL }}>
@@ -97,6 +107,58 @@ export default function DailyView() {
               <p style={{ ...styles.text_white, ...styles.text_XL }}>
                 Current Stock: {Product.history[0].quantity}
               </p>
+              <p style={{ ...styles.text_white, ...styles.text_XL }}>
+                Daily Summary
+              </p>
+              <div style={{ alignSelf: "center" }}>
+                {" "}
+                <TableContainer>
+                  <TableHead>
+                    <TableRow>
+                      <TableCell
+                        style={{ ...styles.text_white, ...styles.text_M }}
+                      >
+                        Time
+                      </TableCell>
+                      <TableCell
+                        style={{ ...styles.text_white, ...styles.text_M }}
+                      >
+                        Quantity
+                      </TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {Product.history
+                      .filter(
+                        (history_entry) =>
+                          moment(history_entry.history_date).format(
+                            "MM-DD-YYYY"
+                          ) === GetToday()
+                      )
+                      .map((history_entry, index: number) => (
+                        <TableRow
+                          key={index}
+                          sx={{
+                            "&:last-child td, &:last-child th": { border: 0 },
+                          }}
+                        >
+                          <TableCell
+                            style={{ ...styles.text_white, ...styles.text_S }}
+                          >
+                            {moment(history_entry.history_date).format(
+                              "hh:mm A"
+                            )}
+                          </TableCell>
+                          <TableCell
+                            style={{ ...styles.text_white, ...styles.text_S }}
+                          >
+                            {history_entry.quantity}
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                  </TableBody>
+                </TableContainer>
+              </div>
             </button>
           ))}
       </div>
