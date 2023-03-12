@@ -5,7 +5,7 @@ import { Button } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { UserRegister } from "../../Components/Api/Api";
+import { UserRegister, VerifyEmail } from "../../Components/Api/Api";
 export default function Register() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -65,18 +65,24 @@ export default function Register() {
           style={styles.login_button}
           variant="contained"
           onClick={async () => {
+            console.log("Email valid?" + (await VerifyEmail(user.email)));
+            if (await VerifyEmail(user.email)) {
+              if (await UserRegister(user)) {
+                setFeedback(
+                  "Registration success. Please check your email address for activation"
+                );
+              } else {
+                setFeedback("Invalid credentials specified");
+              }
+            } else {
+              setFeedback("Email does not exist");
+            }
+
             setUser({
               email: "",
               username: "",
               password: "",
             });
-            if (await UserRegister(user)) {
-              setFeedback(
-                "Registration success. Please check your email address for activation"
-              );
-            } else {
-              setFeedback("Invalid credentials specified");
-            }
           }}
         >
           Register

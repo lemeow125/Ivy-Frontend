@@ -206,3 +206,19 @@ export async function CheckSavedSession() {
   console.log("No previous session found");
   return false;
 }
+
+export function VerifyEmail(email: string) {
+  return axios
+    .get(
+      "https://emailvalidation.abstractapi.com/v1/?api_key=d7abfb5f41b7476faaebe37ceba8ae37&email=" +
+        email
+    )
+    .then((response) => {
+      console.log("Email valid?" + response.data);
+      return true;
+    })
+    .catch((error) => {
+      console.log("Email valid?" + error);
+      return false;
+    });
+}
