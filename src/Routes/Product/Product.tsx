@@ -128,7 +128,7 @@ export default function Product() {
                       style={{ ...styles.text_white, ...styles.text_S }}
                     >
                       {moment(history_entry.history_date).format(
-                        "MM-DD-YYYY hh:mm A"
+                        "MMMM DD, YYYY hh:mm A"
                       )}
                     </TableCell>
                     <TableCell
