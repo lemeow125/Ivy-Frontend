@@ -4,22 +4,19 @@ import InventoryIcon from "../../Components/Icons/InventoryIcon/InventoryIcon";
 import {
   Button,
   Table,
-  TableBody,
   TableCell,
   TableContainer,
   TableHead,
   TableRow,
 } from "@mui/material";
-import { SampleInventoryData } from "../../Components/SampleData/SampleData";
-import StockRenderer from "../../Components/InventoryPage/StockRenderer/StockRenderer";
 import LoginChecker from "../../Components/LoginChecker/LoginChecker";
-import { GetProducts, UpdateProduct } from "../../Components/Api/Api";
-import { useMutation, useQuery, useQueryClient } from "react-query";
+import { GetProducts } from "../../Components/Api/Api";
+import { useQuery } from "react-query";
 import RowRenderer from "../../Components/InventoryPage/RowRenderer/RowRenderer";
 import AddIcon from "../../Components/Icons/AddIcon/AddIcon";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { OldSessionState } from "../../Interfaces/Interfaces";
+import { RootState } from "../../Plugins/Redux/Store/Store";
 
 export default function Inventory() {
   const {
@@ -29,7 +26,7 @@ export default function Inventory() {
   } = useQuery("products", GetProducts, { retry: 0 });
   const navigate = useNavigate();
   const old_session_checked = useSelector(
-    (state: OldSessionState) => state.old_session_checked.value
+    (state: RootState) => state.old_session_checked.value
   );
   if (isLoading || !old_session_checked) {
     return (

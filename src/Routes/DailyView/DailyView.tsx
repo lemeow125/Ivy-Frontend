@@ -8,7 +8,7 @@ import {
   GetLowestStockedProduct,
   GetProducts,
 } from "../../Components/Api/Api";
-import { OldSessionState, Product } from "../../Interfaces/Interfaces";
+import { Product } from "../../Interfaces/Interfaces";
 import { useSelector } from "react-redux";
 import TodayIcon from "../../Components/Icons/TodayIcon/TodayIcon";
 import moment from "moment";
@@ -16,13 +16,13 @@ import GetToday from "../../Components/GetToday/GetToday";
 import Moment from "react-moment";
 import { useNavigate } from "react-router-dom";
 import {
-  Button,
   TableBody,
   TableCell,
   TableContainer,
   TableHead,
   TableRow,
 } from "@mui/material";
+import { RootState } from "../../Plugins/Redux/Store/Store";
 
 export default function DailyView() {
   const logs = useQuery("logs", GetLogs, { retry: 0 });
@@ -35,7 +35,7 @@ export default function DailyView() {
     }
   );
   const old_session_checked = useSelector(
-    (state: OldSessionState) => state.old_session_checked.value
+    (state: RootState) => state.old_session_checked.value
   );
   const navigate = useNavigate();
   if (

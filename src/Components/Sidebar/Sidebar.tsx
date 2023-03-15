@@ -10,15 +10,11 @@ import InventoryIcon from "../Icons/InventoryIcon/InventoryIcon";
 import LogsIcon from "../Icons/LogsIcon/LogsIcon";
 import LogoutIcon from "../Icons/LogoutIcon/LogoutIcon";
 import TodayIcon from "../Icons/TodayIcon/TodayIcon";
+import { RootState } from "../../Plugins/Redux/Store/Store";
 
-export interface state {
-  logged_in: {
-    value: boolean;
-  };
-}
 export default function Sidebar() {
   const navigate = useNavigate();
-  const logged_in = useSelector((state: state) => state.logged_in.value);
+  const logged_in = useSelector((state: RootState) => state.logged_in.value);
   function LogoutButton() {
     if (!logged_in) {
       return <div />;

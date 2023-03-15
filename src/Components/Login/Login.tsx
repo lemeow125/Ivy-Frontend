@@ -2,13 +2,12 @@ import { useSelector } from "react-redux";
 import { Button } from "@mui/material";
 import styles from "../../styles";
 import { useNavigate } from "react-router-dom";
-import { LoggedInUserState } from "../../Interfaces/Interfaces";
-import { LoginState } from "../../Interfaces/Interfaces";
+import { RootState } from "../../Plugins/Redux/Store/Store";
 
 export default function Login() {
-  const logged_in = useSelector((state: LoginState) => state.logged_in.value);
+  const logged_in = useSelector((state: RootState) => state.logged_in.value);
   const logged_in_user = useSelector(
-    (state: LoggedInUserState) => state.logged_in_user.value
+    (state: RootState) => state.logged_in_user.value
   );
   const navigate = useNavigate();
   if (logged_in) {

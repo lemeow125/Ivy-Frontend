@@ -3,16 +3,16 @@ import styles from "../../../styles";
 import ColoredCube from "../../ColoredCube/ColoredCube";
 import StatsIcon from "../../Icons/StatsIcon/StatsIcon";
 import { useSelector } from "react-redux";
-import { SessionTransactions } from "../../../Interfaces/Interfaces";
+import { RootState } from "../../../Plugins/Redux/Store/Store";
 
 export interface props {}
 
 export default function SessionStatsWidget() {
   const session_added = useSelector(
-    (state: SessionTransactions) => state.session_transactions.added
+    (state: RootState) => state.session_transactions.added
   );
   const session_removed = useSelector(
-    (state: SessionTransactions) => state.session_transactions.removed
+    (state: RootState) => state.session_transactions.removed
   );
   return (
     <div

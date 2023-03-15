@@ -14,11 +14,9 @@ import { DeleteProduct, GetProduct } from "../../Components/Api/Api";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import ProductIcon from "../../Components/Icons/ProductIcon/ProductIcon";
 import { useSelector } from "react-redux";
-import {
-  OldSessionState,
-  ProductHistoryEntry,
-} from "../../Interfaces/Interfaces";
+import { ProductHistoryEntry } from "../../Interfaces/Interfaces";
 import moment from "moment";
+import { RootState } from "../../Plugins/Redux/Store/Store";
 
 export default function Product() {
   const navigate = useNavigate();
@@ -41,7 +39,7 @@ export default function Product() {
     },
   });
   const old_session_checked = useSelector(
-    (state: OldSessionState) => state.old_session_checked.value
+    (state: RootState) => state.old_session_checked.value
   );
   if (isLoading || !old_session_checked) {
     return (
