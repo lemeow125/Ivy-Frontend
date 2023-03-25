@@ -22,6 +22,7 @@ import Activation from "./Routes/Activation/Activation";
 import { QueryClient, QueryClientProvider } from "react-query";
 import NewProduct from "./Routes/NewProduct/NewProduct";
 import Register from "./Routes/Register/Register";
+import DailyView from "./Routes/DailyView/DailyView";
 
 const queryClient = new QueryClient();
 
@@ -100,6 +101,14 @@ const router = createHashRouter([
     element: (
       <Container>
         <Register />
+      </Container>
+    ),
+  },
+  {
+    path: "/ActivityToday",
+    element: (
+      <Container>
+        <DailyView />
       </Container>
     ),
   },

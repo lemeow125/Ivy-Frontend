@@ -7,6 +7,12 @@ export interface Product {
   name: string;
   date_added: string;
   quantity: number;
+  history: ProductHistoryEntry[];
+}
+
+export interface ProductHistoryEntry {
+  quantity: number;
+  history_date: string;
 }
 
 export interface ProductLogList {
@@ -31,36 +37,6 @@ export interface ProductLog {
   quantity: string;
   history_date: string;
   history_user: string;
-}
-
-// Redux Interfaces
-export interface LoginState {
-  logged_in: {
-    value: boolean;
-  };
-}
-
-export interface OldSessionState {
-  old_session_checked: {
-    value: boolean;
-  };
-}
-
-export interface LoggedInUserState {
-  logged_in_user: {
-    value: {
-      email: string;
-      id: number;
-      username: string;
-    };
-  };
-}
-
-export interface SessionTransactions {
-  session_transactions: {
-    added: number;
-    removed: number;
-  };
 }
 
 // Component Props Interfaces

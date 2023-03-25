@@ -1,13 +1,7 @@
-import React, { useState } from "react";
-import TotalProductsIcon from "../../Components/Icons/TotalProductsIcon/TotalProductsIcon";
-import LowStockIcon from "../../Components/Icons/LowStockIcon/LowStockIcon";
-import StatsIcon from "../../Components/Icons/StatsIcon/StatsIcon";
-import LogsIcon from "../../Components/Icons/LogsIcon/LogsIcon";
+import React from "react";
 import "../../index.css";
 import styles from "../../styles";
 import HomeIcon from "../../Components/Icons/HomeIcon/HomeIcon";
-import ColoredCube from "../../Components/ColoredCube/ColoredCube";
-import RecentlyAddedIcon from "../../Components/Icons/RecentlyAddedIcon/RecentlyAddedIcon";
 import LoginChecker from "../../Components/LoginChecker/LoginChecker";
 import { useQuery } from "react-query";
 import {
@@ -15,16 +9,13 @@ import {
   GetLowestStockedProduct,
   GetProducts,
 } from "../../Components/Api/Api";
-import {
-  OldSessionState,
-  ProductLog,
-  SessionTransactions,
-} from "../../Interfaces/Interfaces";
 import { useSelector } from "react-redux";
 import LowestStockWidget from "../../Components/DashboardPage/LowestStockWidget/LowestStockWidget";
 import RecentlyAddedWidget from "../../Components/DashboardPage/RecentlyAddedWidget/RecentlyAddedWidget";
 import TotalProductsWidget from "../../Components/DashboardPage/TotalProductsWidget/TotalProductsWidget";
 import SessionStatsWidget from "../../Components/DashboardPage/SessionStatsWidget/SessionStatsWidget";
+import RecentTransactionsWidget from "../../Components/DashboardPage/RecentTransactionsWidget/RecentTransactionsWidget";
+import { RootState } from "../../Plugins/Redux/Store/Store";
 
 export default function Dashboard() {
   const logs = useQuery("logs", GetLogs, { retry: 0 });
@@ -37,7 +28,7 @@ export default function Dashboard() {
     }
   );
   const old_session_checked = useSelector(
-    (state: OldSessionState) => state.old_session_checked.value
+    (state: RootState) => state.old_session_checked.value
   );
   if (
     logs.isLoading ||
@@ -107,38 +98,7 @@ export default function Dashboard() {
             </div>
           </div>
         </div>
-        <div style={{ flex: 3 }}>
-          <div style={styles.widget}>
-            <div style={styles.content_row}>
-              <LogsIcon size={64} color="white" />
-              <div style={styles.wrapper_column}>
-                <p style={{ ...styles.text_white, ...styles.text_L }}>Recent</p>
-                <p style={{ ...styles.text_white, ...styles.text_L }}>
-                  Transactions
-                </p>
-              </div>
-            </div>
-            {logs.data.slice(0, 5).map((log: ProductLog, index: number) => {
-              return (
-                <div key={index}>
-                  <div style={{ marginBottom: "8px" }} />
-                  <p style={{ ...styles.text_white, ...styles.text_M }}>
-                    {log.name}
-                  </p>
-                  <p style={{ ...styles.text_white, ...styles.text_S }}>
-                    Quantity: {log.quantity}
-                  </p>
-                  <p style={{ ...styles.text_white, ...styles.text_S }}>
-                    Date: {log.history_date}
-                  </p>
-                  <p style={{ ...styles.text_white, ...styles.text_XS }}>
-                    Transaction ID: {log.history_id}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
+        <RecentTransactionsWidget ProductLogs={logs.data} />
       </div>
     </div>
   );

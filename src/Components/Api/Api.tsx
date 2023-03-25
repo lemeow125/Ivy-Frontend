@@ -8,11 +8,14 @@ import {
 } from "../../Interfaces/Interfaces";
 
 // Product APIs
+const instance = axios.create({
+  baseURL: "https://keannu125.pythonanywhere.com",
+});
 
 export function GetProducts() {
   const token = JSON.parse(localStorage.getItem("token") || "{}");
-  return axios
-    .get("https://keannu125.pythonanywhere.com/api/v1/products/", {
+  return instance
+    .get("api/v1/products/", {
       headers: {
         Authorization: "Token " + token,
       },
@@ -24,8 +27,8 @@ export function GetProducts() {
 
 export function GetProduct(id: number) {
   const token = JSON.parse(localStorage.getItem("token") || "{}");
-  return axios
-    .get("https://keannu125.pythonanywhere.com/api/v1/products/" + id + "/", {
+  return instance
+    .get("api/v1/products/" + id + "/", {
       headers: {
         Authorization: "Token " + token,
       },
@@ -37,18 +40,12 @@ export function GetProduct(id: number) {
 
 export function UpdateProduct(product: UpdateProductParams) {
   const token = JSON.parse(localStorage.getItem("token") || "{}");
-  return axios
-    .patch(
-      "https://keannu125.pythonanywhere.com/api/v1/products/" +
-        product.id +
-        "/",
-      product,
-      {
-        headers: {
-          Authorization: "Token " + token,
-        },
-      }
-    )
+  return instance
+    .patch("api/v1/products/" + product.id + "/", product, {
+      headers: {
+        Authorization: "Token " + token,
+      },
+    })
     .then((response) => {
       console.log("Product update successful");
       return response.data;
@@ -61,8 +58,8 @@ export function UpdateProduct(product: UpdateProductParams) {
 
 export function GetLowestStockedProduct() {
   const token = JSON.parse(localStorage.getItem("token") || "{}");
-  return axios
-    .get("https://keannu125.pythonanywhere.com/api/v1/lowest_stock_product/", {
+  return instance
+    .get("api/v1/lowest_stock_product/", {
       headers: {
         Authorization: "Token " + token,
       },
@@ -74,8 +71,8 @@ export function GetLowestStockedProduct() {
 
 export function GetLogs() {
   const token = JSON.parse(localStorage.getItem("token") || "{}");
-  return axios
-    .get("https://keannu125.pythonanywhere.com/api/v1/logs/", {
+  return instance
+    .get("api/v1/logs/", {
       headers: {
         Authorization: "Token " + token,
       },
@@ -87,8 +84,8 @@ export function GetLogs() {
 
 export function AddProduct(note: AddProductParams) {
   const token = JSON.parse(localStorage.getItem("token") || "{}");
-  return axios
-    .post("https://keannu125.pythonanywhere.com/api/v1/products/", note, {
+  return instance
+    .post("api/v1/products/", note, {
       headers: {
         Authorization: "Token " + token,
       },
@@ -104,15 +101,12 @@ export function AddProduct(note: AddProductParams) {
 
 export function DeleteProduct(id: number) {
   const token = JSON.parse(localStorage.getItem("token") || "{}");
-  return axios
-    .delete(
-      "https://keannu125.pythonanywhere.com/api/v1/products/" + id + "/",
-      {
-        headers: {
-          Authorization: "Token " + token,
-        },
-      }
-    )
+  return instance
+    .delete("api/v1/products/" + id + "/", {
+      headers: {
+        Authorization: "Token " + token,
+      },
+    })
     .catch((error) => {
       console.log("Error deleting product");
       return error;
@@ -122,11 +116,8 @@ export function DeleteProduct(id: number) {
 // User APIs
 
 export function UserRegister(register: RegistrationParams) {
-  return axios
-    .post(
-      "https://keannu125.pythonanywhere.com/api/v1/accounts/users/",
-      register
-    )
+  return instance
+    .post("api/v1/accounts/users/", register)
     .then(async (response) => {
       console.log(response.data);
       return true;
@@ -138,11 +129,8 @@ export function UserRegister(register: RegistrationParams) {
 }
 
 export function UserLogin(user: LoginParams) {
-  return axios
-    .post(
-      "https://keannu125.pythonanywhere.com/api/v1/accounts/token/login/",
-      user
-    )
+  return instance
+    .post("api/v1/accounts/token/login/", user)
     .then(async (response) => {
       localStorage.setItem("token", JSON.stringify(response.data.auth_token));
       console.log("Login Success ");
@@ -156,8 +144,8 @@ export function UserLogin(user: LoginParams) {
 
 export function UserInfo() {
   const token = JSON.parse(localStorage.getItem("token") || "{}");
-  return axios
-    .get("https://keannu125.pythonanywhere.com/api/v1/accounts/users/me/", {
+  return instance
+    .get("api/v1/accounts/users/me/", {
       headers: {
         Authorization: "Token " + token,
       },
@@ -174,8 +162,8 @@ export function UserInfo() {
 
 export function QueryUser(id: number) {
   const token = JSON.parse(localStorage.getItem("token") || "{}");
-  return axios
-    .get("https://keannu125.pythonanywhere.com/api/v1/user_list/" + id, {
+  return instance
+    .get("api/v1/user_list/" + id, {
       headers: {
         Authorization: "Token " + token,
       },
@@ -191,11 +179,8 @@ export function QueryUser(id: number) {
 }
 
 export function UserActivate(activation: ActivationParams) {
-  return axios
-    .post(
-      "https://keannu125.pythonanywhere.com/api/v1/accounts/users/activation/",
-      activation
-    )
+  return instance
+    .post("api/v1/accounts/users/activation/", activation)
     .then(async (response) => {
       console.log("Activation Success");
       return true;

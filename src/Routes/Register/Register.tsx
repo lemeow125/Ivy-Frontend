@@ -1,14 +1,9 @@
 import * as React from "react";
 import styles from "../../styles";
-import LoginIcon from "../../Components/Icons/LoginIcon/LoginIcon";
 import { Button } from "@mui/material";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { UserRegister } from "../../Components/Api/Api";
 export default function Register() {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
   const [user, setUser] = useState({
     email: "",
     username: "",
@@ -65,11 +60,6 @@ export default function Register() {
           style={styles.login_button}
           variant="contained"
           onClick={async () => {
-            setUser({
-              email: "",
-              username: "",
-              password: "",
-            });
             if (await UserRegister(user)) {
               setFeedback(
                 "Registration success. Please check your email address for activation"
@@ -77,6 +67,11 @@ export default function Register() {
             } else {
               setFeedback("Invalid credentials specified");
             }
+            setUser({
+              email: "",
+              username: "",
+              password: "",
+            });
           }}
         >
           Register

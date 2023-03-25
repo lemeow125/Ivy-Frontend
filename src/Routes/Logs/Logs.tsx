@@ -10,23 +10,19 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
-import { SampleLogData } from "../../Components/SampleData/SampleData";
 import LoginChecker from "../../Components/LoginChecker/LoginChecker";
 import { useQuery } from "react-query";
-import { GetLogs, UserInfo } from "../../Components/Api/Api";
-import {
-  OldSessionState,
-  ProductLog,
-  ProductLogEntry,
-} from "../../Interfaces/Interfaces";
+import { GetLogs } from "../../Components/Api/Api";
+import { ProductLog } from "../../Interfaces/Interfaces";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import GetToday from "../../Components/LogsPage/GetToday/GetToday";
+import { RootState } from "../../Plugins/Redux/Store/Store";
 
 export default function Logs() {
   const logs = useQuery("logs", GetLogs, { retry: 0 });
   const old_session_checked = useSelector(
-    (state: OldSessionState) => state.old_session_checked.value
+    (state: RootState) => state.old_session_checked.value
   );
   const [searchTerm, setSearchTerm] = useState("");
   const [searchToday, setSearchToday] = useState("");

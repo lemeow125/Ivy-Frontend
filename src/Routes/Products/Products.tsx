@@ -1,16 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "../../styles";
 import { useNavigate } from "react-router-dom";
 import ProductsIcon from "../../Components/Icons/ProductsIcon/ProductsIcon";
 import AddIcon from "../../Components/Icons/AddIcon/AddIcon";
 import { Button } from "@mui/material";
-import { SampleProducts } from "../../Components/SampleData/SampleData";
 import ViewManager from "../../Components/ProductsPage/ViewManager";
 import { useQuery } from "react-query";
 import { GetProducts } from "../../Components/Api/Api";
 import LoginChecker from "../../Components/LoginChecker/LoginChecker";
 import { useSelector } from "react-redux";
-import { OldSessionState } from "../../Interfaces/Interfaces";
+import { RootState } from "../../Plugins/Redux/Store/Store";
 
 export default function Products() {
   const navigate = useNavigate();
@@ -20,7 +19,7 @@ export default function Products() {
     error,
   } = useQuery("products", GetProducts, { retry: 0 });
   const old_session_checked = useSelector(
-    (state: OldSessionState) => state.old_session_checked.value
+    (state: RootState) => state.old_session_checked.value
   );
   if (isLoading || !old_session_checked) {
     return (
