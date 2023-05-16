@@ -28,7 +28,7 @@ let user = {
 let baseurl = 'http://localhost:3000/Ivy'
 let urlhashrouter = baseurl + '#'
 
-describe('Test Scenario for Login', () => {
+describe('Test Scenario for Authentication', () => {
   before(function fetchUser () {
     cy.login()
     cy.saveLocalStorage()
