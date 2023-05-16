@@ -1,18 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Dashboard from "./Routes/Dashboard/Dashboard";
 import Error from "./Routes/Error/Error";
 import Products from "./Routes/Products/Products";
 import Logs from "./Routes/Logs/Logs";
 import Container from "./Components/Container/Container";
-import {
-  createBrowserRouter,
-  createHashRouter,
-  HashRouter,
-  Navigate,
-  Route,
-  RouterProvider,
-  Routes,
-} from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import Store from "./Plugins/Redux/Store/Store";
 import { Provider } from "react-redux";
 import Inventory from "./Routes/Inventory/Inventory";

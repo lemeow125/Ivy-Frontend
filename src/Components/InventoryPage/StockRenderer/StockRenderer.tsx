@@ -44,7 +44,7 @@ export default function StockRenderer(product: Product) {
     } else if (stock === product.quantity) {
       setValueChanged(false);
     }
-  }, [stock]);
+  }, [stock, product.quantity]);
   let style;
   if (stock >= 0 && stock <= 3) {
     style = styles.text_red;

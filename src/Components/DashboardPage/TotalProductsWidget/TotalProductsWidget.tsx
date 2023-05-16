@@ -1,7 +1,7 @@
 import * as React from "react";
 import styles from "../../../styles";
 import TotalProductsIcon from "../../Icons/TotalProductsIcon/TotalProductsIcon";
-import { Product, ProductList } from "../../../Interfaces/Interfaces";
+import { ProductList } from "../../../Interfaces/Interfaces";
 import { useEffect, useState } from "react";
 
 export interface props {}
@@ -16,7 +16,7 @@ export default function TotalProductsWidget(props: ProductList) {
     } else {
       setItems(props.Products.length + " Unique Items");
     }
-  }, []);
+  }, [props.Products.length]);
   return (
     <div
       style={{

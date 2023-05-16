@@ -1,9 +1,7 @@
 import * as React from "react";
-
 import styles from "../../../styles";
 import { ProductList } from "../../../Interfaces/Interfaces";
 import ProductIcon from "../../Icons/ProductIcon/ProductIcon";
-import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 export default function BlobView({ Products }: ProductList) {

@@ -2,7 +2,6 @@ import * as React from "react";
 import { ProductLog, ProductLogList } from "../../../Interfaces/Interfaces";
 import styles from "../../../styles";
 import LogsIcon from "../../Icons/LogsIcon/LogsIcon";
-import Moment from "react-moment";
 
 export default function RecentTransactionsWidget(props: ProductLogList) {
   return (
