@@ -51,19 +51,21 @@ export default function Dashboard() {
       </div>
     );
   }
-  if (logs.error || products.error || lowest_stock_product.isError) {
-    <div>
-      <LoginChecker />
-      <div style={styles.flex_row}>
-        <HomeIcon size={64} color="white" />
-        <p style={{ ...styles.text_white, ...styles.text_XL }}>Dashboard</p>
+  if (logs.isError || products.isError || lowest_stock_product.isError) {
+    return (
+      <div>
+        <LoginChecker />
+        <div style={styles.flex_row}>
+          <HomeIcon size={64} color="white" />
+          <p style={{ ...styles.text_white, ...styles.text_XL }}>Dashboard</p>
+        </div>
+        <div style={{ ...styles.content_column, ...{ alignItems: "center" } }}>
+          <p style={{ ...styles.text_red, ...styles.text_L }}>
+            Error loading dashboard
+          </p>
+        </div>
       </div>
-      <div style={{ ...styles.content_column, ...{ alignItems: "center" } }}>
-        <p style={{ ...styles.text_red, ...styles.text_L }}>
-          Error loading dashboard
-        </p>
-      </div>
-    </div>;
+    );
   }
   return (
     <div>
